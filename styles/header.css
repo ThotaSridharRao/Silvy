@@ -1,0 +1,73 @@
+.main-header { /* Renamed from .header-main */
+        background: rgba(128, 128, 128, 0.103);
+        height: 75px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+        z-index: 1000;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        
+      }
+
+      .site-logo { /* Renamed from .header-logo */
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      .primary-nav ul { /* Renamed from .main-nav */
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 30px;
+      }
+
+      .primary-nav a { /* Renamed from .main-nav */
+        color: #ffffffa6;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 10px 15px;
+      }
+
+      .primary-nav a:hover,
+      .primary-nav a:focus {
+        color:white;
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      .call-to-action-button { /* Renamed from .cta-button */
+        --glow-color: rgb(255, 255, 255); /* Updated glow color */
+        --glow-spread-color: rgba(255, 255, 255, 0.6);
+        --enhanced-glow-color: rgb(255, 255, 255);
+        --btn-color: #7d2ec7;
+
+        background: var(--btn-color);
+        border-radius: 8px;
+        padding: 10px 20px;
+        color:rgb(241, 239, 239);
+        text-align: center;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        position: relative; 
+        transition: all 0.3s;
+        
+        /* border: 0.1em solid var(--glow-color); 
+        box-shadow: 0 0 0.5em 0.1em var(--glow-color);  */
+        outline: none;
+      }
+
+      .call-to-action-button:hover {
+        box-shadow: 0 0 0.25em 0.1em var(--glow-color),
+                    inset 0 0 0.25em 0 var(--glow-color); /* Updated box-shadow */
+                    scale: 1.05;
+      }

@@ -1,0 +1,206 @@
+/* New Section Styles - Refactored from Tailwind */
+.brand-section {
+  background: transparent;
+  color: #ffffff; /* text-white */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem; /* p-4 */
+}
+
+.brand-container {
+  background-color: #ebebe90c; /* bg-gray-800 */
+  border-radius: 0.75rem; /* rounded-xl */
+  display: flex;
+  flex-direction: column; /* flex-col */
+  flex-basis: auto;
+  width: 100%; /* w-full */
+  overflow: hidden;
+  padding: 70px 150px;
+  align-items: center;
+  justify-content: center;
+
+  /* lg:flex-row */
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: 2rem; /* Added gap between image and content */
+  }
+}
+
+.brand-video-container {
+  width: 500px;
+  height: 500px;
+ /* Makes the height equal to the width */
+  padding:20px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+  border-radius: 3px solid #ffffff0a;
+}
+
+.creating-brands{
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  border-radius: 30px;
+}
+
+.brand-content {
+  width: 100%; /* w-full */
+  padding: 2rem; /* p-8 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1.5rem; /* space-y-6 */
+
+  /* md:p-12 */
+  @media (min-width: 768px) {
+    padding: 3rem;
+  }
+
+  /* lg:w-1/2 */
+  @media (min-width: 1024px) {
+    width: 70%; /* Adjusted width for content */
+  }
+}
+
+.brand-tag-button { /* New container for the button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  width: 150px; 
+  background-color: #ffffff0a;
+  padding: 10px; /* Padding from original wrapper */
+  padding-right: 20px;
+  border-radius: 0 25px 25px 0; /* Border-radius from original wrapper */
+  height: 50px;
+}
+
+.brand-headline-group {
+  row-gap: 0.5rem; /* space-y-2 */
+}
+
+.brand-headline {
+  color: #fff; /* Ensure white color */
+  font-size: 2.5rem; /* text-4xl */
+  font-weight: 500; /* font-extrabold */
+  line-height: 1.25; /* leading-tight */
+  white-space: nowrap; /* Keep text on a single line */
+
+  /* md:text-5xl */
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+}
+
+.brand-subheadline {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 600; /* font-semibold */
+  color: #d1d5db86; /* text-gray-300 */
+
+  /* md:text-3xl */
+  @media (min-width: 768px) {
+    font-size: 1.875rem;
+  }
+}
+
+.brand-description {
+  color: #d1d5db86; /* text-gray-300 */
+  font-size: 1rem; /* text-base */
+  line-height: 1.625; /* leading-relaxed */
+
+  /* md:text-lg */
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+}
+
+.brand-stats-list {
+  row-gap: 0.75rem; /* space-y-3 */
+}
+
+.brand-stat-item {
+  display: flex;
+  align-items: center;
+  color: #d1d5db86; /* text-green-400 */
+  font-weight: 500; /* font-medium */
+  margin-bottom: 5px;
+}
+
+.brand-stat-icon {
+  width: 1.5rem; /* w-6 */
+  height: 1.5rem; /* h-6 */
+  margin-right: 0.5rem; /* mr-2 */
+  
+  color: white;
+  background-color: #0099ff;
+  border-radius: 50%;
+}
+
+.brand-cta-group {
+  display: flex;
+  flex-direction: column; /* flex-col */
+  align-items: flex-start; /* items-start */
+  row-gap: 1.5rem; /* gap-6 */
+  padding-top: 1rem; /* pt-4 */
+
+  /* sm:flex-row sm:items-center sm:justify-between */
+  @media (min-width: 640px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.brand-main-cta {
+  --glow-color: rgb(255, 255, 255); /* Updated glow color */
+  --glow-spread-color: rgba(255, 255, 255, 0.6);
+  --enhanced-glow-color: rgb(255, 255, 255);
+  --btn-color: #7d2ec7;
+
+  background-color: var(--btn-color);
+  color: #ffffff; /* text-white */
+  font-weight: 700; /* font-bold */
+  padding: 0.75rem 1rem; /* py-3 px-8 */
+  border-radius: 9999px; /* rounded-full */
+  position: relative; /* Needed for ::after pseudo-element */
+  transition: all 0.3s;
+  outline: none; /* Remove default outline */
+}
+
+.brand-main-cta:hover {
+   scale: 1.05;
+         box-shadow: 0 0 0.25em 0.1em #ffffff, 
+        inset 0 0 0.25em 0 #ffffff;
+}
+
+.brand-rating-block {
+  text-align: center; /* text-center */
+
+  /* sm:text-left */
+  @media (min-width: 640px) {
+    text-align: left;
+  }
+}
+
+.brand-stars {
+  display: flex;
+  justify-content: center; /* justify-center */
+  column-gap: 0.25rem; /* space-x-1 */
+  color: #ecc94b; /* text-yellow-400 */
+  font-size: 1.25rem; /* text-xl */
+
+  /* sm:justify-start */
+  @media (min-width: 640px) {
+    justify-content: flex-start;
+  }
+}
+
+.brand-rating-text {
+  color: #a0a0a0; /* text-gray-400 */
+  font-size: 0.875rem; /* text-sm */
+  margin-top: 0.25rem; /* mt-1 */
+}

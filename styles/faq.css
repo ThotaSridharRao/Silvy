@@ -1,0 +1,137 @@
+/* FAQ SECTION - Overall layout */
+.faq-section {
+  background-color: transparent;
+  color: #fff;
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.faq-container {
+  max-width: 70rem;
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+/* Tag Styling */
+.faq-tag-wrapper {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.faq-tag {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  width: fit-content; 
+  background-color: #ffffff0a;
+  padding: 10px 20px; /* Padding from original wrapper */
+  border-radius: 0 25px 25px 0; /* Border-radius from original wrapper */
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+/* FAQ CONTENT LAYOUT */
+.faq-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 65rem;
+  margin: 0 auto;
+}
+
+/* Left Side */
+.faq-left {
+  flex: 0 1 auto; /* Allow content width */
+  min-width: 250px;
+}
+
+.faq-left h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.faq-left p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ffffffa4;
+}
+
+/* Right Side (FAQ Cards) */
+.faq-right {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0; /* Remove 100px padding - unnecessary */
+  gap: 1rem; /* Add consistent gap between FAQ items */
+  flex-grow: 0; /* Prevent growing */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* FAQ Items */
+.faq-item {
+  background-color: #7d2ec7;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+}
+
+.faq-item:hover {
+  border: 2px solid #ffffff;
+  scale:1.05;
+}
+
+.faq-question {
+  font-weight: 500;
+  font-size: 1.125rem;
+  padding-right: 1rem;
+}
+
+.faq-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #d1d5db86;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.faq-icon:hover {
+  color: #fff;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  .faq-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+  .faq-left {
+    flex: 0 0 auto;
+    max-width: 30%;
+  }
+
+  .faq-right {
+    flex: 0 0 auto; /* Do not grow, keep column height based on content */
+    max-width: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .faq-section {
+    padding: 6rem 2rem;
+  }
+
+  .faq-container {
+    max-width: 65rem;
+  }
+}

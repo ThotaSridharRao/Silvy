@@ -1,0 +1,342 @@
+/* Define CSS Variables */
+:root {
+    --gray-800: #1d2939;
+    --gray-200: #eaecf0;
+    --gray-400: #98a2b3;
+    --gray-100: #f2f4f7;
+    --gray-700: #344054;
+    --gray-900: #101828;
+
+}
+
+/* General Footer Section Container */
+.section-footer {
+    width: 100%; /* Make the footer span the full width */
+    position: relative;
+    line-height: 1.6;
+    background-color: #ffffff0a;
+    padding-top: 50px;
+}
+
+/* Top Section of the Footer */
+.footer-top-section {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center;
+    padding: 40px 0px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Take full width of parent */
+    max-width: 1280px; /* Added max-width for consistency with other containers */
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 20rem; /* This gap might be very large on smaller screens. Consider adjusting for responsiveness. */
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%; /* Take full width of parent */
+    flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+    margin: 0px 60px 40px 60px;
+    padding: 10px;
+}
+
+.logo-and-supporting-text {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    flex-basis: 250px; /* Give it a base width, it will grow/shrink */
+    min-width: 200px; /* Ensure it doesn't get too small */
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.logo-wrap {
+    width: 142px; /* Fixed width for logo area */
+    height: 32px; /* Fixed height for logo area */
+    position: relative;
+}
+
+.logomark {
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 22.54%;
+    height: 100%;
+    position: absolute;
+    right: 77.46%;
+    left: 0%;
+    bottom: 0%;
+    top: 0%;
+}
+
+.logotype { /* This refers to logotype0.svg */
+    height: 50px;
+    width:50px;
+    position: absolute;
+    right: 0%;
+    left: 29.58%;
+    bottom: 0%;
+    top: 0%;
+    /* overflow: visible; /* Adjust if your SVG overflows its container */
+}
+
+.supporting-text {
+    color: var(--gray-200);
+    text-align: left;
+    font-family: var(--text-md-normal-font-family);
+    font-size: var(--text-md-normal-font-size);
+    line-height: var(--text-md-normal-line-height);
+    font-weight: var(--text-md-normal-font-weight);
+    width: 100%; /* Take full width of its parent */
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+}
+
+.footer-links-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: 1; /* Allow columns to take equal space */
+    min-width: 120px; /* Minimum width for each column */
+}
+
+.heading {
+    color: var(--gray-400);
+    text-align: left;
+    font-family: var(--text-sm-semibold-font-family);
+    font-size: var(--text-sm-semibold-font-size);
+    line-height: var(--text-sm-semibold-line-height);
+    font-weight: var(--text-sm-semibold-font-weight);
+    width: 100%;
+    padding: 5px;
+}
+
+.footer-links {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 5px;
+}
+
+.footer-link {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.button-base { /* Used for individual links */
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Remove underline from links */
+    color: var(--gray-200); /* Default link color */
+    transition: color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.button-base:hover {
+    color: #fff; /* Lighter color on hover */
+}
+
+.text {
+    font-family: var(--text-md-medium-font-family);
+    font-size: var(--text-md-medium-font-size);
+    line-height: var(--text-md-medium-line-height);
+    font-weight: var(--text-md-medium-font-weight);
+}
+
+/* Removed .badge and .text2 as they are not present in the current HTML */
+
+/* Bottom Section of the Footer (Copyright and Legal Links) */
+.footer-bottom-section {
+    background: var(--gray-900);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-container.bottom-container {
+    padding: 0px 32px;
+    display: flex;
+    flex-direction: column; /* Keep as column for better mobile stacking */
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1280px;
+}
+
+.content3 {
+    display: flex;
+    flex-direction: row; /* Default to row */
+    gap: 32px;
+    align-items: center;
+    justify-content: space-between; /* Pushes copyright left, legal links right */
+    width: 100%; /* Take full width of parent */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.footer-text {
+    color: var(--gray-400);
+    text-align: left;
+    font-family: var(--text-md-normal-font-family);
+    font-size: var(--text-md-normal-font-size);
+    line-height: var(--text-md-normal-line-height);
+    font-weight: var(--text-md-normal-font-weight);
+    flex: 1; /* Allow copyright text to take available space */
+    min-width: 200px; /* Ensure it doesn't collapse too much */
+}
+
+/* New styles for the T&C and Privacy Policy div */
+.content3 > div:last-child { /* Targets the div containing T&C and Privacy Policy */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between P tags and the separator */
+    color: var(--gray-400); /* Color for the text and separator */
+    font-family: var(--text-md-normal-font-family);
+    font-size: var(--text-md-normal-font-size);
+    line-height: var(--text-md-normal-line-height);
+    font-weight: var(--text-md-normal-font-weight);
+    flex-wrap: wrap; /* Allow wrapping if content is too long */
+    justify-content: flex-end; /* Align to the right on larger screens */
+}
+
+.content3 > div:last-child p {
+    margin: 0; /* Remove default margin from paragraphs */
+    padding: 0;
+    cursor: pointer; /* Indicate they are clickable links */
+    white-space: nowrap; /* Prevent wrapping of individual policy text */
+}
+
+.content3 > div:last-child p:hover {
+    color: #fff; /* Lighter color on hover for policy links */
+}
+
+/* Removed all .social-icons related styles as they are no longer in the HTML */
+/* Removed specific social icon image styles as they are no longer used */
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column; /* Stack main footer content on smaller screens */
+        align-items: center; /* Center items when stacked */
+        gap: 48px; /* Adjust gap for stacked content */
+        margin: 0px 20px 40px 20px; /* Adjust margin for smaller screens */
+    }
+
+    .logo-and-supporting-text,
+    .links {
+        width: 100%; /* Take full width */
+        text-align: center; /* Center text for these sections */
+        align-items: center; /* Center items */
+    }
+
+    .links {
+        flex-direction: column; /* Stack link columns */
+        gap: 32px;
+    }
+
+    .footer-links-column {
+        align-items: center; /* Center links in stacked columns */
+    }
+
+    .footer-links {
+        align-items: center; /* Center list items */
+    }
+
+    .footer-container.bottom-container {
+        flex-direction: column; /* Stack items vertically */
+        gap: 20px;
+    }
+
+    .content3 {
+        flex-direction: column; /* Stack copyright and policy links */
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-text {
+        text-align: center;
+        flex: none; /* Remove flex grow */
+        width: 100%;
+    }
+
+    /* Adjust T&C and Privacy Policy section for smaller screens */
+    .content3 > div:last-child {
+        justify-content: center; /* Center them when stacked */
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-top-section {
+        padding: 30px 0 20px; /* Reduced padding */
+    }
+
+    .footer-container {
+        padding: 0 16px;
+    }
+
+    .content {
+        gap: 2rem; /* Further reduce gap on very small screens, or set to a fixed pixel value */
+        margin: 0px 10px 30px 10px; /* Adjust margin */
+    }
+
+    .footer-links-column {
+        min-width: unset; /* Allow columns to shrink further */
+    }
+
+    .footer-bottom-section {
+        padding: 15px 0; /* Slightly reduced padding */
+    }
+
+    .footer-container.bottom-container {
+        padding: 0 16px; /* Reduced side padding */
+    }
+
+    .footer-text,
+    .content3 > div:last-child p {
+        font-size: 14px; /* Slightly smaller font for very small screens */
+    }
+}

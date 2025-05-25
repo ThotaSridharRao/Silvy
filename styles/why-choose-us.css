@@ -1,0 +1,164 @@
+
+/* Choose Us Section Styles */
+.choose-us-section {
+  margin: 80px 0px;
+  color: #ffffff;
+  background-color: transparent; 
+  height: fit-content;
+  padding: 80px 0px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center; 
+}
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  width: 160px;
+  
+  padding: 10px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  background-color: #ffffff0a;
+  border-radius: 25px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+.choose-us-content {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.choose-us-title {
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.choose-us-description {
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin:0px 25px;
+}
+
+.choose-us-scroll-wrapper {
+    width: 100%;
+    max-width:1000px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.choose-us-image-scroll-container {
+    display: flex;
+    white-space: nowrap;
+    animation-duration: 40s; /* Adjust speed as needed */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    padding-bottom: 20px; /* Space between rows */
+}
+
+/* Specific animations for each row */
+.scroll-left-animation {
+    animation-name: scroll-left-choose-us;
+}
+
+.scroll-right-animation {
+    animation-name: scroll-right-choose-us;
+    animation-delay: -20s; /* Start the second row halfway through */
+}
+
+.scroll-image {
+    width: 300px; /* Adjust image width as needed */
+    height: 200px; /* Adjust image height as needed */
+    object-fit: cover;
+    margin-right: 20px; /* Space between images */
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0; /* Prevent images from shrinking */
+    /* Placeholder background for images in preview */
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #ccc;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Keyframes for infinite scroll */
+@keyframes scroll-left-choose-us {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-right-choose-us {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* Responsive Adjustments for Choose Us Section */
+@media (max-width: 1024px) {
+    .choose-us-title {
+        font-size: 40px;
+    }
+    .choose-us-description {
+        font-size: 16px;
+    }
+    .scroll-image {
+        width: 250px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .choose-us-section {
+        padding: 60px 0;
+    }
+    .choose-us-title {
+        font-size: 32px;
+    }
+    .choose-us-description {
+        font-size: 15px;
+    }
+    .choose-us-image-scroll-container {
+        animation-duration: 30s; /* Faster scroll on smaller screens */
+    }
+    .scroll-right-animation {
+        animation-delay: -15s;
+    }
+    .scroll-image {
+        width: 200px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .choose-us-title {
+        font-size: 28px;
+    }
+    .choose-us-description {
+        font-size: 14px;
+    }
+    .scroll-image {
+        width: 180px;
+        height: 120px;
+        margin-right: 15px;
+    }
+}
