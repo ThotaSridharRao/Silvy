@@ -1,73 +1,250 @@
-.main-header { /* Renamed from .header-main */
-        background: rgba(128, 128, 128, 0.103);
-        height: 75px;
-        position: absolute;
-        top: 0;
-        right: 0;
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --color-white: #ffffff;
+    --color-gray-light: #a0a0a0;
+    --color-gray-dark: #333; /* Used for mobile menu background */
+    --color-purple-main: #7d2ec7;
+    --color-purple-dark: #3a387a;
+    --color-purple-light-accent: #5a57a5;
+    --color-header-bg: rgba(128, 128, 128, 0.103);
+    --color-text-link: #ffffffa6;
+    --color-transparent-white-bg: #ffffff0a;
+    --color-button-secondary-bg: rgba(0, 0, 0, 0.26);
+    --color-subtle-border: rgba(255, 255, 255, 0.1);
+
+    /* Gradients/Shadows */
+    --card-bg-gradient-start: rgba(28, 26, 68, 0.5);
+    --card-bg-gradient-end: rgba(18, 17, 42, 0.5);
+    --card-border-gradient-start: #4A468B;
+    --card-border-gradient-end: #3B386C;
+    --glow-color: rgb(255, 255, 255);
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.06);
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+
+    /* Dimensions */
+    --header-height-desktop: 75px;
+    --header-height-mobile: 60px;
+    --header-padding-desktop: 40px;
+    --header-padding-mobile-y: 10px;
+    --header-padding-mobile-x: 20px;
+    --border-radius-main: 8px;
+    --transition-speed: 0.3s;
+    --z-index-header: 1000;
+    --z-index-toggle: 1001;
+    --z-index-nav-mobile: 998;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--color-white);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    min-height: 300vh;
+    padding-top: var(--header-height-desktop);
+}
+
+/* Main Header Styling (Desktop First) */
+.main-header {
+    background: var(--color-header-bg);
+    height: var(--header-height-desktop);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--header-padding-desktop);
+    z-index: var(--z-index-header);
+    box-shadow: 0 4px 6px -1px var(--shadow-light), 0 2px 4px -1px var(--shadow-medium);
+    transition: top var(--transition-speed) ease-in-out;
+}
+
+.site-logo {
+    color: var(--color-white);
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+/* Primary Navigation Styling (Desktop) */
+.primary-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 30px;
+}
+
+.primary-nav a {
+    color: var(--color-text-link);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: color var(--transition-speed), font-size var(--transition-speed);
+}
+
+.primary-nav a:hover,
+.primary-nav a:focus {
+    color: var(--color-white);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Call to Action Button Styling (Desktop) */
+.call-to-action-button {
+    background: var(--color-purple-main);
+    border-radius: var(--border-radius-main);
+    padding: 10px 20px;
+    color: rgb(241, 239, 239);
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    transition: all var(--transition-speed);
+    outline: none;
+}
+
+.call-to-action-button:hover {
+    box-shadow: 0 0 0.25em 0.1em var(--glow-color),
+                inset 0 0 0.25em 0 var(--glow-color);
+    scale: 1.05;
+}
+
+/* --- Mobile Specific Elements (Hidden by default on desktop) --- */
+.primary-nav .mobile-cta {
+    display: none;
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: var(--z-index-toggle);
+    flex-shrink: 0;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-white);
+    margin: 5px 0;
+    margin-left: 10px;
+    transition: all var(--transition-speed) ease;
+}
+
+/* --- Mobile Media Query --- */
+@media (max-width: 768px) {
+
+    body {
+        padding-top: var(--header-height-mobile);
+    }
+
+    .main-header {
+        height: var(--header-height-mobile);
+        justify-content: flex-end; /* IMPORTANT: Changed from space-between */
+        flex-direction: row;
+        align-items: flex-start;
+        padding: var(--header-padding-mobile-y) var(--header-padding-mobile-x);
+        flex-wrap: nowrap;
+    }
+
+    /* === NEW: Hide the site logo on mobile === */
+    .site-logo {
+        display: none;
+    }
+    /* ======================================= */
+
+    .primary-nav,
+    .desktop-cta {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: 0;
+    }
+
+    .primary-nav {
+        display: block;
+        position: fixed;
+        top: var(--header-height-mobile);
         left: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 40px;
-        z-index: 1000;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        
-      }
+        width: 100%;
+        background-color: var(--color-gray-dark);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+        box-shadow: 0 5px 10px var(--shadow-dark);
+        padding-top: 0;
+        padding-bottom: 0;
+        z-index: var(--z-index-nav-mobile);
+    }
 
-      .site-logo { /* Renamed from .header-logo */
-        color: #ffffff;
-        font-size: 20px;
-        font-weight: 500;
-        text-decoration: none;
-      }
+    .primary-nav.active {
+        max-height: 500px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 
-      .primary-nav ul { /* Renamed from .main-nav */
-        display: flex;
-        list-style: none;
-        padding: 0;
+    .primary-nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .primary-nav li {
         margin: 0;
-        gap: 30px;
-      }
-
-      .primary-nav a { /* Renamed from .main-nav */
-        color: #ffffffa6;
-        text-decoration: none;
-        font-size: 15px;
-        font-weight: 500;
-        padding: 10px 15px;
-      }
-
-      .primary-nav a:hover,
-      .primary-nav a:focus {
-        color:white;
-        font-weight: 500;
-        font-size: 16px;
-      }
-
-      .call-to-action-button { /* Renamed from .cta-button */
-        --glow-color: rgb(255, 255, 255); /* Updated glow color */
-        --glow-spread-color: rgba(255, 255, 255, 0.6);
-        --enhanced-glow-color: rgb(255, 255, 255);
-        --btn-color: #7d2ec7;
-
-        background: var(--btn-color);
-        border-radius: 8px;
-        padding: 10px 20px;
-        color:rgb(241, 239, 239);
         text-align: center;
-        font-size: 15px;
-        font-weight: 500;
-        text-decoration: none;
-        position: relative; 
-        transition: all 0.3s;
-        
-        /* border: 0.1em solid var(--glow-color); 
-        box-shadow: 0 0 0.5em 0.1em var(--glow-color);  */
-        outline: none;
-      }
+        width: 100%;
+    }
 
-      .call-to-action-button:hover {
-        box-shadow: 0 0 0.25em 0.1em var(--glow-color),
-                    inset 0 0 0.25em 0 var(--glow-color); /* Updated box-shadow */
-                    scale: 1.05;
-      }
+    .primary-nav a {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--color-subtle-border);
+        font-size: 16px;
+    }
+
+    .primary-nav li:last-child a {
+        border-bottom: none;
+    }
+
+    .primary-nav .mobile-cta {
+        display: block;
+    }
+
+    .primary-nav .mobile-cta .call-to-action-button {
+        display: inline-block;
+        width: calc(100% - 40px);
+        padding: 12px 20px;
+    }
+
+    .menu-toggle.active .hamburger:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .hamburger:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}

@@ -1,140 +1,151 @@
-/* New Section Styles - Refactored from Tailwind */
+/* New Section Styles - Refined Mobile-First (No brand-section padding, brand-container no border-radius, 30px 0px padding for brand-container mobile) */
 .brand-section {
   background: transparent;
-  color: #ffffff; /* text-white */
+  color: #ffffff;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem; /* p-4 */
+  /* Removed padding: 1rem; from here */
 }
 
 .brand-container {
-  background-color: #ebebe90c; /* bg-gray-800 */
-  border-radius: 0.75rem; /* rounded-xl */
+  background-color: #ebebe90c;
+  /* Removed border-radius: 0.75rem; from here */
   display: flex;
-  flex-direction: column; /* flex-col */
   flex-basis: auto;
-  width: 100%; /* w-full */
+  width: 100%;
   overflow: hidden;
-  padding: 70px 150px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 
-  /* lg:flex-row */
+  flex-direction: column;
+  padding: 30px 0px; /* Kept 30px 0px padding for mobile container as requested */
+  gap: 1rem;
+
   @media (min-width: 1024px) {
-    flex-direction: row;
-    gap: 2rem; /* Added gap between image and content */
+    column-gap: 4rem;
+    padding: 70px 50px;
+    width:80%;
+    border-radius: 1rem;
+  }
+
+  @media (min-width: 1920px) {
+    padding: 70px 150px;
   }
 }
 
 .brand-video-container {
-  width: 500px;
-  height: 500px;
- /* Makes the height equal to the width */
-  padding:20px;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  width: 100%;
+  max-width: none;
   border-radius: 20px;
-  border-radius: 3px solid #ffffff0a;
+  box-sizing: border-box;
+  /* No padding here for mobile, as you removed it and it's aligned with width:100% */
+
+  @media (min-width: 1024px) {
+    max-width: 600px;
+    max-height: 600px;
+    width: auto;
+    flex-shrink: 0;
+  }
 }
 
-.creating-brands{
+.creating-brands {
+  border: 5px solid #ffffff0a;
   width: 100%;
   height: 100%;
-  object-fit:cover;
-  border-radius: 30px;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .brand-content {
-  width: 100%; /* w-full */
-  padding: 2rem; /* p-8 */
+  width: 100%;
+  max-width: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  row-gap: 1.5rem; /* space-y-6 */
+  justify-content: flex-start;
+  row-gap: 1.5rem;
+  box-sizing: border-box;
 
-  /* md:p-12 */
-  @media (min-width: 768px) {
-    padding: 3rem;
+  @media (min-width: 1024px) {
+    width: 50%;
+    padding-top: 50px;
   }
 
-  /* lg:w-1/2 */
-  @media (min-width: 1024px) {
-    width: 70%; /* Adjusted width for content */
+  @media (min-width: 1920px) {
+    width: 30%;
   }
 }
 
-.brand-tag-button { /* New container for the button */
+.brand-tag-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.875rem; /* text-sm */
-  font-weight: 500; /* font-medium */
-  width: 150px; 
+  font-size: 0.875rem;
+  font-weight: 500;
+  max-width: 150px;
   background-color: #ffffff0a;
-  padding: 10px; /* Padding from original wrapper */
+  padding: 10px;
   padding-right: 20px;
-  border-radius: 0 25px 25px 0; /* Border-radius from original wrapper */
+  border-radius: 0 25px 25px 0;
   height: 50px;
 }
 
 .brand-headline-group {
-  row-gap: 0.5rem; /* space-y-2 */
+  row-gap: 0.5rem;
 }
 
 .brand-headline {
-  color: #fff; /* Ensure white color */
-  font-size: 2.5rem; /* text-4xl */
-  font-weight: 500; /* font-extrabold */
-  line-height: 1.25; /* leading-tight */
-  white-space: nowrap; /* Keep text on a single line */
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.25;
+  white-space: normal;
 
-  /* md:text-5xl */
   @media (min-width: 768px) {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    white-space: nowrap;
   }
 }
 
 .brand-subheadline {
-  font-size: 1.5rem; /* text-2xl */
-  font-weight: 600; /* font-semibold */
-  color: #d1d5db86; /* text-gray-300 */
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #d1d5db86;
 
-  /* md:text-3xl */
   @media (min-width: 768px) {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
   }
 }
 
 .brand-description {
-  color: #d1d5db86; /* text-gray-300 */
-  font-size: 1rem; /* text-base */
-  line-height: 1.625; /* leading-relaxed */
+  color: #d1d5db86;
+  font-size: 0.875rem;
+  line-height: 1.625;
 
-  /* md:text-lg */
   @media (min-width: 768px) {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 }
 
 .brand-stats-list {
-  row-gap: 0.75rem; /* space-y-3 */
+  row-gap: 0.75rem;
 }
 
 .brand-stat-item {
   display: flex;
   align-items: center;
-  color: #d1d5db86; /* text-green-400 */
-  font-weight: 500; /* font-medium */
+  color: #d1d5db86;
+  font-weight: 500;
   margin-bottom: 5px;
 }
 
 .brand-stat-icon {
-  width: 1.5rem; /* w-6 */
-  height: 1.5rem; /* h-6 */
-  margin-right: 0.5rem; /* mr-2 */
-  
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
   color: white;
   background-color: #0099ff;
   border-radius: 50%;
@@ -142,45 +153,44 @@
 
 .brand-cta-group {
   display: flex;
-  flex-direction: column; /* flex-col */
-  align-items: flex-start; /* items-start */
-  row-gap: 1.5rem; /* gap-6 */
-  padding-top: 1rem; /* pt-4 */
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 1.5rem;
+  padding-top: 1rem;
 
-  /* sm:flex-row sm:items-center sm:justify-between */
   @media (min-width: 640px) {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    row-gap: initial;
   }
 }
 
 .brand-main-cta {
-  --glow-color: rgb(255, 255, 255); /* Updated glow color */
+  --glow-color: rgb(255, 255, 255);
   --glow-spread-color: rgba(255, 255, 255, 0.6);
   --enhanced-glow-color: rgb(255, 255, 255);
   --btn-color: #7d2ec7;
 
   background-color: var(--btn-color);
-  color: #ffffff; /* text-white */
-  font-weight: 700; /* font-bold */
-  padding: 0.75rem 1rem; /* py-3 px-8 */
-  border-radius: 9999px; /* rounded-full */
-  position: relative; /* Needed for ::after pseudo-element */
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  position: relative;
   transition: all 0.3s;
-  outline: none; /* Remove default outline */
+  outline: none;
 }
 
 .brand-main-cta:hover {
-   scale: 1.05;
-         box-shadow: 0 0 0.25em 0.1em #ffffff, 
-        inset 0 0 0.25em 0 #ffffff;
+  scale: 1.05;
+  box-shadow: 0 0 0.25em 0.1em #ffffff,
+    inset 0 0 0.25em 0 #ffffff;
 }
 
 .brand-rating-block {
-  text-align: center; /* text-center */
+  text-align: center;
 
-  /* sm:text-left */
   @media (min-width: 640px) {
     text-align: left;
   }
@@ -188,19 +198,18 @@
 
 .brand-stars {
   display: flex;
-  justify-content: center; /* justify-center */
-  column-gap: 0.25rem; /* space-x-1 */
-  color: #ecc94b; /* text-yellow-400 */
-  font-size: 1.25rem; /* text-xl */
+  justify-content: center;
+  column-gap: 0.25rem;
+  color: #ecc94b;
+  font-size: 1.25rem;
 
-  /* sm:justify-start */
   @media (min-width: 640px) {
     justify-content: flex-start;
   }
 }
 
 .brand-rating-text {
-  color: #a0a0a0; /* text-gray-400 */
-  font-size: 0.875rem; /* text-sm */
-  margin-top: 0.25rem; /* mt-1 */
+  color: #a0a0a0;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }

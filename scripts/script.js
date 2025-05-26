@@ -266,3 +266,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const primaryNav = document.querySelector('.primary-nav');
+    const navLinks = primaryNav.querySelectorAll('a'); // Get all navigation links
+
+    // On mobile, the CTA button is inside the nav. On desktop, it's separate.
+    // We'll manage its visibility purely through CSS with the new HTML structure.
+    // No direct JS manipulation of the CTA button's display is needed here for simple hide/show.
+
+    menuToggle.addEventListener('click', function() {
+        primaryNav.classList.toggle('active');
+        menuToggle.classList.toggle('active'); // For hamburger animation
+    });
+
+    // Close the menu when a navigation link is clicked (for anchor links)
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Only close if the menu is currently active (open)
+            if (primaryNav.classList.contains('active')) {
+                primaryNav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    });
+
+    // Optional: Close the menu when clicking outside of it
+    document.addEventListener('click', function(event) {
+        // Check if the click is inside the primary navigation OR on the menu toggle button
+        const isClickInsideNav = primaryNav.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+
+        // If the menu is active AND the click is outside both the nav and the toggle
+        if (primaryNav.classList.contains('active') && !isClickInsideNav && !isClickOnToggle) {
+            primaryNav.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+    });
+
+    // Handle screen resize: If resized to desktop, ensure menu is closed and active classes removed
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) { // Assuming 768px is your breakpoint
+            if (primaryNav.classList.contains('active')) {
+                primaryNav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        }
+    });
+});
