@@ -314,3 +314,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+const menuToggle = document.querySelector('.menu-toggle');
+const primaryNav = document.querySelector('.primary-nav');
+
+if (menuToggle && primaryNav) {
+    menuToggle.addEventListener('click', () => {
+    primaryNav.classList.toggle('is-active');
+    });
+}
+});

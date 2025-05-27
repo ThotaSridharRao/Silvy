@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/body.css" />
+    <link rel="stylesheet" href="/styles/faq.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        height: 3000px; /* Kept for demonstration of scrolling, remove in production */
+        font-family: 'Inter', sans-serif;
+        background-color: #0d0d0d; /* Dark background */
+        color: #e0e0e0; /* Light text for contrast */
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+      }
+
+      .video-background {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+        background-size: cover;
+        opacity: 0.2; /* Slightly transparent */
+      }
+
+      .hero-section {
+        margin-top: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 100px;
+        /* Adjusted for better mobile responsiveness */
+        padding: 40px 20px; /* Add some padding for smaller screens */
+        height: auto; /* Allow height to adjust based on content */
+        min-height: 50vh; /* Ensure it still has some height */
+      }
+      .hero-contents {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-title {
+        font-size: 70px;
+        line-height: 1.1;
+        font-weight: 500;
+        margin-bottom: 30px;
+      }
+      .hero-description-block {
+        text-align: center;
+        max-width: 500px;
+        margin-bottom: 30px;
+        color: #b0b0b0;
+      }
+      .hero-section-button {
+        background: #7d2ec7;
+        border-radius: 8px;
+        padding: 10px 20px;
+        color: white;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s;
+        outline: none;
+        display: inline-block; /* Ensure it behaves like a block for padding/margin */
+      }
+
+      .hero-section-button:hover {
+        box-shadow: 0 0 0.25em 0.1em white, inset 0 0 0.25em 0 white;
+        scale: 1.05;
+      }
+
+      .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 30px;
+        max-width: 1200px;
+        width: 100%;
+        gap: 50px;
+        box-sizing: border-box; /* Ensure padding is included in element's total width and height */
+      }
+      form {
+        border: 5px solid #5f5f5f65;
+        border-radius: 20px;
+        padding: 20px;
+        background-color: #000000;
+        flex: 2; /* Allow form to take up more space */
+        box-sizing: border-box;
+      }
+
+      .form-section-wrapper {
+        display: flex; /* This outer form-section acts as a wrapper for layout */
+        align-items: center; /* Align to top, not center */
+        justify-content: center;
+        padding: 20px;
+        /* Removed background-color and border-radius here as it's on the form itself */
+        border-radius: 10px; /* Keep outer border-radius for consistency with image */
+        background-color: #ffffff0a; /* Background for the section */
+        margin: 0 auto; /* Center the section itself if container is smaller */
+      }
+
+      .form-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        flex: 1;
+        margin-bottom: 20px;
+        position: relative; /* For textarea icon */
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.9em;
+        color: #b0b0b0;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: calc(100% - 20px); /* Adjust for padding */
+        padding: 12px 10px;
+        background-color: #00000093;
+        border: 1px solid #444;
+        border-radius: 6px;
+        color: #e0e0e0;
+        font-size: 1em;
+        box-sizing: border-box; /* Include padding in width */
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        border-color: #7d2ec7; /* Adjusted to match button color */
+        outline: none;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .textarea-icon {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        width: 12px;
+        height: 12px;
+        border-right: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+        transform: rotate(45deg);
+        pointer-events: none;
+      }
+
+      button[type="submit"] {
+        background: #7d2ec7;
+        border-radius: 8px;
+        padding: 10px 20px;
+        color: white;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s;
+        outline: none;
+        border: none; /* Ensure button has no default border */
+        width: 100%; /* Make submit button full width */
+        box-sizing: border-box;
+        margin-top: 20px; /* Add some top margin */
+      }
+
+      button[type="submit"]:hover {
+        box-shadow: 0 0 0.25em 0.1em white, inset 0 0 0.25em 0 white;
+        scale: 1.05;
+      }
+
+      .contact-info-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        flex: 1; /* Allow contact info to take remaining space */
+        box-sizing: border-box;
+      }
+
+      .contact-card {
+        background-color: #000000;
+        padding: 20px;
+        border-radius: 10px;
+        border: 5px solid #5f5f5f65;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+      }
+
+      .contact-card .icon-text {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-weight: 500;
+        color: #e0e0e0;
+      }
+
+      .contact-card .icon-text svg {
+        color: #7d2ec7; /* Icon color */
+      }
+
+      .contact-card p {
+        margin: 0;
+        font-size: 0.95em;
+        color: #b0b0b0;
+        line-height: 1.5;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.7em;
+        font-weight: 600;
+        margin-left: 8px;
+        text-transform: uppercase;
+      }
+
+      .tag-24-7 {
+        background-color: #7d2ec7;
+        color: white;
+      }
+
+      .tag-remote {
+        background-color: #7d2ec7;
+        color: white;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .hero-section {
+          margin-top: 50px; /* Adjust margin for smaller screens */
+          margin-bottom: 50px;
+          padding: 30px 15px; /* Reduce padding on mobile */
+        }
+
+        .hero-title {
+          font-size: 45px; /* Smaller font size for mobile */
+        }
+
+        .hero-description-block {
+          max-width: 90%; /* Allow description to take more width */
+        }
+
+        .container {
+          flex-direction: column;
+          padding: 15px; /* Adjust container padding */
+          gap: 30px; /* Reduce gap between sections */
+          align-items: stretch; /* Stretch items to fill width */
+        }
+
+        .form-section {
+          padding: 15px; /* Adjust inner form section padding */
+          width: 100%; /* Ensure it takes full width within container */
+          box-sizing: border-box;
+        }
+
+        form {
+          padding: 15px; /* Adjust form padding */
+        }
+
+        .form-row {
+          flex-direction: column;
+          gap: 0; /* Remove gap when stacking */
+        }
+
+        .form-group {
+          margin-bottom: 15px;
+        }
+
+        .contact-info-section {
+          padding: 15px; /* Adjust contact info padding */
+        }
+
+        .contact-card {
+          padding: 15px; /* Adjust contact card padding */
+        }
+
+        .video-background {
+          display: none; /* Hide background video on mobile for performance */
+        }
+
+        /* Basic mobile menu adjustments - requires script.js to fully work */
+        .main-header .desktop-cta {
+          display: none;
+        }
+        .main-header .primary-nav {
+          display: none; /* Hide nav by default on mobile */
+          flex-direction: column;
+          width: 100%;
+          position: absolute;
+          top: 60px; /* Below header */
+          left: 0;
+          background-color: #1a1a1a;
+          padding: 10px 0;
+          z-index: 100;
+        }
+        .main-header .primary-nav.is-active {
+          display: flex; /* Show when active */
+        }
+        .main-header .primary-nav ul {
+          flex-direction: column;
+          width: 100%;
+          padding: 0;
+        }
+        .main-header .primary-nav li {
+          width: 100%;
+          text-align: center;
+        }
+        .main-header .primary-nav a {
+          padding: 10px 0;
+          display: block;
+        }
+        .main-header .menu-toggle {
+          display: block; /* Show hamburger on mobile */
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 10px;
+          z-index: 200;
+        }
+        .main-header .hamburger {
+          display: block;
+          width: 25px;
+          height: 3px;
+          background-color: white;
+          margin: 5px 0;
+        }
+        .main-header {
+          justify-content: space-between; /* Space out logo and toggle */
+          padding: 10px 20px;
+        }
+      }
+      /* Define CSS Variables */
+/* Define CSS Variables */
+:root {
+    --purple-primary: #7d2ec7;
+    --dark-bg: #0d0d0d;
+    --black-translucent: #00000093;
+    --light-text: #e0e0e0;
+    --medium-text: #b0b0b0;
+    --border-color: #5f5f5f65;
+    --heading-color: #f2f4f7;
+    --link-hover-color: #fff;
+    --font-inter: 'Inter', sans-serif; /* Assuming Inter font is imported/available */
+
+    /* Font sizes and weights (adjust as needed for overall consistency) */
+    --text-sm-semibold-font-size: 0.875rem; /* 14px */
+    --text-sm-semibold-line-height: 1.25rem; /* 20px */
+    --text-sm-semibold-font-weight: 600;
+
+    --text-md-normal-font-size: 1rem; /* 16px */
+    --text-md-normal-line-height: 1.5rem; /* 24px */
+    --text-md-normal-font-weight: 400;
+
+    --text-md-medium-font-size: 1rem; /* 16px */
+    --text-md-medium-line-height: 1.5rem; /* 24px */
+    --text-md-medium-font-weight: 500;
+}
+
+/* General Footer Section Container */
+.section-footer {
+    width: 100%;
+    position: relative;
+    line-height: 1.6;
+    background-color: #00000093; /* Your specified background */
+    padding-top: 50px;
+    color: var(--light-text); /* Default text color for the footer */
+    font-family: var(--font-inter);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Top Section of the Footer */
+.footer-top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px; /* Increased padding for more space */
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Standardized max-width for consistency */
+    padding: 0 20px; /* Add internal padding */
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 100px; /* Adjusted gap for better spacing */
+    align-items: flex-start;
+    justify-content: space-between; /* Distribute content */
+    width: 100%;
+    flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+    margin-bottom: 40px;
+}
+
+.logo-and-supporting-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Slightly reduced gap */
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-basis: 300px; /* Increased base width for the logo section */
+    min-width: 250px; /* Minimum width for responsiveness */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between logo image and potential text */
+}
+
+.logotype {
+    height: 60px; /* Larger logo image */
+    width: 60px;
+    object-fit: contain; /* Ensure image fits */
+}
+
+.logo p {
+    margin: 0;
+    font-size: 1.8em; /* Larger font for logo text if any */
+    font-weight: 600;
+    color: var(--light-text);
+}
+
+.supporting-text {
+    color: var(--medium-text);
+    font-size: var(--text-md-normal-font-size);
+    line-height: var(--text-md-normal-line-height);
+    font-weight: var(--text-md-normal-font-weight);
+    width: 100%;
+    text-align: left;
+}
+
+.logo-and-supporting-text input[type="text"] {
+    background-color: var(--black-translucent);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: var(--light-text);
+    font-size: var(--text-md-normal-font-size);
+    width: calc(100% - 30px); /* Adjust for padding */
+    box-sizing: border-box;
+    margin-top: 15px; /* Space above input */
+}
+
+.logo-and-supporting-text input[type="text"]::placeholder {
+    color: var(--medium-text);
+}
+
+.logo-and-supporting-text input[type="text"]:focus {
+    border-color: var(--purple-primary);
+    outline: none;
+}
+
+
+.links {
+    display: flex;
+    flex-direction: row;
+    gap: 80px; /* Increased gap between link columns */
+    align-items: flex-start; /* Align columns to the top */
+    justify-content: flex-start;
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    flex-grow: 1; /* Allow links section to grow */
+}
+
+.footer-links-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    flex: 1; /* Allow columns to take equal space */
+    min-width: 150px; /* Minimum width for each column to prevent collapse */
+}
+
+.heading {
+    color: var(--heading-color);
+    font-size: var(--text-sm-semibold-font-size);
+    line-height: var(--text-sm-semibold-line-height);
+    font-weight: var(--text-sm-semibold-font-weight);
+    text-transform: uppercase; /* Make headings uppercase */
+    margin-bottom: 5px; /* Space below heading */
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.footer-link {
+    display: flex;
+    align-items: center;
+}
+
+.button-base {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--medium-text); /* Softer link color */
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.button-base:hover {
+    color: var(--link-hover-color); /* Lighter color on hover */
+    transform: translateX(5px); /* Subtle slide effect on hover */
+}
+
+.text {
+    font-size: var(--text-md-medium-font-size);
+    line-height: var(--text-md-medium-line-height);
+    font-weight: var(--text-md-medium-font-weight);
+}
+
+/* Bottom Section of the Footer (Copyright and Legal Links) */
+.footer-bottom-section {
+    background: var(--dark-bg); /* Darker background for the bottom bar */
+    padding: 25px 20px; /* Adjusted padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
+}
+
+.footer-container.bottom-container {
+    padding: 0; /* Remove extra padding, already handled by section padding */
+    display: flex;
+    flex-direction: row; /* Default to row */
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.content3 {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.footer-text {
+    color: var(--medium-text);
+    font-size: 0.9em; /* Slightly smaller font for copyright */
+    text-align: left;
+    flex: 1;
+    min-width: 250px; /* Ensure it maintains some width */
+}
+
+/* Styles for T&C and Privacy Policy div */
+.content3 > div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between P tags and the separator */
+    color: var(--medium-text);
+    font-size: 0.9em;
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Align to the right */
+}
+
+.content3 > div:last-child p {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent wrapping of individual policy text */
+    transition: color 0.2s ease-in-out;
+}
+
+.content3 > div:last-child p:hover {
+    color: var(--link-hover-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .content {
+        gap: 60px; /* Reduce gap for medium screens */
+        justify-content: center; /* Center content when it starts wrapping */
+        margin-bottom: 30px;
+    }
+
+    .logo-and-supporting-text {
+        flex-basis: 100%; /* Allow logo section to take full width */
+        align-items: center;
+        text-align: center;
+    }
+    .logo-and-supporting-text input[type="text"] {
+        max-width: 350px; /* Constrain input width when centered */
+    }
+
+    .links {
+        justify-content: center; /* Center link columns */
+        gap: 40px; /* Adjust gap between link columns */
+    }
+
+    .footer-links-column {
+        align-items: center; /* Center links in columns when wrapped */
+        min-width: unset; /* Remove min-width to allow more flexibility */
+        flex-basis: 45%; /* Allow two columns per row on medium screens */
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .footer-top-section {
+        padding: 40px 15px; /* More padding on smaller screens */
+    }
+
+    .footer-container {
+        padding: 0 15px;
+    }
+
+    .content {
+        flex-direction: column; /* Stack main footer content on smaller screens */
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 25px;
+    }
+
+    .logo-and-supporting-text {
+        width: 100%;
+        align-items: center; /* Ensure logo, text, and input are centered */
+        text-align: center;
+    }
+    .logo-and-supporting-text input[type="text"] {
+        max-width: 300px; /* Constrain width of input on mobile */
+        width: 90%; /* Take 90% of parent width */
+        margin: 15px auto 0 auto; /* Center the input field itself */
+    }
+
+    .links {
+        flex-direction: column; /* Stack link columns */
+        gap: 30px;
+        align-items: center; /* Center the entire links block */
+    }
+
+    .footer-links-column {
+        flex-basis: 100%; /* Each column takes full width */
+        align-items: center; /* Center links within each column */
+    }
+
+    .heading {
+        text-align: center; /* Center headings on mobile */
+    }
+
+    .footer-links {
+        align-items: center; /* Center the actual list items */
+    }
+    
+    .footer-bottom-section {
+        padding: 20px 15px;
+    }
+
+    .footer-container.bottom-container {
+        flex-direction: column; /* Stack copyright and policy links */
+        gap: 15px;
+    }
+
+    .content3 {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-text {
+        text-align: center;
+        width: 100%;
+        min-width: unset;
+    }
+
+    .content3 > div:last-child {
+        justify-content: center; /* Center them when stacked */
+        width: 100%;
+        gap: 10px; /* Closer gap for policies */
+    }
+    .content3 > div:last-child p {
+        font-size: 0.85em; /* Slightly smaller font */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-top-section {
+        padding: 30px 10px;
+    }
+
+    .footer-container {
+        padding: 0 10px;
+    }
+
+    .content {
+        gap: 30px;
+    }
+
+    .logo-and-supporting-text input[type="text"] {
+        max-width: 280px; /* Further constrain width for smaller devices */
+        width: 90%;
+    }
+
+    .links {
+        gap: 20px;
+    }
+
+    .footer-links-column {
+        gap: 10px;
+    }
+
+    .button-base .text {
+        font-size: 0.95em;
+    }
+
+    .footer-bottom-section {
+        padding: 15px 10px;
+    }
+    .footer-text,
+    .content3 > div:last-child p {
+        font-size: 0.8em; /* Even smaller font on very small screens */
+    }
+}
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div href="#" class="site-logo">Logo</div>
+
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </button>
+
+      <nav class="primary-nav">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#how">How We Work</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li class="mobile-cta">
+            <a href="#contact-us" class="call-to-action-button">Get In Touch</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="#contact-us" class="call-to-action-button desktop-cta"
+        >Get In Touch</a
+      >
+    </header>
+    <video autoplay loop muted playsinline class="video-background" id="bg-vid">
+      <source src="/gifs/7762075-hd_1920_1080_25fps.mp4" type="video/mp4" />
+    </video>
+
+    <section class="hero-section">
+      <div class="hero-contents">
+        <div class="hero-title">
+          Any Questions? <br />
+          We are here for you.
+        </div>
+        <div class="hero-description-block">
+          Whether you have a question, need assistance, or want to start a new project, our team is here to help.
+        </div>
+        <a class="hero-section-button" href="#form-container">
+          Fill the Form Out!!
+        </a>
+      </div>
+    </section>
+
+    <section class="form-section-wrapper" id="form-container">
+      <div class="container">
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First name*</label>
+              <input type="text" id="first-name" placeholder="Jane" />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name*</label>
+              <input type="text" id="last-name" placeholder="Smith" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="email" id="email" placeholder="JaneSmith@gmail.com" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="country">Where Are you from?*</label>
+              <input type="text" id="country" placeholder="e.g., United States" />
+            </div>
+            <div class="form-group">
+              <label for="company-type">What's the type of your company?*</label>
+              <input type="text" id="company-type" placeholder="e.g., Technology" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message*</label>
+            <textarea id="message" rows="5" placeholder="Type your message..."></textarea>
+            <span class="textarea-icon"></span>
+          </div>
+
+          <button type="submit">Submit Now</button>
+        </form>
+
+        <div class="contact-info-section">
+          <div class="contact-card">
+            <div class="icon-text">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-mail"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Email <span class="tag tag-24-7">24/7</span></span>
+            </div>
+            <p>priyuk2004@gmail.com</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="icon-text">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-phone"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-5.3-5.3A19.79 19.79 0 0 1 2.05 4.11a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.1.65.44 1.25.92 1.73L10.25 10a2 2 0 0 1-.72 2.15l-1.45 1.45a1.86 1.86 0 0 0-.01 2.17c.36.42.79.82 1.25 1.18a19.79 19.79 0 0 0 8.63 3.07a2 2 0 0 1 2.18-2.18h3a2 2 0 0 1 2 2z"
+                ></path>
+              </svg>
+              <span>Phone</span>
+            </div>
+            <p>+91 9039946025</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="icon-text">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-map-pin"
+              >
+                <path
+                  d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                ></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Address <span class="tag tag-24-7">REMOTE</span></span>
+            </div>
+            <p>
+              House no 1797, near
+              Hanuman Mandir, Purana
+              Power House, Deoridih
+              Bilaspur Chhattisgarh
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+      <div class="faq-container">
+      
+        
+        <div class="faq-tag-wrapper">
+        <div class="faq-tag">&bull; FAQ</div>
+        </div>
+        <div class="faq-content">
+          <div class="faq-left">
+            <h2 class="faq-heading">
+              Frequently <br> <span class="heading-accent">Asked Questions</span>
+            </h2>
+            <p class="faq-subheading">Have questions? Our FAQ section has you covered with quick answers to the most common inquiries.</p>
+          </div>
+          <div class="faq-right">
+            <div class="faq-item">
+              <p class="faq-question">What do I need to get started?</p>
+              <span class="faq-icon">+</span>
+            </div> 
+
+            <div class="faq-item">
+              <p class="faq-question">What kind of customization is available?</p>
+              <span class="faq-icon">+</span>
+            </div>
+
+            <div class="faq-item">
+              <p class="faq-question">How easy is it to edit for beginners?</p>
+              <span class="faq-icon">+</span>
+            </div>
+
+            <div class="faq-item">
+              <p class="faq-question">Let me know more about money-back guarantee?</p>
+              <span class="faq-icon">+</span>
+            </div>
+
+            <div class="faq-item">
+              <p class="faq-question">Do I need to know how to code?</p>
+              <span class="faq-icon">+</span>
+            </div>
+
+            <div class="faq-item">
+              <p class="faq-question">What will I get after purchasing the template?</p>
+              <span class="faq-icon">+</span>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-footer">
+        <div class="footer-top-section">
+            <div class="footer-container">
+                <div class="content">
+                    <div class="logo-and-supporting-text">
+                        <div class="logo">
+                            <div class="logo-wrap">
+                                <img class="logotype" src="/icons/flash (1).png" alt="Company Logotype">
+                            </div>
+                            <p></p>
+                          </div>
+                        <div class="supporting-text">
+                            Made with love and passion <br> - Silvy Studios
+                        </div>
+                        <input type="text" placeholder="Enter your ">
+                    </div>
+                    <div class="links">
+                        <div class="footer-links-column">
+                            <div class="heading">Quick Links</div>
+                            <div class="footer-links">
+                                <div class="footer-link">
+                                    <a href="index.html" class="button-base">
+                                        <div class="text">Home</div>
+                                    </a>
+                                </div>
+                                <div class="footer-link">
+                                    <a href="#" class="button-base">
+                                        <div class="text">Portfolio</div>
+                                    </a>
+                                </div>
+                                <div class="footer-link">
+                                    <a href="#" class="button-base">
+                                        <div class="text">About</div>
+                                    </a>
+                                </div>
+                                <div class="footer-link">
+                                    <a href="#" class="button-base">
+                                        <div class="text">Contact</div>
+                                    </a>
+                                    
+                                </div>
+                                <div class="footer-link">
+                                    <a href="#" class="button-base">
+                                        <div class="text">FAQ</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-links-column">
+                            <div class="heading">Social</div>
+                            <div class="footer-links">
+                                <div class="footer-link">
+                                    <a href="#" class="button-base">
+                                        <div class="text">Twitter</div>
+                                    </a>
+                                </div>
+                                <div class="footer-link">
+                                    <a href="#" class="button-base">
+                                        <div class="text">LinkedIn</div>
+                                    </a>
+                                </div>
+                                <div class="footer-link">
+                                    <a href="#" class="button-base">
+                                        <div class="text">Facebook</div>
+                                    </a>
+                                </div>
+                                <div class="footer-link">
+                                    <a href="#" class="button-base">
+                                        <div class="text">GitHub</div>
+                                    </a>
+                                </div>
+                                <div class="footer-link">
+                                    <a href="#" class="button-base">
+                                        <div class="text">Whatsapp</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-section">
+        <div class="footer-container bottom-container">
+            <div class="content3">
+                <div class="footer-text">
+                    © 2077 Untitled UI. All rights reserved.
+                </div>
+                <div>
+                  <p>Terms and Conditions</p> |
+                  <p>Privacy Policy</p>
+                </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>
