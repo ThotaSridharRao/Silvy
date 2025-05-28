@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/styles/header.css">
+    <style>
+      body {
+        padding-top: 75px;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0; /* Ensure no default body margin */
+      }
+
+      /* Hero Section Styling */
+      .hero-section {
+        margin-top: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 100px;
+        padding: 40px 20px; /* Base padding for all screens */
+        height: auto;
+        min-height: 50vh;
+        padding-bottom: 100px;
+        border-bottom: 1px solid white;
+        width: 100%; /* Ensure it takes full width */
+        box-sizing: border-box; /* Include padding in width */
+      }
+
+      .hero-contents {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%; /* Ensure contents take full width */
+        max-width: 900px; /* Constrain overall hero content width */
+      }
+
+      .hero-title {
+        font-size: 70px; /* Default for larger screens */
+        line-height: 1.1;
+        font-weight: 500;
+        margin-bottom: 30px;
+        color: white; /* Assuming white text for hero title */
+      }
+
+      .hero-description-block {
+        text-align: center;
+        max-width: 600px;
+        margin-bottom: 30px;
+        color: #b0b0b0;
+        padding: 10px;
+        font-size: 1.1em; /* Slightly larger for readability */
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-direction: row; /* Default to row */
+        align-items: center;
+        justify-content: center;
+        column-gap: 20px;
+        flex-wrap: wrap; /* Allow buttons to wrap */
+        width: 100%;
+        max-width: 400px; /* Constrain button group width */
+      }
+
+      .hero-section-button {
+        background: #7d2ec7;
+        border-radius: 8px;
+        padding: 12px 25px; /* Slightly more padding for better touch targets */
+        color: white;
+        text-align: center;
+        font-size: 16px; /* Slightly larger font */
+        font-weight: 500;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s ease; /* Smoother transition */
+        outline: none;
+        display: inline-block;
+        border: none; /* Remove default button border */
+        cursor: pointer;
+        white-space: nowrap; /* Prevent button text from wrapping */
+      }
+
+      .hero-section-button:hover {
+        box-shadow: 0 0 0.25em 0.1em white, inset 0 0 0.25em 0 white;
+        transform: scale(1.05); /* Use transform instead of scale for better performance */
+      }
+
+      .secondary {
+        background-color: transparent; /* Changed to transparent for secondary button */
+        border: 1px solid white;
+      }
+
+      /* Base container for general content (e.g., if you use .container elsewhere) */
+      .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 30px;
+        max-width: 1200px;
+        width: 100%;
+        gap: 50px;
+        box-sizing: border-box;
+      }
+
+      /* Media Queries for Responsiveness */
+
+      /* Mobile adjustments (up to 768px) */
+      @media (max-width: 768px) {
+        .hero-section {
+          margin-top: 50px; /* Reduce top margin */
+          padding: 30px 15px; /* Reduce padding */
+          margin-bottom: 60px; /* Reduce bottom margin */
+          padding-bottom: 60px;
+        }
+
+        .hero-title {
+          font-size: 40px; /* Smaller font for mobile */
+          margin-bottom: 20px;
+        }
+
+        .hero-description-block {
+          font-size: 1em; /* Adjust font size */
+          padding: 0 5px; /* Less padding */
+        }
+
+        .hero-actions {
+          flex-direction: column; /* Stack buttons vertically */
+          gap: 15px; /* Space between stacked buttons */
+        }
+
+        .hero-section-button {
+          width: 80%; /* Make buttons take more width */
+          max-width: 250px; /* Constrain max width for stacked buttons */
+          padding: 10px 20px; /* Adjust padding */
+          font-size: 15px;
+        }
+      }
+
+      /* Smaller mobile devices (up to 480px) */
+      @media (max-width: 480px) {
+        .hero-section {
+          margin-top: 40px;
+          padding: 20px 10px;
+          margin-bottom: 40px;
+          padding-bottom: 40px;
+        }
+
+        .hero-title {
+          font-size: 30px; /* Even smaller font for very small screens */
+          margin-bottom: 15px;
+        }
+
+        .hero-description-block {
+          font-size: 0.9em;
+        }
+        
+        .hero-section-button {
+            width: 90%; /* Buttons take more width on very small screens */
+            max-width: 220px;
+            font-size: 14px;
+            padding: 10px 15px;
+        }
+      }
+
+
+      /* CSS Variables (assuming you have a common root or defined them in main CSS) */
+      :root {
+          /* Example variables, adjust or add based on your global styles */
+          --primary-color: #7d2ec7; /* Used for button background, etc. */
+          --text-color-light: #ffffff;
+          --text-color-medium: #d1d5db; /* Lighter shade of grey */
+          --text-color-dark-transparent: rgba(209, 213, 219, 0.5); /* For subheadlines and descriptions */
+          --bg-transparent: rgba(255, 255, 255, 0.04); /* Adjusted from #ffffff0a */
+          --border-color-light: rgba(255, 255, 255, 0.4); /* For tag button border */
+          --glow-color: rgb(255, 255, 255);
+          --glow-spread-color: rgba(255, 255, 255, 0.6);
+          --enhanced-glow-color: rgb(255, 255, 255);
+
+          /* Font sizes, weights, line heights (adjust these based on your design system) */
+          --font-size-sm: 0.875rem; /* 14px */
+          --font-size-md: 1rem; /* 16px */
+          --font-size-lg: 2.5rem; /* 40px for headlines */
+          --font-size-xl: 3.5rem; /* ~56px for larger headlines */
+
+          --font-weight-normal: 400;
+          --font-weight-medium: 500;
+          --font-weight-semibold: 600;
+          --font-weight-bold: 700;
+
+          --line-height-tight: 1.1;
+          --line-height-normal: 1.5;
+          --line-height-loose: 1.625;
+      }
+
+      /* About Section Container */
+      .about-section {
+          background: transparent; /* Keep as is */
+          color: var(--text-color-light);
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center; /* Vertically center the entire .about-container within the section */
+          padding: 40px 20px; /* Add overall section padding for smaller screens */
+          box-sizing: border-box;
+      }
+
+      .about-container {
+          background-color: transparent;
+          display: flex;
+          flex-direction: column; /* Default to column for mobile-first */
+          align-items: center; /* Center items in column layout */
+          width: 100%;
+          max-width: 1200px; /* Max width for content within the section */
+          gap: 2.5rem; /* Gap between image and content */
+          padding: 30px 0px; /* Original mobile container padding */
+          box-sizing: border-box; /* Include padding in element's total width and height */
+
+          /* Desktop layout for about-container */
+          @media (min-width: 1024px) {
+              flex-direction: row; /* Row direction for desktop */
+              justify-content: space-between; /* Space out image and content */
+              align-items: flex-start; /* IMPORTANT: Align items to the top in row layout */
+              gap: 4rem; /* Larger gap for desktop */
+              padding: 70px 0; /* Original desktop container padding */
+          }
+
+          @media (min-width: 1400px) { /* Adjust for larger desktops */
+              max-width: 1400px;
+              padding: 70px 50px; /* More padding on very large screens */
+          }
+      }
+
+      .about-image-wrapper {
+          width: 100%; /* Take full width on mobile */
+          max-width: 500px; /* Constrain max width for image on smaller screens */
+          display: flex;
+          justify-content: center; /* Center image within its wrapper */
+          align-items: center;
+          overflow: hidden; /* Ensure image doesn't overflow */
+
+          @media (min-width: 1024px) {
+              flex: 1; /* Allow image wrapper to take available space */
+              max-width: 600px; /* Larger max width for desktop image */
+          }
+      }
+
+      .about-image-wrapper img {
+          width: 100%;
+          height: auto;
+          display: block; /* Remove extra space below image */
+          border-radius: 8px; /* Slightly rounded corners for the image */
+          object-fit: cover; /* Ensures the image covers the area without distortion */
+      }
+
+      .about-content {
+          width: 100%; /* Take full width on mobile */
+          max-width: 600px; /* Constrain content width for readability */
+          padding: 0 20px; /* Inner padding for text content on mobile */
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start; /* Default: Align content children to the start (left) */
+          justify-content: flex-start; /* Align content to the top */
+          gap: 1.5rem; /* Gap between content blocks */
+          box-sizing: border-box;
+          text-align: left; /* Default text alignment */
+
+          @media (max-width: 767px) {
+              /* On smaller screens, you might want to center the text elements
+                within the .about-content block, but the block itself starts at the top. */
+              align-items: center; /* Center flex items (tag, headlines, cta) horizontally */
+              text-align: center; /* Center text within paragraphs */
+              padding: 0 15px; /* Slightly reduced padding */
+          }
+
+          @media (min-width: 1024px) {
+              flex: 1; /* Allow content to take available space */
+              max-width: 50%; /* Content takes roughly half the width */
+              padding: 0; /* Remove inner padding as container has it */
+              align-items: flex-start; /* Ensure left alignment for desktop */
+              text-align: left; /* Ensure left alignment for desktop */
+          }
+      }
+
+      .about-tag-button-wrapper {
+          display: flex;
+          justify-content: flex-start; /* Align left by default */
+          width: 100%;
+
+          @media (max-width: 767px) {
+              justify-content: center; /* Center on mobile if .about-content is centered */
+          }
+      }
+
+      .about-tag-button {
+          display: flex;
+          align-items: center;
+          justify-content: center; /* Center text within the button */
+          font-size: var(--font-size-sm);
+          font-weight: var(--font-weight-medium);
+          background-color: var(--bg-transparent);
+          padding: 10px 20px; /* Increased right padding for oval shape */
+          border-radius: 0 25px 25px 0; /* Specific border radius for tag style */
+          height: 40px; /* Adjusted height for better visual */
+          border: 1px solid var(--border-color-light);
+          color: var(--text-color-light); /* Ensure text color is bright */
+          white-space: nowrap; /* Prevent text wrapping */
+      }
+
+
+      .about-headline-group {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          width: 100%; /* Take full width */
+      }
+
+      .about-headline {
+          color: var(--text-color-light);
+          font-size: var(--font-size-lg); /* Base size */
+          font-weight: var(--font-weight-medium);
+          line-height: var(--line-height-tight);
+          white-space: normal; /* Allow wrapping on small screens */
+
+          @media (min-width: 768px) {
+              font-size: var(--font-size-xl); /* Larger on tablets/desktops */
+              white-space: nowrap; /* Prevent wrapping on larger screens */
+          }
+      }
+
+      .about-subheadline {
+          font-size: var(--font-size-lg); /* Base size */
+          font-weight: var(--font-weight-semibold);
+          color: var(--text-color-dark-transparent); /* Softer color for subheadline */
+          line-height: var(--line-height-tight); /* Match headline line height */
+
+          @media (min-width: 768px) {
+              font-size: var(--font-size-xl); /* Larger on tablets/desktops */
+          }
+      }
+
+      .about-description-group {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem; /* Space between description paragraphs */
+          width: 100%;
+      }
+
+      .description-subheading {
+          color: var(--text-color-medium); /* Slightly brighter for subheadings */
+          font-size: var(--font-size-md); /* Standard font size */
+          font-weight: var(--font-weight-semibold); /* Make subheadings slightly bold */
+          line-height: var(--line-height-normal);
+          margin-top: 15px; /* Add some space above new subheadings */
+      }
+
+      .about-description-text {
+          color: var(--text-color-dark-transparent);
+          font-size: var(--font-size-sm); /* Smaller on mobile */
+          line-height: var(--line-height-loose);
+
+          @media (min-width: 768px) {
+              font-size: var(--font-size-md); /* Larger on tablets/desktops */
+          }
+      }
+
+      .about-cta-group {
+          display: flex;
+          flex-direction: column; /* Default to column for mobile */
+          align-items: flex-start; /* Align left by default */
+          gap: 1.5rem; /* Gap between CTA buttons if more are added */
+          padding-top: 1rem;
+          width: 100%;
+
+          @media (max-width: 767px) {
+              align-items: center; /* Center on mobile if .about-content is centered */
+          }
+
+          @media (min-width: 640px) {
+              flex-direction: row; /* Row for wider mobile/tablet */
+              align-items: center;
+              justify-content: flex-start; /* Align to start in row layout */
+              gap: 1.5rem; /* Keep a consistent gap */
+          }
+      }
+
+      .about-main-cta {
+          background-color: var(--primary-color);
+          color: var(--text-color-light);
+          font-weight: var(--font-weight-bold);
+          padding: 0.85rem 1.8rem; /* Slightly more padding for better button size */
+          border-radius: 9999px; /* Fully rounded */
+          position: relative;
+          transition: all 0.3s ease-in-out; /* Smoother transition */
+          outline: none;
+          border: none; /* Remove default button border */
+          cursor: pointer;
+          font-size: var(--font-size-md); /* Ensure text is readable */
+          white-space: nowrap; /* Prevent text wrap inside button */
+
+          &:hover {
+              transform: scale(1.05); /* Use transform instead of scale */
+              box-shadow: 0 0 0.5em 0.2em var(--glow-color),
+                          inset 0 0 0.5em 0.1em var(--glow-color); /* Stronger glow */
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div href="#" class="site-logo">Logo</div>
+
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </button>
+
+      <nav class="primary-nav">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#how">How We Work</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li class="mobile-cta">
+            <a href="#contact-us" class="call-to-action-button">Get In Touch</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="#contact-us" class="call-to-action-button desktop-cta"
+        >Get In Touch</a
+      >
+    </header>
+
+    <section class="hero-section">
+      <div class="hero-contents">
+        <div class="hero-title">
+          Learn More About Silvy <br />
+          Let's Dive Deep
+        </div>
+        <div class="hero-description-block">
+          Slvy is your go-to site if you want to take your business online. We provide you the best designed websites according to your business types and needs
+        </div>
+        <div class="hero-actions">
+            <a href="contact.html" class="hero-section-button">Connect With Us</a>
+            <a href="#what-is-silvy" class="hero-section-button secondary">What is Silvy?</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="about-container">
+          <div class="about-image-wrapper">
+              <img src="/images/oUAzCBZlCCsvzmsAiYQ3RDbhyg.jpg" alt="About Us Image">
+          </div>
+
+          <div class="about-content">
+            <div class="about-tag-button-wrapper">
+                <div class="about-tag-button"> &bull; About Silvy
+                </div>
+            </div>
+
+            <div class="about-headline-group">
+                <h1 class="about-headline">
+                    An Agency With Classic
+                </h1>
+                <h1 class="about-subheadline">
+                    Revolutionary Skills!
+                </h1>
+            </div>
+
+            <div class="about-description-group">
+                <p class="description-subheading">
+                    Your success, Our priority
+                </p>
+                <p class="about-description-text">
+                    At Silvy, we believe in empowering our clients to achieve their goals. Our team works closely with you.
+                </p>
+                <p class="description-subheading">
+                    Partners You Can Rely On
+                </p>
+                <p class="about-description-text">
+                    Silvy is here to ensure your success with expert guidance and collaborative teamwork.
+                </p>
+            </div>
+
+            <div class="about-cta-group">
+                    <button class="about-main-cta">
+                    View About Silvy
+                </button>
+            </div>
+          </div>
+      </div>
+    </section>
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>
