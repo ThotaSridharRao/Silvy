@@ -174,8 +174,8 @@
           /* Example variables, adjust or add based on your global styles */
           --primary-color: #7d2ec7; /* Used for button background, etc. */
           --text-color-light: #ffffff;
-          --text-color-medium: #d1d5db; /* Lighter shade of grey */
-          --text-color-dark-transparent: rgba(209, 213, 219, 0.5); /* For subheadlines and descriptions */
+          --text-color-medium: #ffffff; /* Lighter shade of grey */
+          --text-color-dark-transparent: rgba(209, 213, 219, 0.795); /* For subheadlines and descriptions */
           --bg-transparent: rgba(255, 255, 255, 0.04); /* Adjusted from #ffffff0a */
           --border-color-light: rgba(255, 255, 255, 0.4); /* For tag button border */
           --glow-color: rgb(255, 255, 255);
@@ -183,8 +183,8 @@
           --enhanced-glow-color: rgb(255, 255, 255);
 
           /* Font sizes, weights, line heights (adjust these based on your design system) */
-          --font-size-sm: 0.875rem; /* 14px */
-          --font-size-md: 1rem; /* 16px */
+          --font-size-sm: 15px; /* 14px */
+          --font-size-md: 19px; /* 16px */
           --font-size-lg: 2.5rem; /* 40px for headlines */
           --font-size-xl: 3.5rem; /* ~56px for larger headlines */
 
@@ -208,6 +208,7 @@
           align-items: center; /* Vertically center the entire .about-container within the section */
           padding: 40px 20px; /* Add overall section padding for smaller screens */
           box-sizing: border-box;
+          border-bottom: 1px solid white;
       }
 
       .about-container {
@@ -255,7 +256,8 @@
           height: auto;
           display: block; /* Remove extra space below image */
           border-radius: 8px; /* Slightly rounded corners for the image */
-          object-fit: cover; /* Ensures the image covers the area without distortion */
+          object-fit: cover;
+          border: 8px solid rgba(245, 245, 245, 0.212); /* Ensures the image covers the area without distortion */
       }
 
       .about-content {
@@ -402,11 +404,19 @@
           cursor: pointer;
           font-size: var(--font-size-md); /* Ensure text is readable */
           white-space: nowrap; /* Prevent text wrap inside button */
+          text-decoration: none;
 
           &:hover {
               transform: scale(1.05); /* Use transform instead of scale */
               box-shadow: 0 0 0.5em 0.2em var(--glow-color),
                           inset 0 0 0.5em 0.1em var(--glow-color); /* Stronger glow */
+          }
+      }
+      /* Add this new rule for the reversed layout */
+      .about-container-reverse {
+          /* Only apply row-reverse on desktop */
+          @media (min-width: 1024px) {
+              flex-direction: row-reverse;
           }
       }
     </style>
@@ -424,7 +434,7 @@
       <nav class="primary-nav">
         <ul>
           <li><a href="/index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#">About</a></li>
           <li><a href="#how">How We Work</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -440,7 +450,7 @@
       >
     </header>
 
-    <section class="hero-section">
+    <section class="hero-section" id="about">
       <div class="hero-contents">
         <div class="hero-title">
           Learn More About Silvy <br />
@@ -457,12 +467,12 @@
     </section>
 
     <section id="about" class="about-section">
-      <div class="about-container">
-          <div class="about-image-wrapper">
-              <img src="/images/oUAzCBZlCCsvzmsAiYQ3RDbhyg.jpg" alt="About Us Image">
-          </div>
+    <div class="about-container">
+        <div class="about-image-wrapper">
+            <img src="/images/oUAzCBZlCCsvzmsAiYQ3RDbhyg.jpg" alt="About Us Image">
+        </div>
 
-          <div class="about-content">
+        <div class="about-content">
             <div class="about-tag-button-wrapper">
                 <div class="about-tag-button"> &bull; About Silvy
                 </div>
@@ -493,13 +503,58 @@
             </div>
 
             <div class="about-cta-group">
-                    <button class="about-main-cta">
-                    View About Silvy
-                </button>
+              <a class="about-main-cta" href="/contact.html">
+                  Book an Appointment
+              </a>
             </div>
-          </div>
-      </div>
-    </section>
+        </div>
+    </div>
+</section>
+
+<section id="our-mission" class="about-section"> 
+  <div class="about-container about-container-reverse"> 
+    <div class="about-image-wrapper">
+            <img src="/images/hZgGlHpPFf0bbzHL7dI9MolatA.webp" alt="Our Mission Image">
+        </div>
+
+        <div class="about-content">
+            <div class="about-tag-button-wrapper">
+                <div class="about-tag-button"> &bull; About Silvy
+                </div>
+            </div>
+
+            <div class="about-headline-group">
+                <h1 class="about-headline">
+                    Work Smarter <br> Not Harder
+                </h1>
+                <h1 class="about-subheadline">
+                    In Every Minutes!
+                </h1>
+            </div>
+
+            <div class="about-description-group">
+                <p class="description-subheading">
+                    Guided Every Step
+                </p>
+                <p class="about-description-text">
+                    We ensure a smooth journey from concept to completion, providing expert support to bring your vision to life effortlessly.
+                </p>
+                <p class="description-subheading">
+                    Support Beyond Delivery
+                </p>
+                <p class="about-description-text">
+                    Our commitment doesn't end at launch-landin is here to support you with ongoing updates and expertise whenever you need it.
+                </p>
+            </div>
+
+            <div class="about-cta-group">
+              <a class="about-main-cta" href="/services.html">
+                  Explore Our Services
+              </a>
+            </div>
+        </div>
+    </div>
+</section>
     <script src="/scripts/script.js"></script>
   </body>
 </html>
