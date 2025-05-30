@@ -1,0 +1,236 @@
+/*
+ * This CSS contains styles specifically for the FAQ section.
+ * It also includes relevant :root variables and basic body/reset styles
+ * to ensure it renders correctly as a standalone snippet or when integrated.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root CSS Variables used in FAQ section */
+:root {
+    --primary-color: #7d2ec7;
+    --text-color-light: #ffffff;
+    --text-color-medium: #d1d5db;
+    --text-color-faded: #aaa; /* Used in other sections, good to keep if theme is consistent */
+    --bg-dark: #000000;
+    --bg-dark-transparent: rgba(255, 255, 255, 0.04);
+    --card-bg: #141414;
+    --border-color-dark: #282828;
+    --border-color-light: rgba(255, 255, 255, 0.4);
+
+    --font-size-sm: 0.9375rem; /* 15px */
+    --font-size-md: 1.1875rem; /* 19px */
+    --font-size-lg: 2.5rem; /* 40px */
+    --font-size-xl: 3.5rem; /* 56px */
+
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --line-height-tight: 1.1;
+    --line-height-normal: 1.5;
+    --line-height-loose: 1.625;
+
+    --spacing-xs: 0.5rem; /* 8px */
+    --spacing-sm: 1rem; /* 16px */
+    --spacing-md: 1.5rem; /* 24px */
+    --spacing-lg: 2rem; /* 32px */
+
+    --border-radius-sm: 0.5rem; /* 8px */
+    --border-radius-md: 0.75rem; /* 12px */
+    --border-radius-full: 9999px; /* Fully rounded */
+
+    --transition-speed-fast: 0.2s;
+    --transition-speed-normal: 0.3s;
+}
+
+/* Base Body Styles for FAQ Section Context */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-color-light);
+    line-height: var(--line-height-normal);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Important for preventing horizontal scroll from layout issues */
+}
+
+/* FAQ Section Styles */
+.faq-section {
+    background-color:transparent;
+    color: var(--text-color-light);
+    padding: 80px 20px; /* Consistent padding */
+    max-width: 1440px; /* Consistent max-width */
+    box-sizing: border-box;
+    margin: 0 auto; /* Center the section */
+  }
+  
+  .faq-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faq-tag-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.faq-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    background-color: var(--bg-dark-transparent);
+    padding: 10px 20px;
+    border-radius: 25px; /* Using explicit px for consistency if var(--border-radius-full) is not desired */
+    height: 40px;
+    border: 1px solid var(--border-color-light);
+    color: var(--text-color-light);
+    white-space: nowrap;
+}
+
+.faq-content {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: space-between;
+    width: 100%;
+    gap: 40px; /* Gap between left and right columns */
+}
+
+.faq-left {
+    flex: 1;
+    min-width: 300px; /* Ensure it doesn't get too small */
+    max-width: 45%; /* Adjust width for desktop */
+    text-align: left;
+}
+
+.faq-heading {
+    font-size: var(--font-size-xl); /* Using variable for large headings */
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    margin-bottom: 20px;
+    color: var(--text-color-light);
+}
+
+.heading-accent {
+    color: var(--primary-color);
+}
+
+.faq-subheading {
+    font-size: var(--font-size-md); /* Using variable */
+    color: var(--text-color-medium);
+    line-height: var(--line-height-normal);
+}
+
+.faq-right {
+    flex: 2;
+    min-width: 300px;
+    max-width: 50%; /* Adjust width for desktop */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Gap between FAQ items */
+}
+
+.faq-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color-dark);
+    border-radius: var(--border-radius-md);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color var(--transition-speed-fast) ease, border-color var(--transition-speed-fast) ease;
+}
+
+.faq-item:hover {
+    background-color: #1a1a1a; /* Slightly darker on hover */
+    border-color: var(--primary-color);
+}
+
+.faq-question {
+    font-size: var(--font-size-md); /* Using variable */
+    font-weight: var(--font-weight-medium);
+    color: var(--text-color-light);
+    margin: 0;
+}
+
+.faq-icon {
+    font-size: 1.5em;
+    color: var(--text-color-medium);
+    transition: transform var(--transition-speed-fast) ease;
+}
+
+/* Add active state for FAQ items if you implement expand/collapse */
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+/* Example of content that would be toggled */
+.faq-answer {
+    font-size: 0.95em; /* Specific size */
+    color: var(--text-color-medium);
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* --- Responsive Styles for FAQ Section --- */
+@media (max-width: 1024px) {
+    .faq-section {
+        padding: 60px 15px;
+    }
+    .faq-left {
+        max-width: 100%; /* Allow left column to take full width */
+        margin-bottom: 40px; /* Add space below if it stacks */
+        text-align: center;
+    }
+    .faq-heading {
+        font-size: 2.8em;
+    }
+    .faq-subheading {
+        font-size: 1em;
+    }
+    .faq-right {
+        max-width: 100%; /* Allow right column to take full width */
+    }
+    .faq-tag-wrapper {
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 40px 10px;
+    }
+    .faq-content {
+        gap: 30px;
+    }
+    .faq-heading {
+        font-size: 2.2em;
+    }
+    .faq-question {
+        font-size: 1em;
+    }
+    .faq-item {
+        padding: 15px;
+    }
+    .faq-item .faq-icon {
+        font-size: 1.2em;
+    }
+}
