@@ -1,342 +1,335 @@
-/* Define CSS Variables */
+/*
+ * This CSS contains styles specifically for the Footer section.
+ * It also includes relevant :root variables and basic body/reset styles
+ * to ensure it renders correctly as a standalone snippet or when integrated.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Basic Reset for isolation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root CSS Variables for consistency across the site (only relevant ones included for this section) */
 :root {
-    --gray-800: #1d2939;
-    --gray-200: #eaecf0;
-    --gray-400: #98a2b3;
-    --gray-100: #f2f4f7;
-    --gray-700: #344054;
-    --gray-900: #101828;
+    --primary-color: #7d2ec7;
+    --text-color-light: #ffffff;
+    --text-color-medium: #d1d5db;
+    --text-color-copyright: #9ca3af;
+    --bg-dark: #000000;
+    --border-color-subtle: #374151;
 
+    --glow-color-white: rgb(255, 255, 255);
+
+    --font-size-sm: 0.9375rem; /* 15px */
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --spacing-sm: 1rem; /* 16px */
+    --spacing-md: 1.5rem; /* 24px */
+    --spacing-lg: 2rem; /* 32px */
+
+    --border-radius-sm: 0.5rem; /* 8px */
+
+    --transition-speed-fast: 0.2s;
+    --transition-speed-normal: 0.3s;
 }
 
-/* General Footer Section Container */
-.section-footer {
-    width: 100%; /* Make the footer span the full width */
-    position: relative;
+/* Base Body Styles for Footer Context (adjust if integrating into a larger project with global body styles) */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-color-light);
     line-height: 1.6;
-    background-color: #ffffff0a;
-    padding-top: 50px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-/* Top Section of the Footer */
-.footer-top-section {
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center;
-    padding: 40px 0px;
+/* --- Footer Section Styles --- */
+.footer {
+    background-color: #141414;
+    color: var(--text-color-light);
+    padding: 100px 0 0 0; /* Top padding, horizontal padding handled by container */
 }
 
 .footer-container {
+    max-width: 1440px; /* Consistent max-width with other sections */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Consistent horizontal padding for content */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%; /* Take full width of parent */
-    max-width: 1280px; /* Added max-width for consistency with other containers */
 }
 
-.content {
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column for mobile */
+    gap: var(--spacing-lg); /* Using variable */
+    width: 100%;
+}
+
+.company-section {
+    text-align: center; /* Default for mobile */
+    max-width: 350px; /* Max width for description */
+    margin: 0 auto; /* Center for mobile */
+}
+
+.company-title {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color-light);
+    display: flex; /* Added flex for logo-title alignment */
+    align-items: center;
+    justify-content: center; /* Center for mobile */
+    gap: 10px; /* Gap between logo and text */
+}
+
+.company-title .logotype { /* Styling for the logo image inside the title */
+    height: 30px; /* Adjust size as needed */
+    width: auto;
+}
+
+
+.company-description {
+    color: var(--text-color-medium);
+    margin-bottom: var(--spacing-md);
+    max-width: 28rem;
+    margin-left: auto; /* Center for mobile */
+    margin-right: auto; /* Center for mobile */
+}
+
+.button-container {
     display: flex;
-    flex-direction: row;
-    gap: 20rem; /* This gap might be very large on smaller screens. Consider adjusting for responsiveness. */
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%; /* Take full width of parent */
-    flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
-    margin: 0px 60px 40px 60px;
-    padding: 10px;
+    flex-direction: column; /* Default to column for mobile */
+    gap: var(--spacing-sm);
+    justify-content: center; /* Center for mobile */
+    width: 100%; /* Ensure buttons take full width of container */
 }
 
-.logo-and-supporting-text {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-shrink: 0;
-    flex-basis: 250px; /* Give it a base width, it will grow/shrink */
-    min-width: 200px; /* Ensure it doesn't get too small */
-}
-
-.logo {
-    display: flex;
-    flex-direction: row;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-.logo-wrap {
-    width: 142px; /* Fixed width for logo area */
-    height: 32px; /* Fixed height for logo area */
+.btn {
+    border-radius: var(--border-radius-sm);
+    padding: 12px 25px; /* Consistent padding */
+    color: white; /* Ensure text is white */
+    text-align: center;
+    font-size: var(--font-size-sm); /* Consistent font size */
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
     position: relative;
+    transition: all var(--transition-speed-normal);
+    outline: none;
+    border: none;
+    width: 100%; /* Make button full width for mobile stacking */
+    box-sizing: border-box;
+    margin-top: 10px; /* Smaller margin when stacking buttons */
+    cursor: pointer;
 }
 
-.logomark {
-    display: flex;
-    flex-direction: row;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 22.54%;
-    height: 100%;
-    position: absolute;
-    right: 77.46%;
-    left: 0%;
-    bottom: 0%;
-    top: 0%;
+.btn-primary {
+    background: var(--primary-color);
 }
 
-.logotype { /* This refers to logotype0.svg */
-    height: 50px;
-    width:50px;
-    position: absolute;
-    right: 0%;
-    left: 29.58%;
-    bottom: 0%;
-    top: 0%;
-    /* overflow: visible; /* Adjust if your SVG overflows its container */
+.btn-primary:hover {
+    box-shadow: 0 0 0.25em 0.1em var(--glow-color-white), inset 0 0 0.25em 0 var(--glow-color-white);
+    transform: scale(1.05);
 }
 
-.supporting-text {
-    color: var(--gray-200);
-    text-align: left;
-    font-family: var(--text-md-normal-font-family);
-    font-size: var(--text-md-normal-font-size);
-    line-height: var(--text-md-normal-line-height);
-    font-weight: var(--text-md-normal-font-weight);
-    width: 100%; /* Take full width of its parent */
+.btn-secondary {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--text-color-light);
 }
 
-.links {
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+.btn-secondary:hover {
+    box-shadow: 0 0 0.25em 0.1em var(--glow-color-white), inset 0 0 0.25em 0 var(--glow-color-white);
+    transform: scale(1.05);
 }
 
-.footer-links-column {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex: 1; /* Allow columns to take equal space */
-    min-width: 120px; /* Minimum width for each column */
+.footer-section {
+    text-align: center; /* Default for mobile */
 }
 
-.heading {
-    color: var(--gray-400);
-    text-align: left;
-    font-family: var(--text-sm-semibold-font-family);
-    font-size: var(--text-sm-semibold-font-size);
-    line-height: var(--text-sm-semibold-line-height);
-    font-weight: var(--text-sm-semibold-font-weight);
-    width: 100%;
-    padding: 5px;
+.section-title {
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color-light);
 }
 
-.footer-links {
-    list-style: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    padding: 5px;
+.footer-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-list li {
+    margin-bottom: 0.5rem;
 }
 
 .footer-link {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    align-items: center;
-    justify-content: flex-start;
+    color: var(--text-color-medium);
+    text-decoration: none;
+    transition: color var(--transition-speed-fast) ease-in-out;
 }
 
-.button-base { /* Used for individual links */
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none; /* Remove underline from links */
-    color: var(--gray-200); /* Default link color */
-    transition: color 0.2s ease-in-out; /* Smooth hover effect */
+.footer-link:hover {
+    color: var(--primary-color);
 }
 
-.button-base:hover {
-    color: #fff; /* Lighter color on hover */
-}
-
-.text {
-    font-family: var(--text-md-medium-font-family);
-    font-size: var(--text-md-medium-font-size);
-    line-height: var(--text-md-medium-line-height);
-    font-weight: var(--text-md-medium-font-weight);
-}
-
-/* Removed .badge and .text2 as they are not present in the current HTML */
-
-/* Bottom Section of the Footer (Copyright and Legal Links) */
-.footer-bottom-section {
-    background: var(--gray-900);
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-container.bottom-container {
-    padding: 0px 32px;
-    display: flex;
-    flex-direction: column; /* Keep as column for better mobile stacking */
-    gap: 24px;
-    align-items: center;
-    justify-content: space-between;
+.footer-bottom {
     width: 100%;
-    max-width: 1280px;
+    border-top: 1px solid var(--border-color-subtle);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem; /* Add bottom padding to the footer bottom section */
 }
 
-.content3 {
+.footer-bottom-content {
     display: flex;
-    flex-direction: row; /* Default to row */
-    gap: 32px;
+    flex-direction: column; /* Default to column for mobile */
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; /* Pushes copyright left, legal links right */
-    width: 100%; /* Take full width of parent */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 1.5rem; /* Gap between social links, copyright, and policy links on mobile */
+    max-width: 1440px; /* Match footer-container max-width for internal centering */
+    margin: 0 auto; /* Center content within footer-bottom */
+    padding: 0 20px; /* Consistent horizontal padding */
 }
 
-.footer-text {
-    color: var(--gray-400);
-    text-align: left;
-    font-family: var(--text-md-normal-font-family);
-    font-size: var(--text-md-normal-font-size);
-    line-height: var(--text-md-normal-line-height);
-    font-weight: var(--text-md-normal-font-weight);
-    flex: 1; /* Allow copyright text to take available space */
-    min-width: 200px; /* Ensure it doesn't collapse too much */
+.social-links {
+    display: flex;
+    gap: 1.5rem;
 }
 
-/* New styles for the T&C and Privacy Policy div */
-.content3 > div:last-child { /* Targets the div containing T&C and Privacy Policy */
+.social-link {
+    color: var(--text-color-medium); /* Original color, can be changed if icons are SVGs and inherit color */
+    transition: color var(--transition-speed-fast) ease-in-out;
+}
+.social-link:hover {
+    color: var(--primary-color);
+}
+.social-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    /* If icons are SVGs and you want to change their color on hover, you'd target fill/stroke */
+    /* fill: currentColor; */
+}
+
+.copyright {
+    color: var(--text-color-copyright);
+    font-size: 0.875rem;
+    text-align: center; /* Ensure copyright text is centered on mobile */
+}
+
+.policy-links { /* New styles for the policy links block */
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between P tags and the separator */
-    color: var(--gray-400); /* Color for the text and separator */
-    font-family: var(--text-md-normal-font-family);
-    font-size: var(--text-md-normal-font-size);
-    line-height: var(--text-md-normal-line-height);
-    font-weight: var(--text-md-normal-font-weight);
-    flex-wrap: wrap; /* Allow wrapping if content is too long */
-    justify-content: flex-end; /* Align to the right on larger screens */
+    gap: 0.5rem; /* Small gap between links and separator */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: center; /* Center on mobile */
+    color: var(--text-color-medium); /* Ensure separator has a color */
 }
 
-.content3 > div:last-child p {
-    margin: 0; /* Remove default margin from paragraphs */
-    padding: 0;
-    cursor: pointer; /* Indicate they are clickable links */
-    white-space: nowrap; /* Prevent wrapping of individual policy text */
+.policy-links .footer-link { /* Ensure footer-link style applies */
+    white-space: nowrap; /* Keep links on one line if possible */
 }
 
-.content3 > div:last-child p:hover {
-    color: #fff; /* Lighter color on hover for policy links */
+.policy-links .separator {
+    color: var(--text-color-medium);
 }
 
-/* Removed all .social-icons related styles as they are no longer in the HTML */
-/* Removed specific social icon image styles as they are no longer used */
 
+/* --- Responsive Styles --- */
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .content {
-        flex-direction: column; /* Stack main footer content on smaller screens */
-        align-items: center; /* Center items when stacked */
-        gap: 48px; /* Adjust gap for stacked content */
-        margin: 0px 20px 40px 20px; /* Adjust margin for smaller screens */
+/* Footer Section Responsive */
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
     }
-
-    .logo-and-supporting-text,
-    .links {
-        width: 100%; /* Take full width */
-        text-align: center; /* Center text for these sections */
-        align-items: center; /* Center items */
+    .company-section {
+        text-align: left;
+        margin: 0; /* Remove auto margin for desktop */
     }
-
-    .links {
-        flex-direction: column; /* Stack link columns */
-        gap: 32px;
+    .company-title {
+        justify-content: flex-start; /* Align logo and title to left */
     }
-
-    .footer-links-column {
-        align-items: center; /* Center links in stacked columns */
+    .company-description {
+        margin-left: 0;
+        margin-right: 0;
     }
-
-    .footer-links {
-        align-items: center; /* Center list items */
+    .button-container {
+        flex-direction: row;
+        justify-content: flex-start;
     }
-
-    .footer-container.bottom-container {
-        flex-direction: column; /* Stack items vertically */
-        gap: 20px;
+    .btn {
+        margin-top: 0; /* Remove top margin when buttons are in a row */
+        width: auto; /* Allow buttons to size based on content */
     }
+    .footer-section {
+        text-align: left;
+    }
+    .footer-bottom-content {
+        flex-direction: row; /* Layout content horizontally */
+        gap: 0; /* Remove gap when horizontal */
+        justify-content: space-between; /* Space out items */
+    }
+    .social-links {
+        margin-bottom: 0;
+    }
+    .policy-links {
+        justify-content: flex-start; /* Align policy links left on desktop */
+    }
+}
 
-    .content3 {
-        flex-direction: column; /* Stack copyright and policy links */
-        gap: 20px;
+@media (max-width: 1024px) {
+    .footer {
+        padding: 80px 15px 0 15px; /* Adjust padding for tablets */
+    }
+}
+
+@media (max-width: 767px) { /* Changed from 768px to 767px to be breakpoint below 768px */
+    .footer {
+        padding: 60px 15px 0 15px; /* Adjust padding for mobile */
+    }
+    .footer-container {
+        padding: 0 1rem;
+    }
+    .footer-grid {
+        gap: var(--spacing-md); /* Smaller gap for mobile */
+    }
+    .company-section,
+    .footer-section {
         text-align: center;
     }
-
-    .footer-text {
-        text-align: center;
-        flex: none; /* Remove flex grow */
-        width: 100%;
+    .company-title {
+        justify-content: center; /* Ensure logo and title are centered on mobile */
     }
-
-    /* Adjust T&C and Privacy Policy section for smaller screens */
-    .content3 > div:last-child {
-        justify-content: center; /* Center them when stacked */
-        width: 100%;
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn {
+        margin-top: 10px; /* Smaller top margin when stacking */
+        width: 80%; /* Make buttons narrower on mobile */
+        max-width: 200px; /* Prevent overly wide buttons */
+    }
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: var(--spacing-sm); /* Gap between social links, copyright, and policy links */
     }
 }
 
 @media (max-width: 480px) {
-    .footer-top-section {
-        padding: 30px 0 20px; /* Reduced padding */
+    .footer {
+        padding: 40px 10px 0 10px; /* Further reduced padding */
     }
-
-    .footer-container {
-        padding: 0 16px;
+    .company-title {
+        font-size: 1.25rem;
     }
-
-    .content {
-        gap: 2rem; /* Further reduce gap on very small screens, or set to a fixed pixel value */
-        margin: 0px 10px 30px 10px; /* Adjust margin */
-    }
-
-    .footer-links-column {
-        min-width: unset; /* Allow columns to shrink further */
-    }
-
-    .footer-bottom-section {
-        padding: 15px 0; /* Slightly reduced padding */
-    }
-
-    .footer-container.bottom-container {
-        padding: 0 16px; /* Reduced side padding */
-    }
-
-    .footer-text,
-    .content3 > div:last-child p {
-        font-size: 14px; /* Slightly smaller font for very small screens */
+    .btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
     }
 }
