@@ -1,0 +1,212 @@
+/* --- Footer Section Styles --- */
+.footer {
+    bottom: 0;
+    background-color: #141414;
+    color: var(--text-color-light);
+    padding: 100px 20px 0px 20px; /* Adjusted padding for consistency with other sections (desktop) */
+
+}
+
+.footer-container {
+    max-width: 100%; /* Adjusted max-width for consistency with other sections */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+.company-section {
+    text-align: center;
+    max-width:350px;
+}
+
+.company-title {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color-light);
+}
+
+.company-description {
+    color: var(--text-color-medium);
+    margin-bottom: var(--spacing-md);
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    justify-content: center;
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s;
+    outline: none;
+    border: none; /* Ensure button has no default border */
+    width: 100%; /* Make submit button full width */
+    box-sizing: border-box;
+    margin-top: 20px; /* Add some top margin */
+}
+
+.btn-primary {
+    background: #7d2ec7;
+    color: var(--text-color-light);
+}
+
+.btn-primary:hover {
+     box-shadow: 0 0 0.25em 0.1em white, inset 0 0 0.25em 0 white;
+        scale: 1.05;
+}
+
+.btn-secondary {
+    background-color: black;
+    color: var(--text-color-light);
+    border: 1px solid var(--text-color-light);
+}
+
+.btn-secondary:hover {
+     box-shadow: 0 0 0.25em 0.1em white, inset 0 0 0.25em 0 white;
+        scale: 1.05;
+}
+
+.footer-section {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color-light);
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-list li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-link {
+    color: var(--text-color-medium);
+    text-decoration: none;
+    transition: color var(--transition-speed-fast) ease-in-out;
+}
+
+.footer-link:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    width: 100%;
+    border-top: 1px solid var(--border-color-subtle);
+    margin-top: 3rem;
+    padding-top: 2rem;
+}
+
+.footer-bottom-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.social-link {
+    color: var(--text-color-medium);
+    transition: color var(--transition-speed-fast) ease-in-out;
+}
+
+.social-link:hover {
+    color: var(--primary-color);
+}
+
+.social-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.copyright {
+    color: var(--text-color-copyright);
+    font-size: 0.875rem;
+}
+
+/* Footer Section Responsive */
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+    .company-section {
+        text-align: left;
+    }
+    .company-description {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .button-container {
+        flex-direction: row;
+    }
+    .button-container {
+        justify-content: flex-start;
+    }
+    .footer-section {
+        text-align: left;
+    }
+    .footer-bottom-content {
+        flex-direction: row;
+    }
+    .social-links {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        padding: 80px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 60px 15px;
+    }
+    .footer-container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 40px 10px;
+    }
+    .company-title {
+        font-size: 1.25rem;
+    }
+    .btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}

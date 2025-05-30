@@ -2,191 +2,49 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/new-footer.css">
+    <link rel="stylesheet" href="/styles/faq.css">
     <style>
-      body {
-        padding-top: 75px;
-        background-color: black;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0; /* Ensure no default body margin */
-      }
-
-      /* Hero Section Styling */
-      .hero-section {
-        margin-top: 70px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        margin-bottom: 100px;
-        padding: 40px 20px; /* Base padding for all screens */
-        height: auto;
-        min-height: 50vh;
-        padding-bottom: 100px;
-        border-bottom: 1px solid white;
-        width: 100%; /* Ensure it takes full width */
-        box-sizing: border-box; /* Include padding in width */
-      }
-
-      .hero-contents {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%; /* Ensure contents take full width */
-        max-width: 900px; /* Constrain overall hero content width */
-      }
-
-      .hero-title {
-        font-size: 70px; /* Default for larger screens */
-        line-height: 1.1;
-        font-weight: 500;
-        margin-bottom: 30px;
-        color: white; /* Assuming white text for hero title */
-      }
-
-      .hero-description-block {
-        text-align: center;
-        max-width: 600px;
-        margin-bottom: 30px;
-        color: #b0b0b0;
-        padding: 10px;
-        font-size: 1.1em; /* Slightly larger for readability */
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-direction: row; /* Default to row */
-        align-items: center;
-        justify-content: center;
-        column-gap: 20px;
-        flex-wrap: wrap; /* Allow buttons to wrap */
-        width: 100%;
-        max-width: 400px; /* Constrain button group width */
-      }
-
-      .hero-section-button {
-        background: #7d2ec7;
-        border-radius: 8px;
-        padding: 12px 25px; /* Slightly more padding for better touch targets */
-        color: white;
-        text-align: center;
-        font-size: 16px; /* Slightly larger font */
-        font-weight: 500;
-        text-decoration: none;
-        position: relative;
-        transition: all 0.3s ease; /* Smoother transition */
-        outline: none;
-        display: inline-block;
-        border: none; /* Remove default button border */
-        cursor: pointer;
-        white-space: nowrap; /* Prevent button text from wrapping */
-      }
-
-      .hero-section-button:hover {
-        box-shadow: 0 0 0.25em 0.1em white, inset 0 0 0.25em 0 white;
-        transform: scale(1.05); /* Use transform instead of scale for better performance */
-      }
-
-      .secondary {
-        background-color: transparent; /* Changed to transparent for secondary button */
-        border: 1px solid white;
-      }
-
-      /* Base container for general content (e.g., if you use .container elsewhere) */
-      .container {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 30px;
-        max-width: 1200px;
-        width: 100%;
-        gap: 50px;
-        box-sizing: border-box;
-      }
-
-      /* Media Queries for Responsiveness */
-
-      /* Mobile adjustments (up to 768px) */
-      @media (max-width: 768px) {
-        .hero-section {
-          margin-top: 50px; /* Reduce top margin */
-          padding: 30px 15px; /* Reduce padding */
-          margin-bottom: 60px; /* Reduce bottom margin */
-          padding-bottom: 60px;
-        }
-
-        .hero-title {
-          font-size: 40px; /* Smaller font for mobile */
-          margin-bottom: 20px;
-        }
-
-        .hero-description-block {
-          font-size: 1em; /* Adjust font size */
-          padding: 0 5px; /* Less padding */
-        }
-
-        .hero-actions {
-          flex-direction: column; /* Stack buttons vertically */
-          gap: 15px; /* Space between stacked buttons */
-        }
-
-        .hero-section-button {
-          width: 80%; /* Make buttons take more width */
-          max-width: 250px; /* Constrain max width for stacked buttons */
-          padding: 10px 20px; /* Adjust padding */
-          font-size: 15px;
-        }
-      }
-
-      /* Smaller mobile devices (up to 480px) */
-      @media (max-width: 480px) {
-        .hero-section {
-          margin-top: 40px;
-          padding: 20px 10px;
-          margin-bottom: 40px;
-          padding-bottom: 40px;
-        }
-
-        .hero-title {
-          font-size: 30px; /* Even smaller font for very small screens */
-          margin-bottom: 15px;
-        }
-
-        .hero-description-block {
-          font-size: 0.9em;
-        }
-        
-        .hero-section-button {
-            width: 90%; /* Buttons take more width on very small screens */
-            max-width: 220px;
-            font-size: 14px;
-            padding: 10px 15px;
-        }
-      }
-
-
-      /* CSS Variables (assuming you have a common root or defined them in main CSS) */
+      /* Root CSS Variables for consistency across the site */
       :root {
-          /* Example variables, adjust or add based on your global styles */
-          --primary-color: #7d2ec7; /* Used for button background, etc. */
-          --text-color-light: #ffffff;
-          --text-color-medium: #ffffff; /* Lighter shade of grey */
-          --text-color-dark-transparent: rgba(209, 213, 219, 0.795); /* For subheadlines and descriptions */
-          --bg-transparent: rgba(255, 255, 255, 0.04); /* Adjusted from #ffffff0a */
-          --border-color-light: rgba(255, 255, 255, 0.4); /* For tag button border */
-          --glow-color: rgb(255, 255, 255);
-          --glow-spread-color: rgba(255, 255, 255, 0.6);
-          --enhanced-glow-color: rgb(255, 255, 255);
+          /* Primary Colors & Accents */
+          --primary-color: #7d2ec7; /* Main purple for buttons, links */
+          --secondary-button-color: #000000; /* Secondary button background */
+          --accent-blue-glow: #0040ff; /* Blue glow color */
+          --accent-purple-glow: #8A2BE2; /* Purple glow color */
 
-          /* Font sizes, weights, line heights (adjust these based on your design system) */
-          --font-size-sm: 15px; /* 14px */
-          --font-size-md: 19px; /* 16px */
-          --font-size-lg: 2.5rem; /* 40px for headlines */
-          --font-size-xl: 3.5rem; /* ~56px for larger headlines */
+          /* Text Colors */
+          --text-color-light: #ffffff; /* General white/light text */
+          --text-color-medium: #d1d5db; /* Lighter grey text for descriptions/links */
+          --text-color-dark-transparent: rgba(209, 213, 219, 0.795); /* Semi-transparent grey text */
+          --text-color-faded: #aaa; /* Even more faded text */
+          --text-color-copyright: #9ca3af; /* Copyright text */
+
+          /* Backgrounds & Borders */
+          --bg-dark: #000000; /* Pure black background */
+          --bg-dark-transparent: rgba(255, 255, 255, 0.04); /* Transparent white background */
+          --card-bg: #141414; /* Card background for tools section */
+          --border-color-dark: #282828; /* Dark border for cards */
+          --border-color-light: rgba(255, 255, 255, 0.4); /* Light border for elements */
+          --border-color-subtle: #374151; /* Subtle border for footer bottom */
+
+          /* Glow & Shadow Effects */
+          --glow-color-white: rgb(255, 255, 255); /* White glow */
+          --glow-opacity-subtle: 0.3; /* Subtle glow opacity */
+          --glow-opacity-soft: 0.05; /* Softer glow opacity */
+          --glow-blue-1: rgba(30, 60, 255, 0.2); /* Tools section brighter blue glow */
+          --glow-blue-2: rgba(30, 60, 255, 0.05); /* Tools section softer blue glow */
+          --shadow-light: rgba(0, 0, 0, 0.1);
+          --shadow-medium: rgba(0, 0, 0, 0.06);
+          --shadow-dark: rgba(0, 0, 0, 0.3);
+
+          /* Font Sizes, Weights, Line Heights */
+          --font-size-xs: 0.75rem; /* 12px */
+          --font-size-sm: 0.9375rem; /* 15px */
+          --font-size-md: 1.1875rem; /* 19px */
+          --font-size-lg: 2.5rem; /* 40px */
+          --font-size-xl: 3.5rem; /* 56px */
+          --font-size-hero-title: 70px; /* Specific for hero title */
 
           --font-weight-normal: 400;
           --font-weight-medium: 500;
@@ -196,258 +54,1261 @@
           --line-height-tight: 1.1;
           --line-height-normal: 1.5;
           --line-height-loose: 1.625;
+
+          /* Spacing */
+          --spacing-xs: 0.5rem; /* 8px */
+          --spacing-sm: 1rem; /* 16px */
+          --spacing-md: 1.5rem; /* 24px */
+          --spacing-lg: 2rem; /* 32px (Corrected from 6rem, which is too large for 32px) */
+          --spacing-xl: 2.5rem; /* 40px */
+
+          /* Border Radii */
+          --border-radius-sm: 0.5rem; /* 8px */
+          --border-radius-md: 0.75rem; /* 12px */
+          --border-radius-lg: 1.25rem; /* 20px */
+          --border-radius-full: 9999px; /* Fully rounded */
+
+          /* Transitions */
+          --transition-speed-fast: 0.2s;
+          --transition-speed-normal: 0.3s;
+          --transition-speed-slow: 0.5s;
+
+          /* Z-index */
+          --z-index-background: -1;
+          --z-index-content: 1;
+          --z-index-header: 1000;
+          --z-index-toggle: 1001;
+          --z-index-nav-mobile: 998; /* Corrected from 999 to be below toggle based on header CSS */
       }
 
-      /* About Section Container */
+      /* General Reset and Body Styles */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          background-color: var(--bg-dark); /* Using CSS variable */
+          display: flex;
+          flex-direction: column;
+          margin: 0; /* Ensure no default body margin */
+          padding-top: 70px; /* IMPORTANT: This creates space for the fixed header */
+          font-family: 'Inter', sans-serif; /* Moved from header CSS to apply globally */
+          overflow-x: hidden; /* Prevent horizontal scroll from overflow */
+          scroll-behavior: smooth;
+      }
+
+      /* Header Styles */
+      .main-header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background-color: rgba(0, 0, 0, 0.95);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 0 20px;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          z-index: var(--z-index-header); /* Using CSS variable */
+          transition: top var(--transition-speed-normal) ease; /* Only transition 'top' for hide/show */
+      }
+
+      /* Logo Styling */
+      .site-logo {
+          font-size: 1.5rem;
+          font-weight: var(--font-weight-bold); /* Using CSS variable */
+          color: var(--text-color-light); /* Using CSS variable */
+          text-decoration: none;
+          transition: color var(--transition-speed-normal) ease; /* Using CSS variable */
+      }
+
+      .site-logo:hover {
+          color: var(--primary-color); /* Using CSS variable */
+      }
+
+      /* Desktop Navigation */
+      .primary-nav {
+          display: none; /* Hidden by default, shown via JS or media query */
+      }
+
+      .primary-nav ul {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          gap: 2rem;
+          align-items: center;
+      }
+
+      .primary-nav ul li {
+          position: relative;
+      }
+
+      .primary-nav ul li a {
+          color: var(--text-color-light); /* Using CSS variable */
+          text-decoration: none;
+          font-weight: var(--font-weight-medium); /* Using CSS variable */
+          transition: color var(--transition-speed-normal) ease; /* Using CSS variable */
+          padding: 0.5rem 0;
+          position: relative;
+      }
+
+      .primary-nav ul li a:hover {
+          color: var(--primary-color); /* Using CSS variable */
+      }
+
+      .primary-nav ul li a::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: var(--primary-color); /* Using CSS variable */
+          transition: width var(--transition-speed-normal) ease; /* Using CSS variable */
+      }
+
+      .primary-nav ul li a:hover::after {
+          width: 100%;
+      }
+
+      /* Call to Action Button (Header) */
+      .call-to-action-button {
+          background-color: var(--primary-color); /* Using CSS variable */
+          color: var(--text-color-light); /* Using CSS variable */
+          padding: 0.75rem 1.5rem;
+          border-radius: var(--border-radius-sm); /* Using CSS variable */
+          text-decoration: none;
+          font-weight: var(--font-weight-medium); /* Using CSS variable */
+          transition: all var(--transition-speed-normal) ease; /* Using CSS variable */
+          border: none;
+          cursor: pointer;
+      }
+
+      .call-to-action-button:hover {
+          background-color: #6a25a8; /* Darker shade of primary, can be a variable if needed */
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(125, 46, 199, 0.3); /* Specific shadow for this button */
+      }
+
+      .desktop-cta {
+          display: none; /* Hidden by default, shown via media query */
+      }
+
+      /* Mobile Menu Toggle */
+      .menu-toggle {
+          display: flex; /* Will be overridden by media query for desktop */
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 30px;
+          height: 30px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+          z-index: var(--z-index-toggle); /* Using CSS variable */
+      }
+
+      .hamburger {
+          width: 25px;
+          height: 3px;
+          background-color: var(--text-color-light); /* Using CSS variable */
+          margin: 2px 0;
+          transition: all var(--transition-speed-normal) ease; /* Using CSS variable */
+          transform-origin: center;
+      }
+
+      /* Hamburger Animation */
+      .menu-toggle.active .hamburger:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .menu-toggle.active .hamburger:nth-child(2) {
+          opacity: 0;
+      }
+
+      .menu-toggle.active .hamburger:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+      }
+
+      /* Mobile Navigation */
+      .primary-nav.mobile-active {
+          display: block;
+          position: fixed;
+          top: 70px; /* Height of the header */
+          left: 0;
+          width: 100%;
+          height: calc(100vh - 70px); /* Full viewport height minus header */
+          background-color: rgba(0, 0, 0, 0.98);
+          backdrop-filter: blur(20px);
+          z-index: var(--z-index-nav-mobile); /* Using CSS variable */
+          animation: slideDown var(--transition-speed-normal) ease; /* Using CSS variable */
+          overflow-y: auto; /* Allow scrolling if content overflows */
+      }
+
+      @keyframes slideDown {
+          from {
+              opacity: 0;
+              transform: translateY(-20px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      .primary-nav.mobile-active ul {
+          flex-direction: column;
+          padding: 2rem;
+          gap: 1.5rem;
+          height: 100%;
+          align-items: flex-start;
+      }
+
+      .primary-nav.mobile-active ul li {
+          width: 100%;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          padding-bottom: 1rem;
+      }
+
+      .primary-nav.mobile-active ul li:last-child {
+          border-bottom: none;
+      }
+
+      .primary-nav.mobile-active ul li a {
+          font-size: 1.2rem;
+          padding: 1rem 0;
+          display: block;
+          width: 100%;
+      }
+
+      .mobile-cta {
+          margin-top: 2rem;
+          width: 100%;
+      }
+
+      .mobile-cta .call-to-action-button {
+          width: 100%;
+          text-align: center;
+          padding: 1rem;
+          font-size: 1.1rem;
+      }
+
+      /* REMOVED: .main-header.scrolled - logic moved to JS */
+      /* No longer needed as JS directly manipulates 'top' property */
+
+      /* Prevent body scroll when mobile menu is open */
+      body.menu-open {
+          overflow: hidden;
+      }
+
+      /* --- Hero Section Styles --- */
+      .hero-section {
+          /* margin-top: 70px; is handled by body padding-top */
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          margin-bottom: 100px;
+          padding: 40px 20px; /* You can reduce this if you want less space between header and hero content */
+          height: auto;
+          min-height: 90vh;
+          padding-bottom: 100px;
+          width: 100%;
+          box-sizing: border-box;
+      }
+
+      .hero-contents {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          max-width: 900px;
+      }
+
+      .hero-title {
+          font-size: var(--font-size-hero-title); /* Using CSS variable */
+          line-height: var(--line-height-tight); /* Using CSS variable */
+          font-weight: var(--font-weight-medium); /* Using CSS variable */
+          margin-bottom: 30px;
+          color: var(--text-color-light); /* Using CSS variable */
+      }
+
+      .hero-description-block {
+          text-align: center;
+          max-width: 600px;
+          margin-bottom: 30px;
+          color: #b0b0b0; /* Consider making this a CSS variable e.g., --text-color-greyish */
+          padding: 10px;
+          font-size: 1.1em;
+      }
+
+      .hero-actions {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          column-gap: 20px;
+          flex-wrap: wrap;
+          width: 100%;
+          max-width: 400px;
+      }
+
+      .hero-section-button {
+          background: var(--primary-color); /* Using CSS variable */
+          border-radius: var(--border-radius-sm); /* Using CSS variable */
+          padding: 12px 25px;
+          color: var(--text-color-light); /* Using CSS variable */
+          text-align: center;
+          font-size: 16px; /* Consider var(--font-size-sm) or specific var */
+          font-weight: var(--font-weight-medium); /* Using CSS variable */
+          text-decoration: none;
+          position: relative;
+          transition: all var(--transition-speed-normal) ease; /* Using CSS variable */
+          outline: none;
+          display: inline-block;
+          border: none;
+          cursor: pointer;
+          white-space: nowrap;
+      }
+
+      .hero-section-button:hover {
+          box-shadow: 0 0 0.25em 0.1em var(--glow-color-white), inset 0 0 0.25em 0 var(--glow-color-white); /* Using CSS variable */
+          transform: scale(1.05);
+      }
+
+      .hero-section-button.secondary { /* Combined selector */
+          background-color: transparent;
+          border: 1px solid var(--text-color-light); /* Using CSS variable */
+      }
+
+      /* --- About Section Styles --- */
       .about-section {
-          background: transparent; /* Keep as is */
+          background: transparent;
           color: var(--text-color-light);
           min-height: 100vh;
           display: flex;
           justify-content: center;
-          align-items: center; /* Vertically center the entire .about-container within the section */
-          padding: 40px 20px; /* Add overall section padding for smaller screens */
+          align-items: center;
+          padding: 40px 20px;
           box-sizing: border-box;
-          border-bottom: 1px solid white;
       }
 
       .about-container {
           background-color: transparent;
           display: flex;
-          flex-direction: column; /* Default to column for mobile-first */
-          align-items: center; /* Center items in column layout */
+          flex-direction: column;
+          align-items: center;
           width: 100%;
-          max-width: 1200px; /* Max width for content within the section */
-          gap: 2.5rem; /* Gap between image and content */
-          padding: 30px 0px; /* Original mobile container padding */
-          box-sizing: border-box; /* Include padding in element's total width and height */
-
-          /* Desktop layout for about-container */
-          @media (min-width: 1024px) {
-              flex-direction: row; /* Row direction for desktop */
-              justify-content: space-between; /* Space out image and content */
-              align-items: flex-start; /* IMPORTANT: Align items to the top in row layout */
-              gap: 4rem; /* Larger gap for desktop */
-              padding: 70px 0; /* Original desktop container padding */
-          }
-
-          @media (min-width: 1400px) { /* Adjust for larger desktops */
-              max-width: 1400px;
-              padding: 70px 50px; /* More padding on very large screens */
-          }
+          max-width: 1200px; /* Consider var(--container-width-lg) */
+          gap: 2.5rem; /* var(--spacing-xl) */
+          padding: 30px 0px;
+          box-sizing: border-box;
       }
 
       .about-image-wrapper {
-          width: 100%; /* Take full width on mobile */
-          max-width: 500px; /* Constrain max width for image on smaller screens */
+          width: 100%;
+          max-width: 500px;
           display: flex;
-          justify-content: center; /* Center image within its wrapper */
+          justify-content: center;
           align-items: center;
-          overflow: hidden; /* Ensure image doesn't overflow */
-
-          @media (min-width: 1024px) {
-              flex: 1; /* Allow image wrapper to take available space */
-              max-width: 600px; /* Larger max width for desktop image */
-          }
+          overflow: hidden;
       }
 
       .about-image-wrapper img {
           width: 100%;
           height: auto;
-          display: block; /* Remove extra space below image */
-          border-radius: 8px; /* Slightly rounded corners for the image */
+          display: block;
+          border-radius: var(--border-radius-sm); /* Using CSS variable */
           object-fit: cover;
-          border: 8px solid rgba(245, 245, 245, 0.212); /* Ensures the image covers the area without distortion */
+          border: 8px solid rgba(245, 245, 245, 0.212); /* Consider var(--border-color-image-frame) */
       }
 
       .about-content {
-          width: 100%; /* Take full width on mobile */
-          max-width: 600px; /* Constrain content width for readability */
-          padding: 0 20px; /* Inner padding for text content on mobile */
+          width: 100%;
+          max-width: 600px;
+          padding: 0 20px;
           display: flex;
           flex-direction: column;
-          align-items: flex-start; /* Default: Align content children to the start (left) */
-          justify-content: flex-start; /* Align content to the top */
-          gap: 1.5rem; /* Gap between content blocks */
+          align-items: flex-start;
+          justify-content: flex-start;
+          gap: 1.5rem; /* var(--spacing-md) */
           box-sizing: border-box;
-          text-align: left; /* Default text alignment */
-
-          @media (max-width: 767px) {
-              /* On smaller screens, you might want to center the text elements
-                within the .about-content block, but the block itself starts at the top. */
-              align-items: center; /* Center flex items (tag, headlines, cta) horizontally */
-              text-align: center; /* Center text within paragraphs */
-              padding: 0 15px; /* Slightly reduced padding */
-          }
-
-          @media (min-width: 1024px) {
-              flex: 1; /* Allow content to take available space */
-              max-width: 50%; /* Content takes roughly half the width */
-              padding: 0; /* Remove inner padding as container has it */
-              align-items: flex-start; /* Ensure left alignment for desktop */
-              text-align: left; /* Ensure left alignment for desktop */
-          }
+          text-align: left;
       }
 
       .about-tag-button-wrapper {
           display: flex;
-          justify-content: flex-start; /* Align left by default */
+          justify-content: flex-start;
           width: 100%;
-
-          @media (max-width: 767px) {
-              justify-content: center; /* Center on mobile if .about-content is centered */
-          }
       }
 
       .about-tag-button {
           display: flex;
           align-items: center;
-          justify-content: center; /* Center text within the button */
+          justify-content: center;
           font-size: var(--font-size-sm);
           font-weight: var(--font-weight-medium);
-          background-color: var(--bg-transparent);
-          padding: 10px 20px; /* Increased right padding for oval shape */
-          border-radius: 0 25px 25px 0; /* Specific border radius for tag style */
-          height: 40px; /* Adjusted height for better visual */
+          background-color: var(--bg-dark-transparent); /* Using defined var */
+          padding: 10px 20px;
+          border-radius: 0 25px 25px 0;
+          height: 40px;
           border: 1px solid var(--border-color-light);
-          color: var(--text-color-light); /* Ensure text color is bright */
-          white-space: nowrap; /* Prevent text wrapping */
+          color: var(--text-color-light);
+          white-space: nowrap;
       }
-
 
       .about-headline-group {
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
-          width: 100%; /* Take full width */
+          gap: 0.5rem; /* var(--spacing-xs) */
+          width: 100%;
       }
 
       .about-headline {
           color: var(--text-color-light);
-          font-size: var(--font-size-lg); /* Base size */
+          font-size: var(--font-size-lg);
           font-weight: var(--font-weight-medium);
           line-height: var(--line-height-tight);
-          white-space: normal; /* Allow wrapping on small screens */
-
-          @media (min-width: 768px) {
-              font-size: var(--font-size-xl); /* Larger on tablets/desktops */
-              white-space: nowrap; /* Prevent wrapping on larger screens */
-          }
+          white-space: normal;
       }
 
       .about-subheadline {
-          font-size: var(--font-size-lg); /* Base size */
+          font-size: var(--font-size-lg);
           font-weight: var(--font-weight-semibold);
-          color: var(--text-color-dark-transparent); /* Softer color for subheadline */
-          line-height: var(--line-height-tight); /* Match headline line height */
-
-          @media (min-width: 768px) {
-              font-size: var(--font-size-xl); /* Larger on tablets/desktops */
-          }
+          color: var(--text-color-dark-transparent);
+          line-height: var(--line-height-tight);
       }
 
       .about-description-group {
           display: flex;
           flex-direction: column;
-          gap: 1rem; /* Space between description paragraphs */
+          gap: 1rem; /* var(--spacing-sm) */
           width: 100%;
       }
 
-      .description-subheading {
-          color: var(--text-color-medium); /* Slightly brighter for subheadings */
-          font-size: var(--font-size-md); /* Standard font size */
-          font-weight: var(--font-weight-semibold); /* Make subheadings slightly bold */
+      .description-subheading { /* This class seems specific to about section */
+          color: var(--text-color-medium);
+          font-size: var(--font-size-md);
+          font-weight: var(--font-weight-semibold);
           line-height: var(--line-height-normal);
-          margin-top: 15px; /* Add some space above new subheadings */
+          margin-top: 15px;
       }
 
       .about-description-text {
           color: var(--text-color-dark-transparent);
-          font-size: var(--font-size-sm); /* Smaller on mobile */
+          font-size: var(--font-size-sm);
           line-height: var(--line-height-loose);
-
-          @media (min-width: 768px) {
-              font-size: var(--font-size-md); /* Larger on tablets/desktops */
-          }
       }
 
       .about-cta-group {
           display: flex;
-          flex-direction: column; /* Default to column for mobile */
-          align-items: flex-start; /* Align left by default */
-          gap: 1.5rem; /* Gap between CTA buttons if more are added */
-          padding-top: 1rem;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.5rem; /* var(--spacing-md) */
+          padding-top: 1rem; /* var(--spacing-sm) */
           width: 100%;
-
-          @media (max-width: 767px) {
-              align-items: center; /* Center on mobile if .about-content is centered */
-          }
-
-          @media (min-width: 640px) {
-              flex-direction: row; /* Row for wider mobile/tablet */
-              align-items: center;
-              justify-content: flex-start; /* Align to start in row layout */
-              gap: 1.5rem; /* Keep a consistent gap */
-          }
       }
 
       .about-main-cta {
           background-color: var(--primary-color);
           color: var(--text-color-light);
           font-weight: var(--font-weight-bold);
-          padding: 0.85rem 1.8rem; /* Slightly more padding for better button size */
-          border-radius: 9999px; /* Fully rounded */
+          padding: 0.85rem 1.8rem;
+          border-radius: var(--border-radius-full);
           position: relative;
-          transition: all 0.3s ease-in-out; /* Smoother transition */
+          transition: all var(--transition-speed-normal) ease-in-out; /* Using CSS variable */
           outline: none;
-          border: none; /* Remove default button border */
+          border: none;
           cursor: pointer;
-          font-size: var(--font-size-md); /* Ensure text is readable */
-          white-space: nowrap; /* Prevent text wrap inside button */
+          font-size: var(--font-size-md);
+          white-space: nowrap;
           text-decoration: none;
+      }
 
-          &:hover {
-              transform: scale(1.05); /* Use transform instead of scale */
-              box-shadow: 0 0 0.5em 0.2em var(--glow-color),
-                          inset 0 0 0.5em 0.1em var(--glow-color); /* Stronger glow */
+      .about-main-cta:hover {
+          transform: scale(1.05);
+          /* --glow-color is not defined, using --glow-color-white or --primary-color for glow */
+          box-shadow: 0 0 0.5em 0.2em var(--primary-color),
+                      inset 0 0 0.5em 0.1em var(--primary-color);
+      }
+
+      /* --- Team Section Styles --- */
+      .team-section {
+          font-family: 'Inter', sans-serif;
+          background-color: var(--bg-dark);
+          color: var(--text-color-light);
+          position: relative;
+          padding: 100px 20px;
+          text-align: center;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50px; /* This is a large radius, ensure it's intended */
+          overflow: hidden; /* To contain glow effects */
+      }
+
+      .team-section .glow-effect { /* General class for glows in team section */
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(80px);
+          opacity: var(--glow-opacity-subtle);
+          z-index: var(--z-index-background);
+      }
+
+      .team-section .top-left { /* Specific glow */
+          width: 400px;
+          height: 400px;
+          background: radial-gradient(circle, var(--accent-blue-glow), var(--bg-dark));
+          top: -100px;
+          left: -100px; /* Added for positioning */
+      }
+
+      .team-section .bottom-right { /* Specific glow */
+          width: 500px;
+          height: 500px;
+          background: radial-gradient(circle, var(--accent-purple-glow), var(--bg-dark));
+          bottom: -150px;
+          right: -150px; /* Added for positioning */
+      }
+
+      .team-header {
+          max-width: 800px;
+          margin-bottom: 60px;
+          position: relative; /* Ensure content is above glows */
+          z-index: var(--z-index-content);
+      }
+
+      .team-tag { /* Shared styling with .tag and .about-tag-button, consider consolidating */
+          display: inline-flex; /* Changed from flex to inline-flex for auto margin to work for centering */
+          align-items: center;
+          justify-content: center; /* Added for centering text if needed */
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 20px;
+          width: fit-content;
+          font-size: var(--font-size-sm);
+          font-weight: var(--font-weight-medium);
+          background-color: var(--bg-dark-transparent); /* Using defined var */
+          padding: 10px 20px;
+          border-radius: 25px; /* Consider var(--border-radius-full) or specific var */
+          height: 40px;
+          border: 1px solid var(--border-color-light);
+          color: var(--text-color-light);
+          white-space: nowrap;
+      }
+
+      .team-title {
+          font-size: 3.5em; /* Consider var(--font-size-xl) or a new specific var */
+          font-weight: var(--font-weight-bold);
+          line-height: 1.2; /* Consider var(--line-height-tight) */
+          margin: 0 0 20px;
+          background: linear-gradient(to right, #ffffff, #aaaaaa);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: var(--text-color-light); /* Fallback */
+      }
+
+      .team-description {
+          font-size: 1.1em; /* Consider var(--font-size-md) or specific var */
+          color: var(--text-color-faded);
+          line-height: var(--line-height-loose); /* Using CSS variable */
+          margin: 0 auto 40px;
+          max-width: 600px;
+      }
+
+      .book-call-button { /* Similar to .hero-section-button, consider consolidating */
+          background: var(--primary-color);
+          border-radius: var(--border-radius-sm);
+          padding: 12px 25px;
+          color: var(--text-color-light);
+          text-align: center;
+          font-size: var(--font-size-sm);
+          font-weight: var(--font-weight-medium);
+          text-decoration: none;
+          position: relative;
+          transition: all var(--transition-speed-normal) ease;
+          outline: none;
+          display: inline-block;
+          border: none;
+          cursor: pointer;
+          white-space: nowrap;
+      }
+
+      .book-call-button:hover {
+          box-shadow: 0 0 0.25em 0.1em var(--glow-color-white), inset 0 0 0.25em 0 var(--glow-color-white);
+          transform: scale(1.05);
+      }
+
+      .team-grid-container {
+          width: 100%;
+          max-width: 1400px;
+          padding: 0 20px; /* Consistent with other sections */
+          position: relative; /* Ensure content is above glows */
+          z-index: var(--z-index-content);
+      }
+
+      .team-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px; /* var(--spacing-md) approx */
+          justify-content: center;
+      }
+
+      .team-member-card {
+          background-color: #1c1c1c; /* Consider var(--card-bg-darker) or similar */
+          border: 1px solid var(--border-color-dark);
+          border-radius: var(--border-radius-md);
+          padding: 20px;
+          text-align: left;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          box-shadow: 0 4px 15px var(--shadow-dark); /* Using CSS variable */
+          transition: transform var(--transition-speed-normal) ease, box-shadow var(--transition-speed-normal) ease;
+      }
+
+      .team-member-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2); /* Specific hover shadow */
+      }
+
+      .member-photo {
+          width: 100%;
+          max-height: 300px;
+          height: 100%;
+          object-fit: cover;
+          border-radius: var(--border-radius-sm);
+          margin-bottom: 15px;
+      }
+
+      .member-info {
+          flex-grow: 1;
+      }
+
+      .member-name {
+          font-size: 1.35em; /* Consider var(--font-size-md) or specific var */
+          font-weight: var(--font-weight-semibold);
+          margin-bottom: 5px;
+          color: var(--text-color-light);
+      }
+
+      .member-role {
+          font-size: 1em; /* Consider var(--font-size-sm) or specific var */
+          color: var(--text-color-faded);
+      }
+
+      .member-icon-box {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          background-color: var(--bg-dark);
+          border: 1px solid #333; /* Consider var(--border-color-dark) or specific var */
+          border-radius: 6px; /* Consider var(--border-radius-xs) or specific var */
+          width: 35px;
+          height: 35px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+      }
+
+      .member-icon {
+          font-size: 1.1em;
+          color: #666; /* Consider var(--text-color-icon) or specific var */
+          font-weight: var(--font-weight-medium);
+      }
+
+      /* --- Tools Section Styles --- */
+      .section-container { /* This class is used for the Tools section main container */
+          margin: 0 auto;
+          margin-top: 100px;
+          font-family: 'Inter', sans-serif;
+          background-color: var(--bg-dark);
+          color: var(--text-color-light);
+          line-height: var(--line-height-normal);
+          position: relative;
+          padding: 80px 20px;
+          max-width: 1440px;
+          box-sizing: border-box;
+          overflow: hidden;
+      }
+
+      .section-container::before,
+      .section-container::after {
+          content: '';
+          position: absolute;
+          /* Using more specific glow variables from :root */
+          background: radial-gradient(circle, var(--glow-blue-1) 0%, rgba(0,0,0,0) 70%);
+          filter: blur(100px);
+          z-index: var(--z-index-background);
+          pointer-events: none;
+      }
+
+      .section-container::before {
+          width: 500px;
+          height: 500px;
+          top: -100px;
+          left: -150px;
+          transform: rotate(30deg);
+          /* Example of using a different gradient for variation if needed */
+          /* background: radial-gradient(circle at 10% 90%, var(--glow-blue-1) 0%, rgba(0,0,0,0) 70%); */
+      }
+
+      .section-container::after {
+          width: 600px;
+          height: 600px;
+          bottom: -150px;
+          right: -200px;
+          transform: rotate(-45deg);
+          background: radial-gradient(circle at 90% 10%, var(--glow-blue-2) 0%, rgba(0,0,0,0) 70%);
+      }
+
+      .header-content { /* Specific to Tools section header */
+          text-align: center;
+          margin-bottom: 60px;
+          position: relative;
+          z-index: var(--z-index-content);
+      }
+
+      .tag { /* Shared styling with .team-tag and .about-tag-button */
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 20px;
+          font-size: var(--font-size-sm);
+          background-color: var(--bg-dark-transparent); /* Using defined var */
+          padding: 10px 20px;
+          border-radius: 25px; /* Consider var(--border-radius-full) */
+          border: 1px solid var(--border-color-light);
+          white-space: nowrap;
+          color: var(--text-color-light); /* Added for consistency */
+      }
+
+      .header-content h1 { /* Tools section H1 */
+          font-size: 3.5em; /* var(--font-size-xl) or specific */
+          font-weight: var(--font-weight-bold);
+          margin-top: 15px;
+          margin-bottom: 10px;
+          line-height: var(--line-height-tight);
+          color: var(--text-color-light); /* Added for explicitness */
+      }
+
+      .header-content h2 { /* Tools section H2 */
+          font-size: 2.5em; /* var(--font-size-lg) or specific */
+          font-weight: var(--font-weight-semibold);
+          color: var(--text-color-light);
+          margin-top: 0;
+          margin-bottom: 20px;
+          line-height: 1.2; /* Consider var(--line-height-tight) */
+      }
+
+      .header-content p { /* Tools section paragraph */
+          font-size: 1.1em; /* var(--font-size-md) or specific */
+          color: var(--text-color-medium); /* Using defined var, original was --light-text-color which is white */
+          max-width: 650px;
+          margin: 0 auto 30px auto;
+          line-height: var(--line-height-normal);
+      }
+
+      .header-content button { /* Tools section button, similar to others */
+          background: var(--primary-color); /* Using CSS variable */
+          border-radius: var(--border-radius-sm); /* Using CSS variable */
+          padding: 15px 20px; /* Slightly different padding */
+          color: var(--text-color-light); /* Using CSS variable */
+          text-align: center;
+          font-size: 17px; /* Specific font size, consider var(--font-size-md) */
+          font-weight: var(--font-weight-medium); /* Using CSS variable */
+          text-decoration: none;
+          position: relative;
+          transition: all var(--transition-speed-normal); /* Using CSS variable */
+          outline: none;
+          border: none;
+          margin-top: 20px;
+          cursor: pointer; /* Added for completeness */
+      }
+
+      .header-content button:hover {
+          box-shadow: 0 0 0.25em 0.1em var(--glow-color-white), inset 0 0 0.25em 0 var(--glow-color-white); /* Using CSS variable */
+          transform: scale(1.05); /* Changed from 'scale' to 'transform' */
+      }
+
+      .tools-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr); /* Explicitly 3 columns for large screens */
+          gap: 25px; /* var(--spacing-md) approx */
+          position: relative;
+          z-index: var(--z-index-content);
+      }
+
+      .tool-card {
+          background-color: var(--card-bg);
+          border: 1px solid var(--border-color-dark);
+          border-radius: var(--border-radius-md);
+          padding: 25px; /* var(--spacing-xl) */
+          display: flex;
+          flex-direction: column;
+          gap: 15px; /* var(--spacing-sm) approx */
+          transition: transform var(--transition-speed-normal) ease, box-shadow var(--transition-speed-normal) ease;
+          box-shadow: 0 4px 15px var(--shadow-light); /* Using CSS variable */
+      }
+
+      .tool-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(125, 39, 236, 0.2);
+      }
+
+      .card-header { /* Specific to tool card */
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          position: relative;
+      }
+
+      .card-header img {
+          width: 48px;
+          height: 48px;
+          border-radius: var(--border-radius-md);
+          object-fit: contain;
+      }
+
+      .card-header img[alt="Stripe Logo"],
+      .card-header img[alt="Github Logo"] { /* Specific styling for these logos */
+          border-radius: 50%; /* var(--border-radius-full) */
+          background-color: #333; /* Consider a var, e.g., --icon-bg-dark */
+      }
+
+      .card-title-group {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+      }
+
+      .card-title-group h3 {
+          font-size: 1.3em; /* var(--font-size-md) or specific */
+          font-weight: var(--font-weight-semibold);
+          margin: 0;
+          line-height: 1.2; /* var(--line-height-tight) */
+          color: var(--text-color-light); /* Added for explicitness */
+      }
+
+      .card-title-group .pro-tag {
+          background-color: #0648ff; /* Specific blue, consider var(--accent-blue-tag-bg) */
+          color: var(--text-color-light); /* Original was --light-text-color, assuming white */
+          font-size: 0.7em; /* var(--font-size-xs) or specific */
+          font-weight: var(--font-weight-medium);
+          padding: 3px 8px;
+          border-radius: 4px; /* Consider var(--border-radius-xs) or specific */
+          margin-left: 8px; /* var(--spacing-xs) */
+          display: inline-block;
+          vertical-align: middle;
+          line-height: 1;
+      }
+
+      .card-title-group .category {
+          font-size: 0.9em; /* var(--font-size-sm) or specific */
+          color: var(--text-color-medium); /* Replaced --light-text-color */
+          margin-top: 4px;
+      }
+
+      .card-arrow {
+          position: absolute;
+          top: 0;
+          right: 0;
+          color: var(--text-color-medium); /* Replaced --light-text-color */
+          font-size: 1.2em;
+          text-decoration: none;
+          transition: color var(--transition-speed-fast) ease;
+      }
+
+      .card-arrow:hover {
+          color: var(--text-color-light);
+      }
+
+      .tool-card .description {
+          font-size: 0.95em;
+          color: var(--text-color-medium); /* Replaced --light-text-color */
+          margin: 0;
+      }
+
+
+      /* --- Responsive Styles --- */
+
+      /* Header Responsive */
+      @media (min-width: 768px) {
+          .main-header {
+              padding: 0 2rem;
+          }
+          .menu-toggle {
+              display: none;
+          }
+          .primary-nav {
+              display: block;
+          }
+          .desktop-cta {
+              display: inline-block;
+          }
+          .mobile-cta {
+              display: none;
           }
       }
-      /* Add this new rule for the reversed layout */
-      .about-container-reverse {
-          /* Only apply row-reverse on desktop */
-          @media (min-width: 1024px) {
+
+      @media (min-width: 1024px) {
+          .main-header {
+              padding: 0 3rem;
+          }
+          .primary-nav ul {
+              gap: 2.5rem;
+          }
+      }
+
+      /* Hero Section Responsive */
+      @media (max-width: 768px) {
+          .hero-section {
+              /* margin-top: 50px; is handled by body padding-top */
+              padding: 30px 15px;
+              margin-bottom: 60px;
+              padding-bottom: 60px;
+          }
+          .hero-title {
+              font-size: 40px; /* var(--font-size-lg) */
+              margin-bottom: 20px;
+          }
+          .hero-description-block {
+              font-size: 1em;
+              padding: 0 5px;
+          }
+          .hero-actions {
+              flex-direction: column;
+              gap: 15px;
+          }
+          .hero-section-button {
+              width: 80%;
+              max-width: 250px;
+              padding: 10px 20px;
+              font-size: 15px; /* var(--font-size-sm) */
+          }
+      }
+
+      @media (max-width: 480px) {
+          .hero-section {
+              /* margin-top: 40px; is handled by body padding-top */
+              padding: 20px 10px;
+              margin-bottom: 40px;
+              padding-bottom: 40px;
+          }
+          .hero-title {
+              font-size: 30px; /* Smaller than var(--font-size-lg) */
+              margin-bottom: 15px;
+          }
+          .hero-description-block {
+              font-size: 0.9em;
+          }
+          .hero-section-button {
+              width: 90%;
+              max-width: 220px;
+              font-size: 14px; /* Smaller than var(--font-size-sm) */
+              padding: 10px 15px;
+          }
+      }
+
+      /* About Section Responsive */
+      @media (min-width: 1024px) {
+          .about-container {
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: flex-start;
+              gap: 4rem; /* var(--spacing-lg) potentially */
+              padding: 70px 0;
+          }
+          .about-container.about-container-reverse { /* Added .about-container-reverse here */
               flex-direction: row-reverse;
           }
+          .about-image-wrapper {
+              flex: 1;
+              max-width: 600px;
+          }
+          .about-content {
+              flex: 1;
+              max-width: 50%;
+              padding: 0;
+              align-items: flex-start;
+              text-align: left;
+          }
+          .about-headline {
+              font-size: var(--font-size-xl);
+              white-space: nowrap;
+          }
+          .about-subheadline {
+              font-size: var(--font-size-xl);
+          }
       }
+
+      @media (min-width: 1400px) { /* This was nested, should be top-level */
+          .about-container {
+              max-width: 1400px; /* var(--container-width-xl) */
+              padding: 70px 50px;
+          }
+      }
+
+      @media (max-width: 1023px) { /* To handle styles before 1024px for about section */
+          .about-image-wrapper {
+              max-width: 500px; /* Default from non-responsive part */
+          }
+      }
+
+
+      @media (max-width: 767px) { /* About section mobile */
+          .about-content {
+              align-items: center;
+              text-align: center;
+              padding: 0 15px;
+          }
+          .about-tag-button-wrapper {
+              justify-content: center;
+          }
+          .about-description-text {
+              font-size: var(--font-size-sm); /* Default, no change needed from base */
+          }
+          .about-cta-group {
+              align-items: center;
+          }
+      }
+
+      @media (min-width: 768px) { /* About section tablet specific, if any */
+          /* .about-headline - already handled by min-width: 1024px for nowrap, size changes there too */
+          /* .about-subheadline - already handled by min-width: 1024px for size */
+          .about-description-text {
+              font-size: var(--font-size-md);
+          }
+      }
+
+
+      @media (min-width: 640px) { /* About CTA group responsive */
+          .about-cta-group {
+              flex-direction: row;
+              align-items: center;
+              justify-content: flex-start;
+              /* gap: 1.5rem; */ /* Already defined in base */
+          }
+      }
+
+
+      /* Team Section Responsive */
+      @media (min-width: 1025px) { /* Team grid for very large screens */
+          .team-grid {
+              grid-template-columns: repeat(3, 1fr);
+          }
+      }
+
+      @media (max-width: 1024px) { /* Team section tablet and smaller */
+          .team-title {
+              font-size: 3em;
+          }
+          .team-grid {
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Already default */
+          }
+      }
+
+      @media (max-width: 768px) { /* Team section smaller tablet / large mobile */
+          .team-section {
+              padding: 80px 15px;
+              border-radius: 30px; /* Reducing border radius */
+          }
+          .team-title {
+              font-size: 2.5em;
+              line-height: 1.3;
+          }
+          .team-description {
+              font-size: 1em;
+          }
+          .book-call-button {
+              padding: 12px 25px; /* Same as default */
+              font-size: 1em;
+          }
+          .team-grid {
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              gap: 20px;
+          }
+          .member-photo {
+              height: 250px;
+          }
+          .member-name {
+              font-size: 1.2em;
+          }
+          .member-role {
+              font-size: 0.9em;
+          }
+          .member-icon-box {
+              width: 30px;
+              height: 30px;
+              bottom: 15px;
+              right: 15px;
+          }
+      }
+
+      @media (max-width: 480px) { /* Team section mobile */
+          .team-section {
+              padding: 60px 10px;
+              border-radius: 20px; /* Further reducing border radius */
+          }
+          .team-tag {
+              font-size: 0.8em;
+              padding: 6px 12px;
+              margin-bottom: 20px; /* Same as default */
+          }
+          .team-title {
+              font-size: 2em;
+          }
+          .team-description {
+              font-size: 0.9em;
+          }
+          .book-call-button {
+              font-size: 0.9em;
+              padding: 10px 20px;
+          }
+          .team-grid {
+              grid-template-columns: 1fr; /* Single column */
+              gap: 15px;
+          }
+          .member-photo {
+              height: 200px;
+          }
+          .member-name {
+              font-size: 1.1em;
+          }
+          .member-role {
+              font-size: 0.85em;
+          }
+      }
+
+      /* Tools Section Responsive */
+      @media (max-width: 1024px) { /* Tools section tablet */
+          .section-container { /* Tools section container */
+              max-width: 960px; /* Adjusting max width */
+          }
+          .header-content h1 { /* Tools H1 */
+              font-size: 3em;
+          }
+          .header-content h2 { /* Tools H2 */
+              font-size: 2em;
+          }
+          .tools-grid {
+              grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+          }
+      }
+
+      @media (max-width: 768px) { /* Tools section smaller tablet / large mobile */
+          .section-container { /* Tools section container */
+              padding: 60px 15px;
+              max-width: 100%; /* Full width */
+          }
+          .header-content h1 { /* Tools H1 */
+              font-size: 2.5em;
+          }
+          .header-content h2 { /* Tools H2 */
+              font-size: 1.8em;
+          }
+          .header-content p { /* Tools p */
+              font-size: 1em;
+          }
+          .header-content button { /* Tools button */
+              padding: 12px 25px;
+              font-size: 1em;
+          }
+          .tools-grid {
+              grid-template-columns: 1fr; /* Single column */
+          }
+          .tool-card {
+              padding: 20px;
+          }
+          .card-header img { /* Tool card image */
+              width: 40px;
+              height: 40px;
+          }
+          .card-title-group h3 { /* Tool card title */
+              font-size: 1.2em;
+          }
+          .card-title-group .category { /* Tool card category */
+              font-size: 0.85em;
+          }
+          .tool-card .description { /* Tool card description */
+              font-size: 0.9em;
+          }
+          .section-container::before { /* Tools glow */
+              top: -50px;
+              left: -100px;
+              width: 300px;
+              height: 300px;
+          }
+          .section-container::after { /* Tools glow */
+              bottom: -50px;
+              right: -100px;
+              width: 350px;
+              height: 350px;
+          }
+      }
+
+      @media (max-width: 480px) { /* Tools section mobile */
+          .section-container { /* Tools section container */
+              padding: 40px 10px;
+          }
+          .tag { /* General tag, used in Tools header */
+              font-size: 0.75em; /* var(--font-size-xs) */
+          }
+          .header-content h1 { /* Tools H1 */
+              font-size: 2em;
+          }
+          .header-content h2 { /* Tools H2 */
+              font-size: 1.5em;
+          }
+          .header-content p { /* Tools p */
+              font-size: 0.9em;
+          }
+          .header-content button { /* Tools button */
+              font-size: 0.9em;
+              padding: 10px 20px;
+          }
+      }
+
     </style>
   </head>
   <body>
     <header class="main-header">
-      <div href="#" class="site-logo">Logo</div>
+        <a href="#" class="site-logo">Logo</a>
 
-      <button class="menu-toggle" aria-label="Toggle navigation">
-        <span class="hamburger"></span>
-        <span class="hamburger"></span>
-        <span class="hamburger"></span>
-      </button>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </button>
 
-      <nav class="primary-nav">
-        <ul>
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#how">How We Work</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li class="mobile-cta">
-            <a href="#contact-us" class="call-to-action-button">Get In Touch</a>
-          </li>
-        </ul>
-      </nav>
+        <nav class="primary-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#how">How We Work</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li class="mobile-cta"><a href="#contact-us" class="call-to-action-button">Get In Touch</a></li>
+            </ul>
+        </nav>
 
-      <a href="#contact-us" class="call-to-action-button desktop-cta"
-        >Get In Touch</a
-      >
+        <a href="#contact-us" class="call-to-action-button desktop-cta">Get In Touch</a>
     </header>
 
     <section class="hero-section" id="about">
@@ -474,7 +1335,7 @@
 
         <div class="about-content">
             <div class="about-tag-button-wrapper">
-                <div class="about-tag-button"> &bull; About Silvy
+                <div class="about-tag-button"> • About Silvy
                 </div>
             </div>
 
@@ -509,52 +1370,504 @@
             </div>
         </div>
     </div>
-</section>
+    </section>
 
-<section id="our-mission" class="about-section"> 
-  <div class="about-container about-container-reverse"> 
-    <div class="about-image-wrapper">
-            <img src="/images/hZgGlHpPFf0bbzHL7dI9MolatA.webp" alt="Our Mission Image">
+    <section id="our-mission" class="about-section"> 
+      <div class="about-container about-container-reverse"> 
+        <div class="about-image-wrapper">
+                <img src="/images/hZgGlHpPFf0bbzHL7dI9MolatA.webp" alt="Our Mission Image">
+            </div>
+
+            <div class="about-content">
+                <div class="about-tag-button-wrapper">
+                    <div class="about-tag-button"> • About Silvy
+                    </div>
+                </div>
+
+                <div class="about-headline-group">
+                    <h1 class="about-headline">
+                        Work Smarter <br> Not Harder
+                    </h1>
+                    <h1 class="about-subheadline">
+                        In Every Minutes!
+                    </h1>
+                </div>
+
+                <div class="about-description-group">
+                    <p class="description-subheading">
+                        Guided Every Step
+                    </p>
+                    <p class="about-description-text">
+                        We ensure a smooth journey from concept to completion, providing expert support to bring your vision to life effortlessly.
+                    </p>
+                    <p class="description-subheading">
+                        Support Beyond Delivery
+                    </p>
+                    <p class="about-description-text">
+                        Our commitment doesn't end at launch-landin is here to support you with ongoing updates and expertise whenever you need it.
+                    </p>
+                </div>
+
+                <div class="about-cta-group">
+                  <a class="about-main-cta" href="/services.html">
+                      Explore Our Services
+                  </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="team-section">
+        <div class="glow-effect top-left"></div>
+        <div class="glow-effect bottom-right"></div>
+
+        <div class="team-header">
+            <span class="team-tag">• Team Members</span>
+            <h1 class="team-title">Meet the Team Making <br> Things Happen Every Day</h1>
+            <p class="team-description">Our team is made up of passionate professionals who bring their expertise and creativity to every project.</p>
+            <a href="#" class="book-call-button">Book a 15-min call</a>
         </div>
 
-        <div class="about-content">
-            <div class="about-tag-button-wrapper">
-                <div class="about-tag-button"> &bull; About Silvy
+        <div class="team-grid-container">
+            <div class="team-grid">
+                <div class="team-member-card">
+                    <img src="https://picsum.photos/id/64/300/350" alt="Daniel Reed" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">Kottapalli Priyanshu</h3>
+                        <p class="member-role">Founder, CEO</p>
+                    </div>
+                    <div class="member-icon-box">
+                        <span class="member-icon">%</span>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <img src="https://picsum.photos/id/1005/300/350" alt="T.Sridhar" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">T. Sridhar</h3>
+                        <p class="member-role">Developer, Tech Lead</p>
+                    </div>
+                    <div class="member-icon-box">
+                        <span class="member-icon">%</span>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <img src="https://picsum.photos/id/1027/300/350" alt="Shreyansh patil" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">Shreyansh Patil</h3>
+                        <p class="member-role">HR</p>
+                    </div>
+                    <div class="member-icon-box">
+                        <span class="member-icon">%</span>
+                    </div>
+                </div>
+                <div class="team-member-card">
+                    <img src="https://picsum.photos/id/64/300/350" alt="Daniel Reed" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">Kottapalli Priyanshu</h3>
+                        <p class="member-role">Founder, CEO</p>
+                    </div>
+                    <div class="member-icon-box">
+                        <span class="member-icon">%</span>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <img src="https://picsum.photos/id/1005/300/350" alt="T.Sridhar" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">T. Sridhar</h3>
+                        <p class="member-role">Developer, Tech Lead</p>
+                    </div>
+                    <div class="member-icon-box">
+                        <span class="member-icon">%</span>
+                    </div>
+                </div>
+
+                <div class="team-member-card">
+                    <img src="https://picsum.photos/id/1027/300/350" alt="Shreyansh patil" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">Shreyansh Patil</h3>
+                        <p class="member-role">HR</p>
+                    </div>
+                    <div class="member-icon-box">
+                        <span class="member-icon">%</span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+    </section>
+
+    <section class="section-container">
+    <div class="header-content">
+        <span class="tag">• Tools</span>
+        <h1>Tools and Technologies</h1>
+        <h2>Powering Our Productivity</h2>
+        <p>Our toolkit is made up of the latest and most reliable tech to ensure your project is executed to perfection.</p>
+        <button>Book an Appointment</button>
+    </div>
+
+    <div class="tools-grid">
+        <!-- Framer Card -->
+        <div class="tool-card">
+            <div class="card-header">
+                <img src="/icons/framer-svgrepo-com.svg" alt="HTML Logo">
+                <div class="card-title-group">
+                    <h3>Framer <span class="pro-tag">PRO</span></h3>
+                    <span class="category">Design & Automation</span>
+                </div>
+                <a href="#" class="card-arrow">↗</a> <!-- Unicode for top-right arrow -->
+            </div>
+            <p class="description">Framer is a trending software which we use for designing, adding stunning animations and Transitions.</p>
+        </div>
+
+        <!-- CSS -->
+        <div class="tool-card">
+            <div class="card-header">
+                <img src="/icons/css-3-svgrepo-com.svg" alt="CSS Logo">
+                <div class="card-title-group">
+                    <h3>CSS</h3>
+                    <span class="category">Styling</span>
+                </div>
+                <a href="#" class="card-arrow">↗</a>
+            </div>
+            <p class="description">CSS is used for designing and styling websites according to our customer's requirements.</p>
+        </div>
+
+        <!-- JS Card -->
+        <div class="tool-card">
+            <div class="card-header">
+                <img src="/icons/js-svgrepo-com.svg" alt="JS Logo">
+                <div class="card-title-group">
+                    <h3>Java Script</h3>
+                    <span class="category">Responsiveness</span>
+                </div>
+                <a href="#" class="card-arrow">↗</a>
+            </div>
+            <p class="description">Java Script helps in creating the interactive designs for better user experiences.</p>
+        </div>
+        
+        <!-- Python Card -->
+        <div class="tool-card">
+            <div class="card-header">
+                <img src="/icons/python-svgrepo-com.svg" alt="Python Logo">
+                <div class="card-title-group">
+                    <h3>Python</h3>
+                    <span class="category">Backend</span>
+                </div>
+                <a href="#" class="card-arrow">↗</a>
+            </div>
+            <p class="description">Python helps us create powerful and versatile backend for your website.</p>
+        </div>
+  
+
+        <!-- React Card -->
+        <div class="tool-card">
+            <div class="card-header">
+                <img src="/icons/react-svgrepo-com.svg" alt="React Logo">
+                <div class="card-title-group">
+                    <h3>React</h3>
+                    <span class="category">UI Designing</span>
+                </div>
+                <a href="#" class="card-arrow">↗</a>
+            </div>
+            <p class="description">This java script library is used for creating user interfaces and interactive web-applications.</p>
+        </div>
+
+        <!-- Github Card -->
+        <div class="tool-card">
+            <div class="card-header">
+                <img src="/icons/git-svgrepo-com.svg" alt="Github Logo">
+                <div class="card-title-group">
+                    <h3>Github</h3>
+                    <span class="category">Version Control</span>
+                </div>
+                <a href="#" class="card-arrow">↗</a>
+            </div>
+            <p class="description">GitHub is our version control system, enabling smooth collaboration.</p>
+        </div>
+    </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+      <div class="faq-container">
+      
+        
+        <div class="faq-tag-wrapper">
+        <div class="faq-tag">&bull; FAQ</div>
+        </div>
+        <div class="faq-content">
+          <div class="faq-left">
+            <h2 class="faq-heading">
+              Frequently <br> <span class="heading-accent">Asked Questions</span>
+            </h2>
+            <p class="faq-subheading">Have questions? Our FAQ section has you covered with quick answers to the most common inquiries.</p>
+          </div>
+          <div class="faq-right">
+            <div class="faq-item">
+              <p class="faq-question">What do I need to get started?</p>
+              <span class="faq-icon">+</span>
+            </div> 
+
+            <div class="faq-item">
+              <p class="faq-question">What kind of customization is available?</p>
+              <span class="faq-icon">+</span>
+            </div>
+
+            <div class="faq-item">
+              <p class="faq-question">How easy is it to edit for beginners?</p>
+              <span class="faq-icon">+</span>
+            </div>
+
+            <div class="faq-item">
+              <p class="faq-question">Let me know more about money-back guarantee?</p>
+              <span class="faq-icon">+</span>
+            </div>
+
+            <div class="faq-item">
+              <p class="faq-question">Do I need to know how to code?</p>
+              <span class="faq-icon">+</span>
+            </div>
+
+            <div class="faq-item">
+              <p class="faq-question">What will I get after purchasing the template?</p>
+              <span class="faq-icon">+</span>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </section>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="company-section">
+                <h3 class="company-title">Silvy</h3>
+                <p class="company-description">
+                    Building something incredible with cutting-edge technology and innovative solutions.
+                </p>
+                <div class="button-container">
+                    <button class="btn btn-primary">Get Started</button>
+                    <button class="btn btn-secondary">Learn More</button>
                 </div>
             </div>
 
-            <div class="about-headline-group">
-                <h1 class="about-headline">
-                    Work Smarter <br> Not Harder
-                </h1>
-                <h1 class="about-subheadline">
-                    In Every Minutes!
-                </h1>
+            <div class="footer-section">
+                <h4 class="section-title">Quick Links</h4>
+                <ul class="footer-list">
+                    <li><a href="#" class="footer-link">Home</a></li>
+                    <li><a href="#" class="footer-link">About</a></li>
+                    <li><a href="#" class="footer-link">Services</a></li>
+                    <li><a href="#" class="footer-link">Contact</a></li>
+                </ul>
             </div>
 
-            <div class="about-description-group">
-                <p class="description-subheading">
-                    Guided Every Step
-                </p>
-                <p class="about-description-text">
-                    We ensure a smooth journey from concept to completion, providing expert support to bring your vision to life effortlessly.
-                </p>
-                <p class="description-subheading">
-                    Support Beyond Delivery
-                </p>
-                <p class="about-description-text">
-                    Our commitment doesn't end at launch-landin is here to support you with ongoing updates and expertise whenever you need it.
-                </p>
-            </div>
-
-            <div class="about-cta-group">
-              <a class="about-main-cta" href="/services.html">
-                  Explore Our Services
-              </a>
+            <div class="footer-section">
+                <h4 class="section-title">Support</h4>
+                <ul class="footer-list">
+                    <li><a href="#" class="footer-link">Help Center</a></li>
+                    <li><a href="#" class="footer-link">Documentation</a></li>
+                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="#" class="footer-link">Terms of Service</a></li>
+                </ul>
             </div>
         </div>
-    </div>
-</section>
-    <script src="/scripts/script.js"></script>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <div class="social-links">
+              <a href="#" class="social-link">
+                  <img src="/icons/instagram-1-svgrepo-com.svg" alt="Instagram" class="social-icon">
+              </a>
+              <a href="#" class="social-link">
+                  <img src="/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" class="social-icon">
+              </a>
+              <a href="#" class="social-link">
+                  <img src="/icons/linkedin-linked-in-svgrepo-com.svg" alt="LinkedIn" class="social-icon">
+              </a>
+            </div>
+            <p class="copyright">
+                © 2025 Silvy. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const primaryNav = document.querySelector('.primary-nav');
+    const body = document.body;
+    const header = document.querySelector('.main-header'); // Header for scroll effect and height
+
+    // Check if essential header elements exist
+    if (menuToggle && primaryNav && header) {
+        // --- Mobile Menu Toggle Logic ---
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            primaryNav.classList.toggle('mobile-active');
+            body.classList.toggle('menu-open'); // Prevent body scroll when menu is open
+        });
+
+        // Close menu when clicking on nav links (for mobile view)
+        const navLinks = primaryNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Check if in mobile view (screen width less than 768px) and menu is open
+                if (window.innerWidth < 768 && primaryNav.classList.contains('mobile-active')) {
+                    menuToggle.classList.remove('active');
+                    primaryNav.classList.remove('mobile-active');
+                    body.classList.remove('menu-open');
+                }
+            });
+        });
+
+        // Close menu when clicking outside of it (for mobile view)
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth < 768 && primaryNav.classList.contains('mobile-active')) {
+                if (!menuToggle.contains(e.target) && !primaryNav.contains(e.target)) {
+                    menuToggle.classList.remove('active');
+                    primaryNav.classList.remove('mobile-active');
+                    body.classList.remove('menu-open');
+                }
+            }
+        });
+
+        // Handle window resize to ensure correct menu state
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) { // If resized to desktop/tablet view
+                if (menuToggle.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                }
+                if (primaryNav.classList.contains('mobile-active')) {
+                    primaryNav.classList.remove('mobile-active');
+                }
+                if (body.classList.contains('menu-open')) {
+                    body.classList.remove('menu-open');
+                }
+            }
+        });
+
+        // --- Header Scroll Hide/Show Logic ---
+        let lastScrollY = 0; // Tracks last scroll position
+        const headerHeight = header.offsetHeight; // Get header height dynamically
+
+        window.addEventListener('scroll', function() {
+            const currentScrollY = window.scrollY;
+
+            // Only act if header is not covered by the mobile menu (prevents flicker)
+            if (!primaryNav.classList.contains('mobile-active')) {
+                if (currentScrollY > lastScrollY && currentScrollY > headerHeight) {
+                    // Scrolling down AND scrolled past header height
+                    header.style.top = `-${headerHeight + 10}px`; // Hide header
+                } else {
+                    // Scrolling up OR at the very top of the page
+                    header.style.top = '0'; // Show header
+                }
+            }
+            lastScrollY = currentScrollY; // Update last scroll position
+        });
+
+    } else {
+        console.error('Essential header elements not found: .menu-toggle, .primary-nav, or .main-header. Header functionality may be affected.');
+    }
+
+    // --- Other JavaScripts (kept as is, assuming elements exist elsewhere) ---
+    // Video Playback Logic
+    const heroVideo = document.getElementById('heroVideo'); // Assuming this exists elsewhere
+    const playButton = document.getElementById('playButton'); // Assuming this exists elsewhere
+
+    if (heroVideo && playButton) {
+        heroVideo.muted = true; // Mute video by default for autoplay compatibility
+        heroVideo.play().catch((error) => {
+            playButton.style.display = 'flex';
+            console.error('Autoplay prevented for hero video:', error);
+        });
+        heroVideo.addEventListener('play', () => {
+            playButton.style.display = 'none';
+        });
+        playButton.addEventListener('click', () => {
+            if (heroVideo.paused) {
+                heroVideo.play();
+            } else {
+                heroVideo.pause();
+            }
+        });
+        heroVideo.addEventListener('pause', () => {
+            playButton.style.display = 'flex';
+        });
+        heroVideo.addEventListener('ended', () => {
+            playButton.style.display = 'flex';
+        });
+    }
+
+    // Animation Logic for "How We Work?" Section
+    const cards = document.querySelectorAll('.card');
+    const thirdCard = document.getElementById('thirdCard');
+    const imageWrapper = document.getElementById('imageWrapper');
+    const nextSection = document.getElementById('nextSection');
+    let scrollTriggered = false;
+
+    const cardObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const card = entry.target;
+                    const delay = parseInt(card.dataset.animationOrder) * 150;
+                    setTimeout(() => {
+                        card.classList.add('is-visible');
+                    }, delay);
+                    observer.unobserve(card);
+                }
+            });
+        }, { threshold: 0.2 }
+    );
+
+    cards.forEach((card) => {
+        cardObserver.observe(card);
+    });
+
+    const nextSectionScrollObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (thirdCard && imageWrapper && nextSection && !scrollTriggered) {
+                    const thirdCardRect = thirdCard.getBoundingClientRect();
+                    const imageWrapperRect = imageWrapper.getBoundingClientRect();
+                    const triggerPoint = imageWrapperRect.top - 20;
+                    if (thirdCardRect.bottom <= triggerPoint) {
+                        scrollTriggered = true;
+                        window.scrollTo({
+                            top: nextSection.offsetTop,
+                            behavior: 'smooth',
+                        });
+                        nextSectionScrollObserver.disconnect();
+                    }
+                }
+            });
+        }, { threshold: 0 }
+    );
+
+    if (thirdCard) {
+        nextSectionScrollObserver.observe(thirdCard);
+    }
+
+    // Match heights of left and right columns
+    const leftCol = document.querySelector('.left-column');
+    const rightCol = document.querySelector('.right-column');
+
+    function matchHeights() {
+        if (leftCol && rightCol) {
+            rightCol.style.height = `${leftCol.offsetHeight}px`;
+        }
+    }
+    window.addEventListener('load', matchHeights);
+    window.addEventListener('resize', matchHeights);
+});
+    </script>
   </body>
 </html>

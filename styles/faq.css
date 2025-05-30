@@ -20,17 +20,18 @@
 }
 
 .faq-tag {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 0.875rem; /* text-sm */
-  font-weight: 500; /* font-medium */
-  width: fit-content;
-  background-color: #ffffff0a;
-  padding: 10px 20px; /* Padding from original wrapper */
-  border-radius: 0 25px 25px 0; /* Border-radius from original wrapper */
-  height: 50px;
+  display: block;
   margin-bottom: 20px;
+  width: fit-content;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  background-color: var(--bg-dark-transparent); /* Using defined var */
+  padding: 10px 20px;
+  border-radius: 0 25px 25px 0; /* Consider var(--border-radius-full) or specific var */
+  height: 40px;
+  border: 1px solid var(--border-color-light);
+  color: var(--text-color-light);
+  white-space: nowrap;
 }
 
 /* FAQ CONTENT LAYOUT */
