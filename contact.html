@@ -99,40 +99,34 @@
           box-sizing: border-box;
       }
 
-      body {
-        font-family: 'Inter', sans-serif;
-        /* OLD: background-color: var(--bg-dark); */
-        /* NEW: Gradient Background with animation */
-        background: radial-gradient(
-        #000000 40%,   /* Dark teal/blue-green */
-        /* Dark teal/blue-green */
-            /* Darker blue */
-            /* Brighter purple */
-        #5404c57e 50%,  /* Lighter purple */
-        var(--primary-color) 100% /* Main purple from root variables */
-        );
-        background-size: 400% 400%; /* Make the gradient larger than the viewport */
-        animation: gradientShift 20s ease infinite; /* Apply the animation */
-        color: var(--text-color-light); /* Using CSS variable */
-        margin: 0;
-        padding: 0;
-        padding-top: 70px; /* IMPORTANT: This creates space for the fixed header */
-        overflow-x: hidden; /* Prevent horizontal scroll on small screens */
-        scroll-behavior: smooth;
-    }
+      body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Second gradient with your specified colors */
+            background: linear-gradient(135deg, #070042, #340f68, var(--primary-color));
+            background-size: 100% 100%;
+            opacity: 0; /* Initially transparent, will fade in */
+            animation: bodyGradientCrossfade 10s ease infinite alternate; /* Animate its opacity */
+            z-index: -1; /* Place behind the body content */
+        }
 
-/* Keyframes for gradient animation */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+        /* Keyframes for the body background cross-fade */
+        @keyframes bodyGradientCrossfade {
+            0% {
+                opacity: 0; /* Show primary gradient (body's background) */
+            }
+            50% {
+                opacity: 1; /* Show secondary gradient (::before's background) */
+            }
+            100% {
+                opacity: 0; /* Return to primary gradient */
+            }
+        }
+
 
       
 
@@ -451,7 +445,7 @@
       }
       .faq-item:hover {
         background-color: #1a1a1a; /* Slightly darker on hover */
-        border-color: var(--primary-color);
+        border-color: #9ca3af;
       }
       .faq-question {
         font-size: 1.1em; /* Consider var(--font-size-md) */
