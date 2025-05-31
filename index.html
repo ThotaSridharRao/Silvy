@@ -433,12 +433,15 @@
     <section id="about" class="brand-section">
       <div class="brand-container">
         <div class="brand-video-container">
-          <video autoplay loop muted playsinline class="creating-brands" src="/gifs/131993-751915314_small.mp4"></video>
+          <!-- Changed from <video> to <img> as requested.
+               Important Note: The src is still .mp4, which typically won't play in an <img> tag.
+               For an animated image, consider using a .gif, or a static image like .jpg/.png. -->
+          <img class="creating-brands" src="/images/hand-shake.jpg" alt="Animated brand showcase placeholder">
         </div>
 
         <div class="brand-content">
           <div class="brand-button-container">
-            <div class="brand-tag-button"> &bull; About Silvy
+            <div class="brand-tag-button"> • About Silvy
             </div>
           </div>
 

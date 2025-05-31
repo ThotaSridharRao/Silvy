@@ -1,53 +1,52 @@
-/* New Section Styles - Refined Mobile-First (No brand-section padding, brand-container no border-radius, 30px 0px padding for brand-container mobile) */
 .brand-section {
   background: transparent;
   color: #ffffff;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Removed padding: 1rem; from here */
 }
 
 .brand-container {
-  background-color: #ebebe90c;
-  /* Removed border-radius: 0.75rem; from here */
+  background-color: #0c0c0c46;
+ 
   display: flex;
-  flex-basis: auto;
   width: 100%;
-  overflow: hidden;
-  align-items: center;
+  overflow: hidden; 
+  flex-direction: column;
+  align-items: center; 
   justify-content: center;
   flex-wrap: wrap;
 
-  flex-direction: column;
-  padding: 30px 0px; /* Kept 30px 0px padding for mobile container as requested */
-  gap: 1rem;
+  padding: 30px 0px; 
+  gap: 1rem; 
 
   @media (min-width: 1024px) {
-    column-gap: 4rem;
+    flex-direction: row; /* Desktop: Arranges items side-by-side */
+    justify-content: center; /* Centers the row of items horizontally within the container */
+    align-items: center; /* Vertically centers the items in the row (image and content block) */
+    column-gap: 4rem; /* Spacing between side-by-side items on desktop */
     padding: 70px 50px;
-    width:80%;
-    border-radius: 1rem;
+    width: 80%; /* Container width for desktop */
+    border-radius: 1rem; /* Apply border-radius on desktop */
   }
 
   @media (min-width: 1920px) {
     padding: 70px 150px;
+    /* max-width: 1400px; /* Example: You might want to set a max-width for the container on very large screens */
   }
 }
 
 .brand-video-container {
-  width: 100%;
-  max-width: none;
+  width: 100%; /* Mobile: full width within container */
+  max-width: 500px; /* Limits the image width on mobile/tablet to look good */
   border-radius: 20px;
   box-sizing: border-box;
-  /* No padding here for mobile, as you removed it and it's aligned with width:100% */
 
   @media (min-width: 1024px) {
-    max-width: 600px;
-    max-height: 600px;
-    width: auto;
-    flex-shrink: 0;
+    flex: 1; /* Allows it to grow and shrink to share space */
+    max-width: 600px; /* Desktop: Max width for the video/image container */
+    /* flex-basis is implicitly 0% when using flex: 1, so it takes proportional space */
   }
 }
 
@@ -60,41 +59,55 @@
 }
 
 .brand-content {
-  width: 100%;
-  max-width: none;
+  width: 100%; /* Mobile: full width within container */
+  max-width: 600px; /* Limits the content block width on mobile/tablet */
   padding: 0;
   display: flex;
   flex-direction: column;
+  align-items: center; /* Mobile: Center all children (headlines, description, cta) horizontally */
   justify-content: flex-start;
   row-gap: 1.5rem;
   box-sizing: border-box;
 
   @media (min-width: 1024px) {
-    width: 50%;
-    padding-top: 50px;
+    flex: 1; /* Allows it to grow and shrink to share space */
+    max-width: none; /* Remove explicit max-width for content on desktop to let flex handle it */
+    padding-top: 50px; /* Keep any specific desktop top padding */
+    align-items: flex-start; /* Desktop: Revert to left alignment for content elements */
   }
+}
 
-  @media (min-width: 1920px) {
-    width: 30%;
+.brand-button-container {
+  display: flex;
+  width: 100%; /* Ensure container takes full width to center effectively */
+  justify-content: center; /* Mobile: Center the tag button horizontally */
+
+  @media (min-width: 1024px) {
+    justify-content: flex-start; /* Desktop: Left align the tag button */
   }
 }
 
 .brand-tag-button {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Centers text within the button */
   font-size: 0.875rem;
   font-weight: 500;
-  max-width: 150px;
-  background-color: #ffffff0a;
+  background-color: #000000e5;
+  border: 1px solid white;
   padding: 10px;
   padding-right: 20px;
-  border-radius: 0 25px 25px 0;
-  height: 50px;
+  border-radius: 25px;
 }
 
 .brand-headline-group {
   row-gap: 0.5rem;
+  width: 100%; /* Ensure headline group takes full width for text-align */
+  text-align: center; /* Mobile: Center text */
+
+  @media (min-width: 1024px) {
+    text-align: left; /* Desktop: Revert to left alignment */
+  }
 }
 
 .brand-headline {
@@ -102,18 +115,21 @@
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.25;
-  white-space: normal;
+  white-space: normal; /* Mobile: Allow text to wrap to prevent overflow */
 
   @media (min-width: 768px) {
     font-size: 2.5rem;
-    white-space: nowrap;
+  }
+
+  @media (min-width: 1024px) {
+    white-space: nowrap; /* Desktop: Prevent wrapping (use with caution if text can be very long) */
   }
 }
 
 .brand-subheadline {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #d1d5db86;
+  color: #7d2ec7;
 
   @media (min-width: 768px) {
     font-size: 1.5rem;
@@ -124,12 +140,20 @@
   color: #d1d5db86;
   font-size: 0.875rem;
   line-height: 1.625;
+  width: 100%; /* Ensure description takes full width for text-align */
+  text-align: center; /* Mobile: Center text */
 
   @media (min-width: 768px) {
     font-size: 1rem;
   }
+
+  @media (min-width: 1024px) {
+    text-align: left; /* Desktop: Revert to left alignment */
+  }
 }
 
+/* brand-stats-list and brand-stat-item were not in the HTML provided for this section,
+   but keeping styles in case they are added later. */
 .brand-stats-list {
   row-gap: 0.75rem;
 }
@@ -154,15 +178,22 @@
 .brand-cta-group {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center; /* Mobile: Center CTA button */
   row-gap: 1.5rem;
   padding-top: 1rem;
+  width: 100%; /* Ensure CTA group takes full width for alignment */
 
   @media (min-width: 640px) {
-    flex-direction: row;
+    flex-direction: row; /* For wider mobile/tablet, align CTA horizontally */
     align-items: center;
-    justify-content: space-between;
-    row-gap: initial;
+    justify-content: center; /* If only one CTA, still center */
+  }
+
+  @media (min-width: 1024px) {
+    align-items: flex-start; /* Desktop: Revert to left alignment */
+    justify-content: flex-start; /* Desktop: Align CTA to the left */
+    /* If you have multiple CTAs on desktop and want space-between, use: */
+    /* justify-content: space-between; */
   }
 }
 
@@ -180,6 +211,8 @@
   position: relative;
   transition: all 0.3s;
   outline: none;
+  border: none; /* Ensure button has no default border */
+  cursor: pointer;
 }
 
 .brand-main-cta:hover {
@@ -188,6 +221,8 @@
     inset 0 0 0.25em 0 #ffffff;
 }
 
+/* brand-rating-block and related styles were not in the HTML provided for this section,
+   but keeping styles in case they are added later. */
 .brand-rating-block {
   text-align: center;
 

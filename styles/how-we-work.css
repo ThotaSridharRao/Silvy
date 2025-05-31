@@ -125,13 +125,12 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 0.875rem; /* text-sm */
-  font-weight: 500; /* font-medium */
-  width: 150px; 
-  background-color: #ffffff0a;
+  background-color: #000000;
   padding: 10px; /* Padding from original wrapper */
   padding-right: 20px;
-  border-radius: 0 25px 25px 0; /* Border-radius from original wrapper */
-  height: 50px;
+  border-radius: 25px; /* Border-radius from original wrapper */
+  border: 1px solid white;
+  
 }
 
 .card-title {
@@ -243,7 +242,6 @@ body {
 }
 
 
-/* ✅ No change in media queries, keeping them intact */
 @media (max-width: 1024px) {
     .section-outer-container {
         flex-direction: column;
@@ -254,6 +252,8 @@ body {
 
     .columns-flex-wrapper {
         flex-direction: column;
+        justify-content: center; /* Ensures content within wrapper is centered on main axis */
+        align-items: center; /* 🔥 MODIFIED: Centers columns horizontally when flex-direction is column */
         gap: 30px;
     }
 
@@ -261,6 +261,7 @@ body {
         max-width: 100%;
         margin-bottom: 50px;
         text-align: center;
+        align-items: center; /* 🔥 ADDED: Centers direct children within left-column */
     }
 
     .main-heading {
@@ -296,11 +297,13 @@ body {
         width: 100%;
         height: auto;
         margin-bottom: 50px;
+        /* align-items: center; - This is already centered by columns-flex-wrapper's align-items */
     }
 
     .image-wrapper {
         max-width: 400px;
         top: 5vh;
+        margin: 0 auto; /* 🔥 ADDED: Centers the image wrapper itself */
     }
 }
 
@@ -349,7 +352,7 @@ body {
         height: 20px;
     }
 
-    .stage-tag {
+    .how-we-work-tag { /* This was originally named stage-tag */
         font-size: 0.7em;
     }
 }

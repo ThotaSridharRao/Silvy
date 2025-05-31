@@ -13,20 +13,17 @@
   align-items: center; 
 }
 .section-tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.875rem;
-  font-weight: 500;
-  width: 160px;
-  
-  padding: 10px;
-  color: #ffffff;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.875rem; /* text-sm */
+  background-color: #000000;
+  padding: 12px; /* Padding from original wrapper */
+  border-radius: 25px; /* Border-radius from original wrapper */
+  border: 1px solid white;
+  max-width: fit-content;
   margin-bottom: 20px;
-  background-color: #ffffff0a;
-  border-radius: 25px;
-  height: 50px;
-  margin-bottom: 20px;
+
 }
 .choose-us-content {
     text-align: center;

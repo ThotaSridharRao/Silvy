@@ -16,13 +16,11 @@
   align-items: center;
   justify-content: center;
   font-size: 0.875rem; /* text-sm */
-  font-weight: 500; /* font-medium */
-  width: 150px; 
-  background-color: #ffffff0a;
+  background-color: #000000;
   padding: 10px; /* Padding from original wrapper */
   padding-right: 20px;
   border-radius: 25px; /* Border-radius from original wrapper */
-  height: 50px;
+  border: 1px solid white;
   margin-bottom: 20px;
 }
 
