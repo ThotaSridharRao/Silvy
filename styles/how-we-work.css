@@ -121,15 +121,17 @@ body {
 }
 
 .how-we-work-tag {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+   display: flex;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 0.875rem; /* text-sm */
   background-color: #000000;
-  padding: 10px; /* Padding from original wrapper */
-  padding-right: 20px;
+  padding: 12px; /* Padding from original wrapper */
   border-radius: 25px; /* Border-radius from original wrapper */
   border: 1px solid white;
+  max-width: fit-content;
+  margin-bottom: 20px;
+
   
 }
 
