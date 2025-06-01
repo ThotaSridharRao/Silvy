@@ -109,3 +109,71 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // ... (Your existing JavaScript code for menu toggle, header scroll, and fade-in elements) ...
+
+    // --- Contact Form Submission Logic ---
+    const contactForm = document.querySelector('.contact-form-section form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Check if message already exists to avoid re-adding on subsequent submits
+            let successMessageDiv = document.getElementById('form-success-message');
+            if (!successMessageDiv) {
+                // 1. Create the success message element
+                successMessageDiv = document.createElement('div');
+                successMessageDiv.id = 'form-success-message';
+                successMessageDiv.innerHTML = `
+                    <h3>Thank You!</h3>
+                    <p>Your response has been recorded. We will reach out to you as soon as possible.</p>
+                `;
+
+                // 2. Apply dynamic CSS styles for the message
+                successMessageDiv.style.cssText = `
+                    margin-top: 30px; /* Added margin-top to separate from button */
+                    padding: 25px;
+                    background-color: #00000052; /* Using a slightly transparent dark background */
+                    border: 5px solid var(--primary-color); /* Using your primary color for the border */
+                    border-radius: var(--border-radius-lg); /* Using your border-radius variable */
+                    color: var(--text-color-light); /* Light text color */
+                    text-align: center;
+                    font-family: 'Inter', sans-serif; /* Consistent font */
+                    opacity: 0; /* Start hidden for fade-in */
+                    transform: translateY(20px); /* Start slightly below for animation */
+                    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+                    max-width: 100%; /* Ensure it fits within its parent */
+                    box-sizing: border-box; /* Include padding and border in element's total width and height */
+                `;
+
+                // 3. Append the message *inside* the form element
+                contactForm.appendChild(successMessageDiv);
+            }
+
+
+            // Trigger fade-in animation
+            // Ensure visibility properties are set after appending
+            setTimeout(() => {
+                successMessageDiv.style.opacity = '1';
+                successMessageDiv.style.transform = 'translateY(0)';
+            }, 50); // Small delay to ensure CSS is applied before animation
+
+            // 4. Clear the form fields
+            const inputFields = contactForm.querySelectorAll('input, textarea, select');
+            inputFields.forEach(field => {
+                field.value = ''; // Clear value
+            });
+
+            // Optional: Disable the submit button to prevent multiple submissions
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Message Sent!';
+                submitButton.style.backgroundColor = '#5a57a5'; // A slightly subdued color
+                submitButton.style.cursor = 'not-allowed';
+            }
+        });
+    } else {
+        console.error('Contact form not found. Submission logic may not work.');
+    }
+});
