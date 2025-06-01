@@ -54,9 +54,9 @@ box-sizing: border-box;
 --bg-dark: #000000; /* Pure black background */
 --bg-dark-transparent: rgba(255, 255, 255, 0.04); /* Transparent white background */
 --card-bg: #141414; /* Card background for tools section */
---border-color-dark: #fffdfd; /* Dark border for cards */
---border-color-light: #a08bb4; /* Light border for elements */
---border-color-subtle: #bec6d3; /* Subtle border for footer bottom */
+--border-color-dark: #282828; /* Dark border for cards */
+--border-color-light: rgba(255, 255, 255, 0.4); /* Light border for elements */
+--border-color-subtle: #374151; /* Subtle border for footer bottom */
 --glow-opacity-subtle: 0.3; /* Subtle glow opacity */
 --glow-opacity-soft: 0.05; /* Softer glow opacity */
 --glow-blue-1: rgba(30, 60, 255, 0.2); /* Tools section brighter blue glow */
@@ -96,54 +96,38 @@ line-height: 1.6;
 margin: 0;
 color: var(--color-white);
 overflow-x: hidden;
-scroll-behavior: smooth;
+scroll-behavior:smooth;
 min-height: 100vh;
 padding-top: var(--header-height-desktop); /* Desktop padding-top */
-background-color: var(--bg-dark); /* Default body background */
+background-color: #180025; /* Default body background */
 }
 
-body {
-    background: linear-gradient(180deg,  #a08bb4,#7c6394);
-    background-size: 100% 100%; /* Cover the entire background */
-    animation: bodyPrimaryGradient 10s ease infinite alternate; /* Animate the primary gradient position */
-}
-
+/* Added body::before for background gradient animation */
 body::before {
-    content: ''; /* Required for pseudo-elements */
-    position: fixed; /* Position fixed to cover the entire viewport */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Modified gradient: removed the darkest color (#2a184a) and replaced it with lighter purples */
-   background: linear-gradient(0deg,  #a08bb4,#5a1897);
-    
-    opacity: 0; /* Initially transparent, will fade in */
-    animation: bodyGradientCrossfade 10s ease infinite alternate; /* Animate its opacity */
-    z-index: -1; /* Place behind the body content */
+content: '';
+position: fixed; /* Use fixed for full viewport coverage */
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(0deg, #2121a1, #2a184acb, var(--primary-color));
+background-size: 100% 100%;
+opacity: 0; /* Initially transparent, will fade in */
+animation: bodyGradientCrossfade 20s ease infinite alternate; /* Animate its opacity */
+z-index: -1; /* Place behind the body content */
 }
 
-/* Keyframes for the body background cross-fade animation */
+/* Keyframes for the body background cross-fade */
 @keyframes bodyGradientCrossfade {
-    0% {
-        opacity: 0; /* Fully transparent, showing the primary body gradient */
-    }
-    50% {
-        opacity: 0.5; /* Fade in to 50% opacity, revealing the secondary gradient (::before) */
-    }
-    100% {
-        opacity: 0; /* Fade back out to fully transparent */
-    }
+0% {
+opacity: 0; /* Show primary gradient (body's background) */
 }
-
-/* Keyframes for the primary body background animation (subtle movement) */
-@keyframes bodyPrimaryGradient {
-    0% {
-        background-position: 0% 0%; /* Start position of the gradient */
-    }
-    100% {
-        background-position: 100% 100%; /* End position of the gradient */
-    }
+50% {
+opacity: 0.3; /* Show secondary gradient (::before's background) - reduced opacity for subtlety */
+}
+100% {
+opacity: 0; /* Return to primary gradient */
+}
 }
 
 /* Prevent body scroll when menu is open */
@@ -452,8 +436,7 @@ box-sizing: border-box;
 }
 
 form {
-border: 5px solid;
-border-color: #a08bb4;
+border: 5px solid #5f5f5f65;
 border-radius: var(--border-radius-lg); /* Using CSS variable */
 padding: 40px; /* Increased padding for better appearance */
 background-color: #00000052;
@@ -553,8 +536,7 @@ box-sizing: border-box;
 background-color: #00000052;
 padding: 25px; /* Consistent padding */
 border-radius: var(--border-radius-md); /* Using CSS variable */
-border: 5px solid;
-border-color: #a08bb4;
+border: 5px solid #5f5f5f65;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -647,7 +629,7 @@ margin-bottom: 20px;
 color: var(--text-color-light);
 }
 .heading-accent {
-color: var(--text-color-medium);
+color: var(--primary-color);
 }
 .faq-subheading {
 font-size: 1.1em; /* Consider var(--font-size-md) */
