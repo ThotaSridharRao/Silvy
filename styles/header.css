@@ -68,6 +68,7 @@ body {
     z-index: var(--z-index-header);
     box-shadow: 0 4px 6px -1px var(--shadow-light), 0 2px 4px -1px var(--shadow-medium);
     transition: top var(--transition-speed) ease-in-out;
+    backdrop-filter: blur(8px);
 }
 
 .site-logo {

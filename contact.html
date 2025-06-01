@@ -99,33 +99,34 @@
           box-sizing: border-box;
       }
 
-      body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Second gradient with your specified colors */
-            background: linear-gradient(135deg, #070042, #340f68, var(--primary-color));
-            background-size: 100% 100%;
-            opacity: 0; /* Initially transparent, will fade in */
-            animation: bodyGradientCrossfade 10s ease infinite alternate; /* Animate its opacity */
-            z-index: -1; /* Place behind the body content */
-        }
+       body::before {
+        content: '';
+        position: fixed; /* Use fixed for full viewport coverage */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Adjusted gradient for a more soothing blue-purple feel */
+        background: linear-gradient(0deg, #0e0e1a, #2a184a, var(--primary-color));
+        background-size: 100% 100%;
+        opacity: 0; /* Initially transparent, will fade in */
+        animation: bodyGradientCrossfade 10s ease infinite alternate; /* Animate its opacity */
+        z-index: var(--z-index-background); /* Place behind the body content */
+      }
 
-        /* Keyframes for the body background cross-fade */
-        @keyframes bodyGradientCrossfade {
-            0% {
-                opacity: 0; /* Show primary gradient (body's background) */
-            }
-            50% {
-                opacity: 1; /* Show secondary gradient (::before's background) */
-            }
-            100% {
-                opacity: 0; /* Return to primary gradient */
-            }
+      /* Keyframes for the body background cross-fade */
+      @keyframes bodyGradientCrossfade {
+        0% {
+          opacity: 0; /* Show primary gradient (body's background) */
         }
+        50% {
+          opacity: 0.3; /* Show secondary gradient (::before's background) - reduced opacity for subtlety */
+        }
+        100% {
+          opacity: 0; /* Return to primary gradient */
+        }
+      }
+
 
 
       
@@ -862,7 +863,7 @@
 
       /* Footer Section Styles (from your provided CSS, integrated and refined) */
       .footer {
-          background-color: #141414;
+          background-color: #ffffff05;
           color: var(--text-color-light);
           padding: 100px 0px 0px 0px; /* Adjusted padding, inner container handles horizontal */
       }
@@ -1513,8 +1514,7 @@
           Whether you have a question, need assistance, or want to start a new project, our team is here to help.
         </div>
         <div class="hero-actions">
-            <a href="contact.html" class="hero-section-button">Connect With Us</a>
-            <a href="#form-container" class="hero-section-button secondary">Fill the Form Out!!</a>
+            <a href="#form-container" class="hero-section-button">Fill the Form Out!!</a>
         </div>
       </div>
     </section>
