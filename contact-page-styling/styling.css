@@ -97,7 +97,7 @@
           color: var(--color-white);
           overflow-x: hidden;
           scroll-behavior: smooth;
-          min-height: 300vh;
+          min-height: 100vh;
           padding-top: var(--header-height-desktop); /* Desktop padding-top */
           background-color: var(--bg-dark); /* Default body background */
       }
