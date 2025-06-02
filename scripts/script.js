@@ -324,3 +324,24 @@ if (menuToggle && primaryNav) {
     });
 }
 });
+// Animation Logic for fade-in elements
+    const fadeElements = document.querySelectorAll('.fade-in-element');
+
+    const observerOptions = {
+        root: null, // Use the viewport as the root
+        rootMargin: '0px', // No margin around the root
+        threshold: 0.5 // Trigger when 50% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible'); // Add the class to trigger the animation
+                observer.unobserve(entry.target); // Stop observing once it's visible
+            }
+        });
+    }, observerOptions);
+
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });

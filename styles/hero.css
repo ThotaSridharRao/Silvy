@@ -5,28 +5,39 @@
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 92px);
-  padding: 50px 150px;
-  padding-top: 142px; /* This padding-top might be for desktop header spacing */
   box-sizing: border-box;
   overflow: hidden;
   background: transparent;
   flex-wrap: wrap;
   /* No margin-top here for desktop */
+  box-shadow: inset 0 -100px 50px -20px rgba(0, 0, 0, 1);
+}
+.hero-area::before {
+    content: ""; /* Essential for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Apply the inset box-shadow to the pseudo-element */
+    box-shadow: inset 0 -100px 50px -20px rgba(0, 0, 0, 1);
+    z-index: 0; /* Place this above the video and overlay (which are -1 or -2) */
+    pointer-events: none; /* Allows clicks/interactions with content beneath it */
+}
+
+.hero-area-content{
+  
 }
 
 /* Video Background Styles */
-.hero-bg-video {
+.video-background {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -2;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  filter: blur(5px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire area without distortion */
+  z-index: -1; /* Puts the video behind other content in the hero section */
 }
 
 /* Video Overlay to make text readable */
@@ -60,7 +71,7 @@
 
 .hero-title {
   color: #e6dede;
-  font-size: 80px;
+  font-size: 90px;
   line-height: 1.1;
   letter-spacing: -0.04em;
   font-weight: 500;
@@ -91,38 +102,34 @@
 }
 
 .button-primary {
-  background: #7d2ec7;
+  background:whitesmoke;
+  border-radius: 8px;
+  padding: 12px 25px;
+  color: #000000;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button-primary:hover {
+  opacity: 60%;
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.247);
   border-radius: 8px;
   padding: 12px 25px;
   color: #ffffff;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-}
-
-.button-primary:hover {
-  scale: 1.05;
-  box-shadow: 0 0 0.25em 0.1em #ffffff,
-    inset 0 0 0.25em 0 #ffffff;
-}
-
-.button-secondary {
-  background: rgba(0, 0, 0, 0.26);
-  border-radius: 8px;
-  padding: 12px 25px;
-  color: #fef6f6;
-  text-decoration: none;
   font-size: 16px;
   font-weight: 600;
-  border: 1px solid rgb(255, 255, 255);
+ 
   transition: all 0.3s;
 }
 
 .button-secondary:hover {
-  scale: 1.05;
-  box-shadow: 0 0 0.25em 0.1em #ffffff,
-    inset 0 0 0.25em 0 #ffffff;
+  opacity: 60%;
 }
 
 /* Video Container and Play Button Styles (for the video *inside* the content wrapper) */
@@ -135,7 +142,6 @@
   display: flex; /* Default to flex for desktop */
   justify-content: center;
   align-items: center;
-  border: 1px solid #242222;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -147,47 +153,18 @@
   display: block;
 }
 
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.2);
-  border: none;
-  border-radius: 50%;
-  color: #ffffff;
-  font-size: 40px;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  z-index: 10;
-}
 
-.play-button:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  transform: translate(-50%, -50%) scale(1.05);
-}
+
 
 /* Infinite Scrolling Section Styles */
 .scrolling-list-section {
   height: 60px;
-  background: linear-gradient(to right,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0) 10%,
-      rgba(0, 0, 0, 0) 90%,
-      rgba(0, 0, 0, 0.1) 100%
-    ),
-    rgba(0, 0, 0, 0.1);
+  
   overflow: hidden;
   display: flex;
   align-items: center;
-  /* border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
-  border-radius: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.020);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.020);
   margin: 0;
   max-width: 300px;
   width: 100%;
@@ -225,7 +202,7 @@
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
   .hero-area {
-    padding: 50px 80px;
+    padding: 50px 120px;
     padding-top: 142px;
   }
 
@@ -404,4 +381,14 @@
     padding: 8px 10px; /* Further reduced padding */
     font-size: 13px; /* Further reduced font size */
   }
+}
+
+.fade-in-element{
+opacity:0;
+transform:translateY(20px);
+transition: opacity 0.8s ease-out,transform 0.8s ease-out;
+}
+.fade-in-element.is-visible{
+opacity: 1;
+transform: translateY(0);
 }

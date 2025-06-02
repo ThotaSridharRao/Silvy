@@ -15,7 +15,7 @@
 
 /* Root CSS Variables used in FAQ section */
 :root {
-    --primary-color: #7d2ec7;
+    --primary-color: rgb(0,85,255);
     --text-color-light: #ffffff;
     --text-color-medium: #d1d5db;
     --text-color-faded: #aaa; /* Used in other sections, good to keep if theme is consistent */
@@ -125,7 +125,7 @@ body {
 }
 
 .heading-accent {
-    color: var(--primary-color);
+    color: rgb(0,85,255);
 }
 
 .faq-subheading {
@@ -156,7 +156,8 @@ body {
 }
 
 .faq-item:hover {
-    background-color: #1a1a1a; /* Slightly darker on hover */
+    box-shadow: 0 0 15px rgba(105, 120, 150, 0.8), inset 0 0 0.55em 0 #ffffff;
+                transform: translateY(-2px);
     border-color: var(--primary-color);
 }
 
@@ -233,4 +234,14 @@ body {
     .faq-item .faq-icon {
         font-size: 1.2em;
     }
+}
+
+.fade-in-element{
+opacity:0;
+transform:translateY(20px);
+transition: opacity 0.8s ease-out,transform 0.8s ease-out;
+}
+.fade-in-element.is-visible{
+opacity: 1;
+transform: translateY(0);
 }

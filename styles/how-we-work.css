@@ -106,7 +106,7 @@ body {
 }
 
 .card-header .icon {
-    background-color: var(--accent-color-dark);
+    background-color: rgb(0,85,255);
     border-radius: 50%;
     padding: 10px;
     display: flex;
@@ -163,14 +163,13 @@ body {
 }
 
 .btn.primary {
-    background-color: #7d2ec7;
+    background-color: rgb(0,85,255);
     color: var(--text-color-primary);
 }
 
 .btn.primary:hover {
-    scale: 1.05;
-        box-shadow: 0 0 0.25em 0.1em #ffffff, 
-        inset 0 0 0.25em 0 #ffffff;
+    box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
+                transform: translateY(-2px);
 }
 
 .btn.secondary {
@@ -180,9 +179,10 @@ body {
 }
 
 .btn.secondary:hover {
-    scale: 1.05;
-         box-shadow: 0 0 0.25em 0.1em #ffffff, 
-        inset 0 0 0.25em 0 #ffffff;
+    box-shadow: 0 0 0.25em 0.1em #ffffff, 
+    inset 0 0 0.55em 0 #ffffff;
+    transform: translateY(-2px);
+
 }
 
 /* ✅ FIXED HEIGHT HERE */
@@ -357,4 +357,14 @@ body {
     .how-we-work-tag { /* This was originally named stage-tag */
         font-size: 0.7em;
     }
+}
+
+.fade-in-element{
+opacity:0;
+transform:translateY(20px);
+transition: opacity 0.8s ease-out,transform 0.8s ease-out;
+}
+.fade-in-element.is-visible{
+opacity: 1;
+transform: translateY(0);
 }

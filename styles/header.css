@@ -10,7 +10,7 @@
     --color-white: #ffffff;
     --color-gray-light: #a0a0a0;
     --color-gray-dark: #333; /* Used for mobile menu background */
-    --color-purple-main: #7d2ec7;
+    --color-purple-main: rgb(0,85,255);
     --color-purple-dark: #3a387a;
     --color-purple-light-accent: #5a57a5;
     --color-header-bg: rgba(128, 128, 128, 0.103);
@@ -120,9 +120,8 @@ body {
 }
 
 .call-to-action-button:hover {
-    box-shadow: 0 0 0.25em 0.1em var(--glow-color),
-                inset 0 0 0.25em 0 var(--glow-color);
-    scale: 1.05;
+    box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
+                scale: 1.05;
 }
 
 /* --- Mobile Specific Elements (Hidden by default on desktop) --- */

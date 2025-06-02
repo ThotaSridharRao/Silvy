@@ -55,7 +55,7 @@
         color: var(--text-color-light);
       }
       .heading-accent {
-        color: var(--primary-color);
+        color: rgb(0,85,255);
       }
       .faq-subheading {
         font-size: 1.1em; /* Consider var(--font-size-md) */
@@ -83,7 +83,7 @@
       }
       .faq-item:hover {
         background-color: #1a1a1a; /* Slightly darker on hover */
-        border-color: var(--primary-color);
+        border-color: rgb(0,85,255);
       }
       .faq-question {
         font-size: 1.1em; /* Consider var(--font-size-md) */
@@ -242,3 +242,13 @@
               font-size: 0.85em;
           }
       }
+      
+.fade-in-element{
+opacity:0;
+transform:translateY(20px);
+transition: opacity 0.8s ease-out,transform 0.8s ease-out;
+}
+.fade-in-element.is-visible{
+opacity: 1;
+transform: translateY(0);
+}

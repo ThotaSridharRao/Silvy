@@ -24,7 +24,7 @@
         }
 
         :root {
-            --primary-color: #7d2ec7;
+            --primary-color: rgb(0,85,255);
             --text-color-light: #ffffff;
             --text-color-medium: #d1d5db;
             --text-color-copyright: #9ca3af;
@@ -143,19 +143,10 @@
         }
 
         .btn-primary:hover {
-            box-shadow: 0 0 0.25em 0.1em var(--glow-color-white), inset 0 0 0.25em 0 var(--glow-color-white);
+            box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
             transform: scale(1.05);
         }
 
-        .btn-secondary {
-            background-color: var(--bg-dark);
-            border: 1px solid var(--text-color-light);
-        }
-
-        .btn-secondary:hover {
-            box-shadow: 0 0 0.25em 0.1em var(--glow-color-white), inset 0 0 0.25em 0 var(--glow-color-white);
-            transform: scale(1.05);
-        }
 
         .footer-section {
             text-align: center; /* Default for mobile */
@@ -341,6 +332,9 @@
                 font-size: 0.875rem;
             }
         }
+        .video-background{
+            transform: rotate(180deg);
+        }
     </style>
 
   </head>
@@ -369,8 +363,8 @@
         <a href="#contact-us" class="call-to-action-button desktop-cta">Get In Touch</a>
     </header>
 
-    
-    <section id="home" class="hero-area">
+    <section id="home" class="hero-area fade-in-element">
+    <div class="hero-area-content">
       <!-- <video autoplay loop muted playsinline class="hero-bg-video">
         <source src="/gifs/2297636-uhd_3840_2160_30fps.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -409,50 +403,54 @@
         </div>
         <div class="featured-video-player">
           <video id="heroVideo" class="featured-video" loop muted playsinline poster="https://placehold.co/450x350/000000/FFFFFF?text=Video+Placeholder">
-            <source src="/gifs/7566042-hd_2048_1080_25fps.mp4" type="video/mp4">
+            <source src="/gifs/7762075-hd_1920_1080_25fps.mp4" type="video/mp4">
           </video>
         </div>
       </div>
+      <video autoplay loop muted playsinline class="video-background" id="bg-vid">
+        <source src="/gifs/background.mp4" type="video/mp4">
+      </video>
+    </div>
     </section>
-    <video autoplay loop muted playsinline class="video-background" id="bg-vid">
-      <source src="/gifs/7762075-hd_1920_1080_25fps.mp4" type="video/mp4">
-    </video>
-   
-    <section id="about" class="brand-section">
-      <div class="brand-container">
-        <div class="brand-video-container">
-          <!-- Changed from <video> to <img> as requested.
-               Important Note: The src is still .mp4, which typically won't play in an <img> tag.
-               For an animated image, consider using a .gif, or a static image like .jpg/.png. -->
-          <img class="creating-brands" src="/images/hand-shake.jpg" alt="Animated brand showcase placeholder">
+
+    <section id="about" class="about-section fade-in-element">
+    <div class="about-container">
+        <div class="about-image-wrapper">
+            <img src="/images/about.jpg" alt="About Us Image">
         </div>
 
-        <div class="brand-content">
-          <div class="brand-button-container">
-            <div class="brand-tag-button"> • About Silvy
+        <div class="about-content">
+            <div class="about-tag-button-wrapper">
+                <div class="about-tag-button"> • About Silvy
+                </div>
             </div>
-          </div>
 
-          <div class="brand-headline-group">
-            <h1 class="brand-headline">
-              Building Stronger Brands
-            </h1>
-            <p class="brand-subheadline">
-              Creating Impressions!
-            </p>
-          </div>
+            <div class="about-headline-group">
+                <h1 class="about-headline">
+                    Building Stronger Brands
+                </h1>
+                <h1 class="about-subheadline">
+                    Creating Impressions!
+                </h1>
+            </div>
 
-          <p class="brand-description">
-            Delivering high-quality, on-demand designs with precision. Elevate your brand effortlessly, one snap at a time.
-          </p>
+            <div class="about-description-group">
+                <p class="about-description-text">
+                    Delivering high-quality, on-demand designs with precision.
+                </p>
+                
+                <p class="about-description-text">
+                   Elevate your brand effortlessely, one snapp at a time.
+                </p>
+            </div>
 
-          <div class="brand-cta-group">
-            <button class="brand-main-cta">
-              View About Silvy
-            </button>
-          </div>
+            <div class="about-cta-group">
+              <a class="about-main-cta" href="/contact.html">
+                  Book an Appointment
+              </a>
+            </div>
         </div>
-      </div>
+    </div>
     </section>
 
  
@@ -535,7 +533,7 @@
     </div>
     </section>
     
-    <section id="features" class="services-section">
+    <section id="features" class="services-section ">
         <div class="section-tag-button">&bull; Features</div>
 
           <p class="section-title">Unlimited Design Features <br> Delivered In A Second!</p>
@@ -600,7 +598,7 @@
         </div>
     </section>
 
-    <section class="choose-us-section">
+    <section class="choose-us-section fade-in-element">
       <div class="choose-us-content">
         <div class="section-tag">&bull; Launch Your Site</div>
         <h2 class="choose-us-title">Why Choose Us?</h2>
@@ -634,7 +632,7 @@
         </div>
       </div>
     </section>
-    <section id="faq" class="faq-section">
+    <section id="faq" class="faq-section fade-in-element">
     <div class="faq-container">
         <div class="faq-tag-wrapper">
             <div class="faq-tag">• FAQ</div>
@@ -683,7 +681,10 @@
     </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer fade-in-element">
+        <video autoplay loop muted playsinline class="video-background" id="bg-vid">
+        <source src="/gifs/background.mp4" type="video/mp4">
+      </video>
       <div class="footer-container">
           <div class="footer-grid">
               <div class="company-section">

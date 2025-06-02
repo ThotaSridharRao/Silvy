@@ -9,25 +9,3 @@ body {
     position: relative; /* Essential for positioning the background video */
     overflow-x: hidden; /* Prevent horizontal scrollbar if video overflows */
 }
-
-.video-background { /* Renamed for clarity, apply this class to your <video> tag */
-    position: fixed; /* Use fixed to ensure it stays in place relative to the viewport */
-    top: 0;
-    bottom:0;
-    left: 0;
-    right:0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover; /* This is key: covers the area while maintaining aspect ratio */
-    z-index: -1; /* Puts the video behind all other content */
-    filter: brightness(-0.6); /* Optional: Darken the video to make text more readable */
-    transform: rotate(90); 
-}
-
-/* Remove or adjust if your video is meant to be displayed normally */
-/* .body-background { 
-    position: absolute;
-    object-fit: fill; 
-    height: 100%;
-    width: 100%;
-} */

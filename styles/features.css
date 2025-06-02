@@ -40,7 +40,7 @@
 }
 
 .results-cta-button{
-  background: #7d2ec7;
+  background: rgb(0,85,255);
   border-radius: 8px;
   padding: 12px 25px;
   color: #ffffff;
@@ -51,9 +51,8 @@
 }
 
 .results-cta-button:hover{
-  scale: 1.05;
-  box-shadow: 0 0 0.25em 0.1em #ffffff, 
-  inset 0 0 0.25em 0 #ffffff;
+ box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
+                scale: 1.05;
 }
 
 /* Cards Container */
@@ -111,7 +110,7 @@
 
 /* Hover Effects */
 .service-card:hover {
-    background-color: #7d2ec742;
+    background-color: #2e30c742;
     color: #ffffff;
     scale:1.05;
 
@@ -372,4 +371,14 @@
   .result-card {
     width: 250px;
   }
+}
+
+.fade-in-element{
+opacity:0;
+transform:translateY(20px);
+transition: opacity 0.8s ease-out,transform 0.8s ease-out;
+}
+.fade-in-element.is-visible{
+opacity: 1;
+transform: translateY(0);
 }
