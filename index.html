@@ -16,326 +16,337 @@
     <link rel="stylesheet" href="/styles/body.css">
     <link rel="stylesheet" href="/styles/faq-landing.css">
     <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Base Styles (from your provided footer snippet) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        :root {
-            --primary-color: rgb(0,85,255);
-            --text-color-light: #ffffff;
-            --text-color-medium: #d1d5db;
-            --text-color-copyright: #9ca3af;
-            --bg-dark: #000000;
-            --border-color-subtle: #374151;
+:root {
+    --primary-color: rgb(0,85,255);
+    --text-color-light: #ffffff;
+    --text-color-medium: #d1d5db;
+    --text-color-copyright: #9ca3af;
+    --bg-dark: #000000;
+    --border-color-subtle: #374151;
 
-            --glow-color-white: rgb(255, 255, 255);
+    --glow-color-white: rgb(255, 255, 255);
 
-            --font-size-sm: 0.9375rem; /* 15px */
-            --font-weight-medium: 500;
-            --font-weight-semibold: 600;
-            --font-weight-bold: 700;
+    --font-size-sm: 0.9375rem; /* 15px */
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
 
-            --spacing-sm: 1rem; /* 16px */
-            --spacing-md: 1.5rem; /* 24px */
-            --spacing-lg: 2rem; /* 32px */
+    --spacing-sm: 1rem; /* 16px */
+    --spacing-md: 1.5rem; /* 24px */
+    --spacing-lg: 2rem; /* 32px */
 
-            --border-radius-sm: 0.5rem; /* 8px */
+    --border-radius-sm: 0.5rem; /* 8px */
 
-            --transition-speed-fast: 0.2s;
-            --transition-speed-normal: 0.3s;
-        }
+    --transition-speed-fast: 0.2s;
+    --transition-speed-normal: 0.3s;
+}
 
-        /* Base Body Styles for Footer Context (adjust if integrating into a larger project with global body styles) */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-color-light);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
+/* Base Body Styles for Footer Context (adjust if integrating into a larger project with global body styles) */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-color-light);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 
-        /* --- Footer Section Styles --- */
-        .footer {
-            background-color: #141414;
-            color: var(--text-color-light);
-            padding: 100px 0 0 0; /* Top padding, horizontal padding handled by container */
-        }
+/* --- Footer Section Styles --- */
+.footer {
+    background-color: #141414;
+    color: var(--text-color-light);
+    padding: 60px 0 0 0; /* Adjusted top padding from 100px to 60px */
+    position: relative; /* Added to contain the absolutely positioned video */
+    overflow: hidden; /* Added to ensure video stays within footer bounds */
+}
 
-        .footer-container {
-            max-width: 1440px; /* Consistent max-width with other sections */
-            margin: 0 auto; /* Center the container */
-            padding: 0 20px; /* Consistent horizontal padding for content */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* Default to single column for mobile */
-            gap: var(--spacing-lg); /* Using variable */
-            width: 100%;
-        }
-
-        .company-section {
-            text-align: center; /* Default for mobile */
-            max-width: 350px; /* Max width for description */
-            margin: 0 auto; /* Center for mobile */
-        }
-
-        .company-title {
-            font-size: 1.5rem;
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-color-light);
-            display: flex; /* Added flex for logo-title alignment */
-            align-items: center;
-            justify-content: center; /* Center for mobile */
-            gap: 10px; /* Gap between logo and text */
-        }
-
-        .company-title .logotype { /* Styling for the logo image inside the title */
-            height: 30px; /* Adjust size as needed */
-            width: auto;
-        }
-
-        .company-description {
-            color: var(--text-color-medium);
-            margin-bottom: var(--spacing-md);
-            max-width: 28rem;
-            margin-left: auto; /* Center for mobile */
-            margin-right: auto; /* Center for mobile */
-        }
-
-        .button-container {
-            display: flex;
-            flex-direction: column; /* Default to column for mobile */
-            gap: var(--spacing-sm);
-            justify-content: center; /* Center for mobile */
-            width: 100%; /* Ensure buttons take full width of container */
-        }
-
-        .btn {
-            border-radius: var(--border-radius-sm);
-            padding: 12px 25px; /* Consistent padding */
-            color: white; /* Ensure text is white */
-            text-align: center;
-            font-size: var(--font-size-sm); /* Consistent font size */
-            font-weight: var(--font-weight-medium);
-            text-decoration: none;
-            position: relative;
-            transition: all var(--transition-speed-normal);
-            outline: none;
-            border: none;
-            width: 100%; /* Make button full width for mobile stacking */
-            box-sizing: border-box;
-            margin-top: 10px; /* Smaller margin when stacking buttons */
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
-            transform: scale(1.05);
-        }
+/* Footer Video Background Styles - Specific to the footer video */
+.footer .video-background { /* Targeted specifically for the footer's video */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place it behind the footer content */
+    filter: blur(50px);
+    /* Removed transform: rotate(180deg); as it's typically not desired for background videos */
+}
 
 
-        .footer-section {
-            text-align: center; /* Default for mobile */
-        }
+.footer-container {
+    max-width: 1440px; /* Consistent max-width with other sections */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Consistent horizontal padding for content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Ensures footer content is above the video */
+    z-index: 1; /* Ensures footer content is above the video */
+}
 
-        .section-title {
-            font-size: 1.125rem;
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-color-light);
-        }
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column for mobile */
+    gap: var(--spacing-lg); /* Using variable */
+    width: 100%;
+}
 
-        .footer-list {
-            list-style: none;
-            padding: 0;
-        }
+.company-section {
+    text-align: center; /* Default for mobile */
+    max-width: 350px; /* Max width for description */
+    margin: 0 auto; /* Center for mobile */
+}
 
-        .footer-list li {
-            margin-bottom: 0.5rem;
-        }
+.company-title {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color-light);
+    display: flex; /* Added flex for logo-title alignment */
+    align-items: center;
+    justify-content: center; /* Center for mobile */
+    gap: 10px; /* Gap between logo and text */
+}
 
-        .footer-link {
-            color: var(--text-color-medium);
-            text-decoration: none;
-            transition: color var(--transition-speed-fast) ease-in-out;
-        }
+.company-title .logotype { /* Styling for the logo image inside the title */
+    height: 30px; /* Adjust size as needed */
+    width: auto;
+}
 
-        .footer-link:hover {
-            color: var(--primary-color);
-        }
+.company-description {
+    color: var(--text-color-medium);
+    margin-bottom: var(--spacing-md);
+    max-width: 28rem;
+    margin-left: auto; /* Center for mobile */
+    margin-right: auto; /* Center for mobile */
+}
 
-        .footer-bottom {
-            width: 100%;
-            border-top: 1px solid var(--border-color-subtle);
-            margin-top: 3rem;
-            padding-top: 2rem;
-            padding-bottom: 2rem; /* Add bottom padding to the footer bottom section */
-        }
+.button-container {
+    display: flex;
+    flex-direction: column; /* Default to column for mobile */
+    gap: var(--spacing-sm);
+    justify-content: center; /* Center for mobile */
+    width: 100%; /* Ensure buttons take full width of container */
+}
 
-        .footer-bottom-content {
-            display: flex;
-            flex-direction: column; /* Default to column for mobile */
-            justify-content: space-between;
-            align-items: center;
-            gap: 1.5rem; /* Gap between social links, copyright, and policy links on mobile */
-            max-width: 1440px; /* Match footer-container max-width for internal centering */
-            margin: 0 auto; /* Center content within footer-bottom */
-            padding: 0 20px; /* Consistent horizontal padding */
-        }
+.btn {
+    border-radius: var(--border-radius-sm);
+    padding: 12px 25px; /* Consistent padding */
+    color: white; /* Ensure text is white */
+    text-align: center;
+    font-size: var(--font-size-sm); /* Consistent font size */
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    position: relative;
+    transition: all var(--transition-speed-normal);
+    outline: none;
+    border: none;
+    width: 100%; /* Make button full width for mobile stacking */
+    box-sizing: border-box;
+    margin-top: 10px; /* Smaller margin when stacking buttons */
+    cursor: pointer;
+}
 
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
+.btn-primary {
+    background: var(--primary-color);
+}
 
-        .social-link {
-            color: var(--text-color-medium); /* Original color, can be changed if icons are SVGs and inherit color */
-            transition: color var(--transition-speed-fast) ease-in-out;
-        }
-        .social-link:hover {
-            color: var(--primary-color);
-        }
-        .social-icon {
-            width: 1.5rem;
-            height: 1.5rem;
-            /* If icons are SVGs and you want to change their color on hover, you'd target fill/stroke */
-            /* fill: currentColor; */
-        }
+.btn-primary:hover {
+    box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
+    transform: scale(1.05);
+}
 
-        .copyright {
-            color: var(--text-color-copyright);
-            font-size: 0.875rem;
-            text-align: center; /* Ensure copyright text is centered on mobile */
-        }
+.footer-section {
+    text-align: center; /* Default for mobile */
+}
 
-        .policy-links { /* New styles for the policy links block */
-            display: flex;
-            align-items: center;
-            gap: 0.5rem; /* Small gap between links and separator */
-            flex-wrap: wrap; /* Allow wrapping on small screens */
-            justify-content: center; /* Center on mobile */
-            color: var(--text-color-medium); /* Ensure separator has a color */
-        }
+.section-title {
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color-light);
+}
 
-        .policy-links .footer-link { /* Ensure footer-link style applies */
-            white-space: nowrap; /* Keep links on one line if possible */
-        }
+.footer-list {
+    list-style: none;
+    padding: 0;
+}
 
-        .policy-links .separator {
-            color: var(--text-color-medium);
-        }
+.footer-list li {
+    margin-bottom: 0.5rem;
+}
 
-        /* --- Responsive Styles --- */
+.footer-link {
+    color: var(--text-color-medium);
+    text-decoration: none;
+    transition: color var(--transition-speed-fast) ease-in-out;
+}
 
-        /* Footer Section Responsive */
-        @media (min-width: 768px) {
-            .footer-grid {
-                /* Changed from 3 columns to 2 columns as requested */
-                grid-template-columns: 2fr 1fr;
-            }
-            .company-section {
-                text-align: left;
-                margin: 0; /* Remove auto margin for desktop */
-            }
-            .company-title {
-                justify-content: flex-start; /* Align logo and title to left */
-            }
-            .company-description {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            .button-container {
-                flex-direction: row;
-                justify-content: flex-start;
-            }
-            .btn {
-                margin-top: 0; /* Remove top margin when buttons are in a row */
-                width: auto; /* Allow buttons to size based on content */
-            }
-            .footer-section {
-                text-align: left;
-            }
-            .footer-bottom-content {
-                flex-direction: row; /* Layout content horizontally */
-                gap: 0; /* Remove gap when horizontal */
-                justify-content: space-between; /* Space out items */
-            }
-            .social-links {
-                margin-bottom: 0;
-            }
-            .policy-links {
-                justify-content: flex-start; /* Align policy links left on desktop */
-            }
-        }
+.footer-link:hover {
+    color: var(--primary-color);
+}
 
-        @media (max-width: 1024px) {
-            .footer {
-                padding: 80px 15px 0 15px; /* Adjust padding for tablets */
-            }
-        }
+.footer-bottom {
+    width: 100%;
+    border-top: 1px solid var(--border-color-subtle);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem; /* Adjusted bottom padding from 2rem to 1.5rem */
+}
 
-        @media (max-width: 767px) { /* Changed from 768px to 767px to be breakpoint below 768px */
-            .footer {
-                padding: 60px 15px 0 15px; /* Adjust padding for mobile */
-            }
-            .footer-container {
-                padding: 0 1rem;
-            }
-            .footer-grid {
-                gap: var(--spacing-md); /* Smaller gap for mobile */
-            }
-            .company-section,
-            .footer-section {
-                text-align: center;
-            }
-            .company-title {
-                justify-content: center; /* Ensure logo and title are centered on mobile */
-            }
-            .button-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .btn {
-                margin-top: 10px; /* Smaller top margin when stacking */
-                width: 80%; /* Make buttons narrower on mobile */
-                max-width: 200px; /* Prevent overly wide buttons */
-            }
-            .footer-bottom-content {
-                flex-direction: column;
-                gap: var(--spacing-sm); /* Gap between social links, copyright, and policy links */
-            }
-        }
+.footer-bottom-content {
+    display: flex;
+    flex-direction: column; /* Default to column for mobile */
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem; /* Gap between social links, copyright, and policy links on mobile */
+    max-width: 1440px; /* Match footer-container max-width for internal centering */
+    margin: 0 auto; /* Center content within footer-bottom */
+    padding: 0 20px; /* Consistent horizontal padding */
+}
 
-        @media (max-width: 480px) {
-            .footer {
-                padding: 40px 10px 0 10px; /* Further reduced padding */
-            }
-            .company-title {
-                font-size: 1.25rem;
-            }
-            .btn {
-                padding: 0.625rem 1.25rem;
-                font-size: 0.875rem;
-            }
-        }
-        .video-background{
-            transform: rotate(180deg);
-            filter: blur(50px);
-        }
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-link {
+    color: var(--text-color-medium);
+    transition: color var(--transition-speed-fast) ease-in-out;
+}
+.social-link:hover {
+    color: var(--primary-color);
+}
+.social-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.copyright {
+    color: var(--text-color-copyright);
+    font-size: 0.875rem;
+    text-align: center; /* Ensure copyright text is centered on mobile */
+}
+
+.policy-links { /* New styles for the policy links block */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Small gap between links and separator */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: center; /* Center on mobile */
+    color: var(--text-color-medium); /* Ensure separator has a color */
+}
+
+.policy-links .footer-link { /* Ensure footer-link style applies */
+    white-space: nowrap; /* Keep links on one line if possible */
+}
+
+.policy-links .separator {
+    color: var(--text-color-medium);
+}
+
+/* --- Responsive Styles --- */
+
+/* Footer Section Responsive */
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+    .company-section {
+        text-align: left;
+        margin: 0; /* Remove auto margin for desktop */
+    }
+    .company-title {
+        justify-content: flex-start; /* Align logo and title to left */
+    }
+    .company-description {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .button-container {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .btn {
+        margin-top: 0; /* Remove top margin when buttons are in a row */
+        width: auto; /* Allow buttons to size based on content */
+    }
+    .footer-section {
+        text-align: left;
+    }
+    .footer-bottom-content {
+        flex-direction: row; /* Layout content horizontally */
+        gap: 0; /* Remove gap when horizontal */
+        justify-content: space-between; /* Space out items */
+    }
+    .social-links {
+        margin-bottom: 0;
+    }
+    .policy-links {
+        justify-content: flex-start; /* Align policy links left on desktop */
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        padding: 80px 15px 0 15px; /* Adjust padding for tablets */
+    }
+}
+
+@media (max-width: 767px) { /* Changed from 768px to 767px to be breakpoint below 768px */
+    .footer {
+        padding: 40px 15px 0 15px; /* Adjusted padding for mobile from 60px to 40px */
+    }
+    .footer-container {
+        padding: 0 1rem;
+    }
+    .footer-grid {
+        gap: var(--spacing-md); /* Smaller gap for mobile */
+    }
+    .company-section,
+    .footer-section {
+        text-align: center;
+    }
+    .company-title {
+        justify-content: center; /* Ensure logo and title are centered on mobile */
+    }
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn {
+        margin-top: 10px; /* Smaller top margin when stacking */
+        width: 80%; /* Make buttons narrower on mobile */
+        max-width: 200px; /* Prevent overly wide buttons */
+    }
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: var(--spacing-sm); /* Gap between social links, copyright, and policy links */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 30px 10px 0 10px; /* Further reduced padding from 40px to 30px */
+    }
+    .company-title {
+        font-size: 1.25rem;
+    }
+    .btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}
+
     </style>
     
 
