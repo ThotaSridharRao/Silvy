@@ -1,395 +1,131 @@
-/* Hero Section Styles */
-.hero-area {
-  position: relative;
+
+  /* --- Hero Section Styles --- */
+  .hero-section {
+  /* margin-top: 70px; is handled by body padding-top */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  min-height: calc(100vh - 92px);
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 100px;
+  padding: 40px 20px; /* You can reduce this if you want less space between header and hero content */
+  height: auto;
+  min-height: 80vh;
+  padding-bottom: 100px;
+  width: 100%;
   box-sizing: border-box;
-  overflow: hidden;
-  background: transparent;
-  flex-wrap: wrap;
-  /* No margin-top here for desktop */
-  box-shadow: inset 0 -100px 50px -20px rgba(0, 0, 0, 1);
-}
-.hero-area::before {
-    content: ""; /* Essential for pseudo-elements */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Apply the inset box-shadow to the pseudo-element */
-    box-shadow: inset 0 -100px 50px -20px rgba(0, 0, 0, 1);
-    z-index: 0; /* Place this above the video and overlay (which are -1 or -2) */
-    pointer-events: none; /* Allows clicks/interactions with content beneath it */
-}
+  }
 
-.hero-area-content{
-  
-}
-
-/* Video Background Styles */
-.video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the video covers the entire area without distortion */
-  z-index: -1; /* Puts the video behind other content in the hero section */
-  filter: blur(50px);
-}
-
-/* Video Overlay to make text readable */
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
+  .hero-contents {
   display: flex;
-  flex-direction: row; /* Default for desktop */
-  gap: 150px;
+  flex-direction: column;
   align-items: center;
-  width: 100%;
-}
-
-.hero-text {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  flex: 1;
-  align-items: flex-start; /* Default for desktop */
-}
-
-.hero-title {
-  color: #e6dede;
-  font-size: 90px;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  font-weight: 500;
-  margin: 0;
-}
-
-.hero-description-block {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0;
-}
-
-.hero-description-text {
-  color: #ffffff;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  margin: 0;
-}
-
-.hero-actions {
-  display: flex;
-  flex-direction: row; /* Default for desktop */
-  gap: 15px;
-  margin: 0;
-  justify-content: center; /* Center buttons when they are in a row */
-}
-
-.button-primary {
-  background:whitesmoke;
-  border-radius: 8px;
-  padding: 12px 25px;
-  color: #000000;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.button-primary:hover {
-  opacity: 60%;
-}
-
-.button-secondary {
-  background: rgba(255, 255, 255, 0.247);
-  border-radius: 8px;
-  padding: 12px 25px;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
- 
-  transition: all 0.3s;
-}
-
-.button-secondary:hover {
-  opacity: 60%;
-}
-
-/* Video Container and Play Button Styles (for the video *inside* the content wrapper) */
-.featured-video-player {
-  position: relative;
-  flex-shrink: 0;
-  width: 450px;
-  height: 350px;
-  background-color: rgba(0, 0, 0, 0.2);
-  display: flex; /* Default to flex for desktop */
   justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.featured-video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-
-
-
-/* Infinite Scrolling Section Styles */
-.scrolling-list-section {
-  height: 60px;
-  
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.020);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.020);
-  margin: 0;
-  max-width: 300px;
-  width: 100%;
-  position: relative;
-}
-
-.scrolling-list-container {
-  display: flex;
-  white-space: nowrap;
-  animation: scroll-left 30s linear infinite;
-  padding-left: 100%;
-}
-
-.list-item {
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 50px;
-  height: 50px;
-  padding: 0 40px;
-  display: inline-block;
-}
-
-/* Keyframes for the infinite scroll animation */
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
-  .hero-area {
-    padding: 50px 120px;
-    padding-top: 142px;
-  }
-
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 50px;
-  }
-
-  .hero-text {
-    align-items: center;
-    width: 100%;
+  max-width: 900px;
   }
 
   .hero-title {
-    font-size: 55px;
-    line-height: 1.2;
-  }
-
-  .hero-description-text {
-    font-size: 16px;
-  }
-
-  .featured-video-player {
-    width: 80%;
-    max-width: 450px;
-    height: 250px;
-  }
-
-  .scrolling-list-section {
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 768px) {
-  .main-header {
-    flex-direction: column;
-    height: auto;
-    padding: 15px;
-    position: static;
-    margin-bottom: 20px;
-  }
-
-  body {
-    padding-top: 0;
-  }
-
-  .hero-area {
-    padding: 30px 20px;
-    min-height: auto;
-    padding-top: 30px; /* Adjusted padding-top for mobile context */
-    margin-top: 50px; /* This is the new rule for mobile */
-  }
-
-  .hero-text {
-    margin: 0 20px;
-    padding: 0;
-  }
-
-  .primary-nav ul {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
-  }
-
-  .call-to-action-button {
-    margin-top: 15px;
-  }
-
-  .hero-title {
-    font-size: 40px;
+  font-size: var(--font-size-hero-title); /* Using CSS variable */
+  line-height: var(--line-height-tight); /* Using CSS variable */
+  font-weight: var(--font-weight-medium); /* Using CSS variable */
+  margin-bottom: 30px;
+  color: var(--text-color-light); /* Using CSS variable */
   }
 
   .hero-description-block {
-    padding: 0 0;
-  }
-
-  .hero-description-text {
-    font-size: 15px;
-    text-align: center;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 30px;
+  color: #b0b0b0; /* Consider making this a CSS variable e.g., --text-color-greyish */
+  padding: 10px;
+  font-size: 1.1em;
   }
 
   .hero-actions {
-    flex-direction: row; /* Changed from column to row */
-    flex-wrap: wrap; /* Allow buttons to wrap if space is too small */
-    justify-content: center; /* Center buttons horizontally */
-    width: 100%; /* Ensures container takes full width */
-    gap: 10px; /* Keep a small gap between buttons */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 400px;
   }
 
-  .button-primary,
-  .button-secondary {
-    flex-grow: 1; /* Allow buttons to grow and take available space */
-    flex-basis: 0; /* Important for flex-grow to work correctly with initial sizing */
-    min-width: 120px; /* Minimum width to prevent buttons from becoming too small */
-    padding: 10px 15px; /* Adjust padding for side-by-side display */
-    font-size: 14px; /* Decreased font size for fitting */
+  .hero-section-button {
+  background: var(--primary-color); /* Using CSS variable */
+  border-radius: var(--border-radius-sm); /* Using CSS variable */
+  padding: 12px 25px;
+  color: var(--text-color-light); /* Using CSS variable */
+  text-align: center;
+  font-size: 16px; /* Consider var(--font-size-sm) or specific var */
+  font-weight: var(--font-weight-medium); /* Using CSS variable */
+  text-decoration: none;
+  position: relative;
+  transition: all var(--transition-speed-normal) ease; /* Using CSS variable */
+  outline: none;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
   }
 
-  .scrolling-list-section {
-    margin-top: 30px;
-    height: 50px;
-    max-width: 100%;
+  .hero-section-button:hover {
+   box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
+                scale: 1.05;
   }
 
-  .list-item {
-    font-size: 20px;
-    line-height: 40px;
-    height: 40px;
-    padding: 0 25px;
+  .hero-section-button.secondary { /* Combined selector */
+  background-color:#757272;
+  border: 1px solid var(--text-color-light); /* Using CSS variable */
   }
-
-  /* Hide both videos and the overlay on mobile */
-  .hero-bg-video {
-    display: none;
+  /* Hero Section Responsive */
+  @media (max-width: 768px) {
+  .hero-section {
+    /* margin-top: 50px; is handled by body padding-top */
+    padding: 30px 15px;
+    margin-bottom: 60px;
+    padding-bottom: 60px;
   }
-
-  .hero-overlay {
-    display: none;
-  }
-
-  .featured-video-player {
-    display: none;
-  }
-
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(0%);
-    }
-
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .site-logo {
-    font-size: 18px;
-  }
-
-  .primary-nav a,
-  .call-to-action-button {
-    font-size: 14px;
-  }
-
   .hero-title {
-    font-size: 32px;
+    font-size: 40px; /* var(--font-size-lg) */
+    margin-bottom: 20px;
   }
-
-  .hero-description-text {
-    font-size: 14px;
+  .hero-description-block {
+    font-size: 1em;
+    padding: 0 5px;
   }
-
-  .list-item {
-    font-size: 18px;
-    padding: 0 20px;
-  }
-
-  .hero-text {
-    margin: 0 15px;
-  }
-
-  .hero-area {
-    padding: 20px 15px;
-    padding-top: 20px;
-  }
-
   .hero-actions {
-    gap: 8px; /* Slightly reduce gap for very small screens */
+    flex-direction: column;
+    gap: 15px;
+  }
+  .hero-section-button {
+    width: 80%;
+    max-width: 250px;
+    padding: 10px 20px;
+    font-size: 15px; /* var(--font-size-sm) */
+  }
   }
 
-  .button-primary,
-  .button-secondary {
-    min-width: unset; /* Remove min-width on very small screens to allow more flexibility */
-    padding: 8px 10px; /* Further reduced padding */
-    font-size: 13px; /* Further reduced font size */
+  @media (max-width: 480px) {
+  .hero-section {
+    /* margin-top: 40px; is handled by body padding-top */
+    padding: 20px 10px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
   }
-}
-
-.fade-in-element{
-opacity:0;
-transform:translateY(20px);
-transition: opacity 0.8s ease-out,transform 0.8s ease-out;
-}
-.fade-in-element.is-visible{
-opacity: 1;
-transform: translateY(0);
-}
+  .hero-title {
+    font-size: 30px; /* Smaller than var(--font-size-lg) */
+    margin-bottom: 15px;
+  }
+  .hero-description-block {
+    font-size: 0.9em;
+  }
+  .hero-section-button {
+    width: 90%;
+    max-width: 220px;
+    font-size: 14px; /* Smaller than var(--font-size-sm) */
+    padding: 10px 15px;
+  }
+  }
