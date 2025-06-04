@@ -1,19 +1,10 @@
-/*
- * This CSS contains styles specifically for the Footer section.
- * It also includes relevant :root variables and basic body/reset styles
- * to ensure it renders correctly as a standalone snippet or when integrated.
- */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-/* Basic Reset for isolation */
+/* Base Styles (from your provided footer snippet) */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Root CSS Variables for consistency across the site (only relevant ones included for this section) */
 :root {
     --primary-color: rgb(0,85,255);
     --text-color-light: #ffffff;
@@ -52,10 +43,26 @@ body {
 
 /* --- Footer Section Styles --- */
 .footer {
-    background-color: #141414;
+    /* Removed background-color to allow the video to be visible */
     color: var(--text-color-light);
-    padding: 100px 0 0 0; /* Top padding, horizontal padding handled by container */
+    padding: 60px 0 0 0; /* Adjusted top padding from 100px to 60px */
+    position: relative; /* Added to contain the absolutely positioned video */
+    overflow: hidden; /* Added to ensure video stays within footer bounds */
 }
+
+/* Footer Video Background Styles - Specific to the footer video */
+.footer .video-background { /* Targeted specifically for the footer's video */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place it behind the footer content */
+    filter: blur(50px);
+    /* Removed transform: rotate(180deg); as it's typically not desired for background videos */
+}
+
 
 .footer-container {
     max-width: 1440px; /* Consistent max-width with other sections */
@@ -64,6 +71,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative; /* Ensures footer content is above the video */
+    z-index: 1; /* Ensures footer content is above the video */
 }
 
 .footer-grid {
@@ -95,7 +104,6 @@ body {
     width: auto;
 }
 
-
 .company-description {
     color: var(--text-color-medium);
     margin-bottom: var(--spacing-md);
@@ -115,11 +123,9 @@ body {
 .btn {
     border-radius: var(--border-radius-sm);
     padding: 12px 25px; /* Consistent padding */
-    color: white; /* Ensure text is white */
     text-align: center;
     font-size: var(--font-size-sm); /* Consistent font size */
     font-weight: var(--font-weight-medium);
-    text-decoration: none;
     position: relative;
     transition: all var(--transition-speed-normal);
     outline: none;
@@ -129,14 +135,18 @@ body {
     margin-top: 10px; /* Smaller margin when stacking buttons */
     cursor: pointer;
 }
+.btn a{
+    color: white;
+    text-decoration: none;
+}
 
 .btn-primary {
-    background: rgb(0,85,255);
+    background: var(--primary-color);
 }
 
 .btn-primary:hover {
     box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
-                scale: 1.05;
+    transform: scale(1.05);
 }
 
 .footer-section {
@@ -174,7 +184,7 @@ body {
     border-top: 1px solid var(--border-color-subtle);
     margin-top: 3rem;
     padding-top: 2rem;
-    padding-bottom: 2rem; /* Add bottom padding to the footer bottom section */
+    padding-bottom: 1.5rem; /* Adjusted bottom padding from 2rem to 1.5rem */
 }
 
 .footer-bottom-content {
@@ -194,7 +204,7 @@ body {
 }
 
 .social-link {
-    color: var(--text-color-medium); /* Original color, can be changed if icons are SVGs and inherit color */
+    color: var(--text-color-medium);
     transition: color var(--transition-speed-fast) ease-in-out;
 }
 .social-link:hover {
@@ -203,8 +213,6 @@ body {
 .social-icon {
     width: 1.5rem;
     height: 1.5rem;
-    /* If icons are SVGs and you want to change their color on hover, you'd target fill/stroke */
-    /* fill: currentColor; */
 }
 
 .copyright {
@@ -230,13 +238,12 @@ body {
     color: var(--text-color-medium);
 }
 
-
 /* --- Responsive Styles --- */
 
 /* Footer Section Responsive */
 @media (min-width: 768px) {
     .footer-grid {
-        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr;
     }
     .company-section {
         text-align: left;
@@ -281,7 +288,7 @@ body {
 
 @media (max-width: 767px) { /* Changed from 768px to 767px to be breakpoint below 768px */
     .footer {
-        padding: 60px 15px 0 15px; /* Adjust padding for mobile */
+        padding: 40px 15px 0 15px; /* Adjusted padding for mobile from 60px to 40px */
     }
     .footer-container {
         padding: 0 1rem;
@@ -313,7 +320,7 @@ body {
 
 @media (max-width: 480px) {
     .footer {
-        padding: 40px 10px 0 10px; /* Further reduced padding */
+        padding: 30px 10px 0 10px; /* Further reduced padding from 40px to 30px */
     }
     .company-title {
         font-size: 1.25rem;
