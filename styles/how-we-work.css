@@ -178,13 +178,6 @@ body {
     border: 1px solid #ffffff;
 }
 
-.btn.secondary:hover {
-    box-shadow: 0 0 0.25em 0.1em #ffffff, 
-    inset 0 0 0.55em 0 #ffffff;
-    transform: translateY(-2px);
-
-}
-
 /* ✅ FIXED HEIGHT HERE */
 .right-column {
     flex: 1;
