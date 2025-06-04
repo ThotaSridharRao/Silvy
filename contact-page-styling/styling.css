@@ -43,7 +43,7 @@ box-sizing: border-box;
 --z-index-nav-mobile: 998;
 
 /* Remaining variables from previous version, if not duplicated above */
---primary-color: #7d2ec7; /* Main purple for buttons, links */
+--primary-color: rgb(0,85,255); /* Main purple for buttons, links */
 --accent-blue-glow: #0040ff; /* Blue glow color */
 --accent-purple-glow: #8A2BE2; /* Purple glow color */
 --text-color-light: #ffffff; /* General white/light text */
@@ -99,7 +99,7 @@ overflow-x: hidden;
 scroll-behavior:smooth;
 min-height: 100vh;
 padding-top: var(--header-height-desktop); /* Desktop padding-top */
-background-color: #180025; /* Default body background */
+background-color: #000000; /* Default body background */
 }
 
 /* Added body::before for background gradient animation */
@@ -110,25 +110,10 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-background: linear-gradient(0deg, #2121a1, #2a184acb, var(--primary-color));
-background-size: 100% 100%;
 opacity: 0; /* Initially transparent, will fade in */
-animation: bodyGradientCrossfade 20s ease infinite alternate; /* Animate its opacity */
 z-index: -1; /* Place behind the body content */
 }
 
-/* Keyframes for the body background cross-fade */
-@keyframes bodyGradientCrossfade {
-0% {
-opacity: 0; /* Show primary gradient (body's background) */
-}
-50% {
-opacity: 0.3; /* Show secondary gradient (::before's background) - reduced opacity for subtlety */
-}
-100% {
-opacity: 0; /* Return to primary gradient */
-}
-}
 
 /* Prevent body scroll when menu is open */
 body.menu-open {
@@ -198,24 +183,27 @@ font-size: 16px;
 
 /* Call to Action Button Styling (Desktop - from your provided CSS) */
 .call-to-action-button {
-background: var(--color-purple-main);
-border-radius: var(--border-radius-main);
-padding: 10px 20px;
-color: rgb(241, 239, 239);
-text-align: center;
-font-size: 15px;
-font-weight: 500;
-text-decoration: none;
-position: relative;
-transition: all var(--transition-speed);
-outline: none;
+background: var(--primary-color); /* Using CSS variable */
+          border-radius: var(--border-radius-sm); /* Using CSS variable */
+          padding: 12px 25px;
+          color: var(--text-color-light); /* Using CSS variable */
+          text-align: center;
+          font-size: 16px; /* Consider var(--font-size-sm) or specific var */
+          font-weight: var(--font-weight-medium); /* Using CSS variable */
+          text-decoration: none;
+          position: relative;
+          transition: all var(--transition-speed-normal) ease; /* Using CSS variable */
+          outline: none;
+          display: inline-block;
+          border: none;
+          cursor: pointer;
+          white-space: nowrap;
 }
 
 .call-to-action-button:hover {
-box-shadow: 0 0 0.25em 0.1em var(--glow-color),
-            inset 0 0 0.25em 0 var(--glow-color);
-scale: 1.05;
-}
+box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
+            scale: 1.05;
+        }
 
 /* --- Mobile Specific Elements (Hidden by default on desktop - from your provided CSS) --- */
 .primary-nav .mobile-cta {
@@ -406,14 +394,19 @@ white-space: nowrap;
 }
 
 .hero-section-button:hover {
-box-shadow: 0 0 0.25em 0.1em var(--glow-color-white), inset 0 0 0.25em 0 var(--glow-color-white);
-transform: scale(1.05); /* Changed from 'scale' to 'transform' for consistency */
-}
-.hero-section-button.secondary { /* For the "What is Silvy?" button */
-background-color: transparent;
-border: 1px solid var(--text-color-light);
-}
-
+box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
+            scale: 1.05;}
+/* Hero Video Background Styles */
+        .hero-video-background { /* Targeted specifically for the hero section's video */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the video covers the entire area */
+        z-index: -500; /* Places the video behind the content */
+        filter: blur(50px);
+    }
 
 /* Contact Form Section Styles (Simplified and refined) */
 .contact-form-section { /* New class for the section holding the form and contact info */
@@ -519,8 +512,8 @@ cursor: pointer;
 }
 
 button[type="submit"]:hover {
-box-shadow: 0 0 0.25em 0.1em var(--glow-color-white), inset 0 0 0.25em 0 var(--glow-color-white);
-transform: scale(1.05);
+box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
+            scale: 1.05;
 }
 
 .contact-info-section {
@@ -656,8 +649,8 @@ cursor: pointer;
 transition: background-color var(--transition-speed-fast) ease, border-color var(--transition-speed-fast) ease;
 }
 .faq-item:hover {
-background-color: #1a1a1a; /* Slightly darker on hover */
-border-color: #9ca3af;
+box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
+            scale: 1.05;
 }
 .faq-question {
 font-size: 1.1em; /* Consider var(--font-size-md) */
@@ -1702,4 +1695,9 @@ margin-bottom: 25px;
     padding: 0.625rem 1.25rem;
     font-size: 0.875rem;
 }
+}
+.site-logo img {
+  height: 40px; /* Adjust as needed */
+  width: auto; /* Maintain aspect ratio */
+  vertical-align: middle; /* Aligns the image nicely with text if any */
 }
