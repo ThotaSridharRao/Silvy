@@ -9,6 +9,48 @@
     padding: 40px 20px;
     box-sizing: border-box;
 }
+/* Styles for the bottom glow effect */
+        .bottom-glow-effect {
+            position: absolute; /* Position relative to .image-and-glow-container */
+            bottom: 5px; /* Position at the bottom of the image-and-glow-container */
+            width: 45%; /* Percentage width relative to its parent container */
+            max-width: calc(var(--image-max-width) + 150px); /* Make glow wider than the image */
+            left: 50%; /* Center the glow horizontally */
+            transform: translateX(-50%); /* Adjust for perfect centering */
+            height: 60px; /* Make the glow slightly taller for a more diffused look */
+            background: rgb(0, 85, 255); /* The exact blue glow color */
+            border-radius: 50%; /* Makes the glow elliptical/rounded */
+            filter: blur(55px); /* Increased blur significantly for a softer, more diffused effect */
+            opacity: 0.6; /* Adjust opacity for a subtle glow */
+            z-index: -1; /* Places the glow behind the image */
+        }
+        /* New wrapper for image and glow together */
+        .image-and-glow-container {
+            position: relative; /* Establishes positioning context for the absolute glow */
+            width: 100%; /* Takes full width of parent .about-container */
+            max-width: calc(var(--image-max-width) + 100px); /* Slightly wider than the image to allow glow to extend beyond */
+            display: flex; /* To center the image-wrapper within it */
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 50px; /* Add space below for the glow to appear without overlapping content */
+            /* No overflow: hidden here, crucial for glow to extend outside its bounds */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+
+            .image-and-glow-container {
+                max-width: 95%; /* Adjust container max-width for smaller screens */
+                padding-bottom: 40px; /* Less padding on small screens */
+            }
+
+            .bottom-glow-effect {
+                bottom: 0px; /* Adjust glow position */
+                height: 50px; /* Adjust glow height */
+                max-width: calc(100% + 100px); /* Allow glow to be wider than image on smaller screens */
+                filter: blur(45px); /* Slightly less blur for smaller screens */
+            }
+        }
 
 .about-container {
     background-color: transparent;
@@ -29,6 +71,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
 }
 
 .about-image-wrapper img {
@@ -37,7 +80,7 @@
     display: block;
     border-radius: var(--border-radius-sm); /* Using CSS variable */
     object-fit: cover;
-    border: 8px solid rgba(245, 245, 245, 0.082);
+    border: 8px solid rgb(22, 22, 22);
 }
 
 .about-content {
