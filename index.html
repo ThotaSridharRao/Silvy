@@ -352,6 +352,180 @@ body {
     }
 }
 
+.portfolio-section {
+    background:transparent;
+    color: #e0e0e0;
+    padding: 80px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.portfolio-tag-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    background-color: #000000;
+    padding: 10px;
+    padding-right: 20px;
+    border-radius: 25px;
+    border: 1px solid white;
+    margin-bottom: 20px;
+}
+
+.portfolio-tag-button svg {
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+}
+
+.portfolio-title-main {
+    font-size: 45px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.portfolio-subtitle {
+    font-size: 15px;
+    margin-bottom: 40px;
+    color: #a0a0a0;
+    font-weight: 400;
+}
+
+.portfolio-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    padding: 10px 50px;
+    margin: 0 auto;
+}
+
+.portfolio-card {
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 0;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    min-width: 320px;
+    
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-card-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.portfolio-card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card-details {
+    padding: 25px;
+}
+
+.portfolio-card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.portfolio-card-description {
+    font-size: 14px;
+    color: #a0a0a0;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.portfolio-visit-button {
+    display: inline-block;
+    background: rgb(0,85,255);
+    border-radius: 8px;
+    padding: 12px 25px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.portfolio-visit-button:hover {
+    box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
+    transform: scale(1.05);
+}
+
+.portfolio-card:hover {
+    background-color: rgba(46, 48, 199, 0.2);
+    transform: scale(1.03);
+}
+
+.portfolio-card:hover .portfolio-card-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.portfolio-card:hover .portfolio-card-title,
+.portfolio-card:hover .portfolio-card-description {
+    color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+    .portfolio-cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .portfolio-title-main {
+        font-size: 2.8em;
+    }
+    .portfolio-subtitle {
+        font-size: 1.2em;
+    }
+    .portfolio-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-title-main {
+        font-size: 2.2em;
+    }
+    .portfolio-subtitle {
+        font-size: 1em;
+    }
+    .portfolio-cards-container {
+        grid-template-columns: 1fr;
+        padding: 10px 20px;
+    }
+}
+
+.fade-in-element{
+    opacity:0;
+    transform:translateY(20px);
+    transition: opacity 0.8s ease-out,transform 0.8s ease-out;
+}
+.fade-in-element.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+}
     </style>
     
 
@@ -587,6 +761,53 @@ body {
             </div>
         </div>
     </section>
+
+    <!-- This is portfolio section -->
+    <div class="portfolio-section">
+    <div class="portfolio-tag-button fade-in-element">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM17.29 10.29L11 16.59L8.71 14.29C8.32 13.9 7.69 13.9 7.3 14.29C6.91 14.68 6.91 15.31 7.3 15.7L11.29 19.7C11.68 20.09 12.31 20.09 12.7 19.7L19.7 12.7C20.09 12.31 20.09 11.68 19.7 11.29C19.31 10.9 18.68 10.9 18.29 11.29L16.29 13.29L14 11V7C14 6.45 13.55 6 13 6C12.45 6 12 6.45 12 7V11.29L10 13.29L8.71 12C8.32 11.61 7.69 11.61 7.3 12C6.91 12.39 6.91 13.02 7.3 13.41L11 17.1L17.29 10.29Z" fill="white"/>
+        </svg>
+        Our Work
+    </div>
+    <h2 class="portfolio-title-main fade-in-element">Crafting unique digital experiences.</h2>
+    <p class="portfolio-subtitle fade-in-element">Every project is a testament to our commitment to innovation and excellence.</p>
+
+    <div class="portfolio-cards-container">
+        <div class="portfolio-card fade-in-element">
+            <div class="portfolio-card-image-wrapper">
+                <img src="/images/maosaji-honda-website.jpg" alt="Project Alpha">
+            </div>
+            <div class="portfolio-card-details">
+                <h3 class="portfolio-card-title">Maosaji Honda</h3>
+                <p class="portfolio-card-description">Motorcycle maintenance and repair services by certified technicians using genuine Honda parts. Experience the excellence of authorized Honda servicing.</p>
+                <a href="#" class="portfolio-visit-button">Visit Site</a>
+            </div>
+        </div>
+
+        <div class="portfolio-card fade-in-element">
+            <div class="portfolio-card-image-wrapper">
+                <img src="/images/shreejeeautomobiles-website.jpg" alt="Project Beta">
+            </div>
+            <div class="portfolio-card-details">
+                <h3 class="portfolio-card-title">Shreejee Automobiles</h3>
+                <p class="portfolio-card-description">At Shreejee Automobiles, we're always one step ahead in providing superior service for your TATA vehicle. Experience the Shreejee difference today.</p>
+                <a href="#" class="portfolio-visit-button">Visit Site</a>
+            </div>
+        </div>
+
+        <div class="portfolio-card fade-in-element">
+            <div class="portfolio-card-image-wrapper">
+                <img src="/images/cg-athletics-website.jpg" alt="Project Gamma">
+            </div>
+            <div class="portfolio-card-details">
+                <h3 class="portfolio-card-title">CG Atletics</h3>
+                <p class="portfolio-card-description">Our association is dedicated to fostering a thriving athletic community within the state, with a commitment to identifying, nurturing, and developing talent at all levels.</p>
+                <a href="#" class="portfolio-visit-button">Visit Site</a>
+            </div>
+        </div>
+    </div>
+</div>
 
     <section class="choose-us-section fade-in-element">
       <div class="choose-us-content">
