@@ -1251,31 +1251,28 @@ body {
                 this.startAutoplay();
             }
 
-            startAutoplay() {
-                // Clear any existing interval to prevent duplicates
-                this.pauseAutoplay(); 
-                if (!this.isPaused) {
-                    this.autoplayInterval = setInterval(() => {
-                        this.nextSlide();
-                    }, this.autoplayDuration);
-                }
-            }
-
             pauseAutoplay() {
-                this.isPaused = true;
                 clearInterval(this.autoplayInterval);
             }
 
             resumeAutoplay() {
-                this.isPaused = false;
                 this.startAutoplay();
             }
+
+            startAutoplay() {
+                clearInterval(this.autoplayInterval);
+                this.autoplayInterval = setInterval(() => {
+                    this.nextSlide();
+                }, this.autoplayDuration);
+            }
+
         }
 
         // Initialize the carousel once the document is fully loaded
-        window.onload = function() {
+        document.addEventListener('DOMContentLoaded', () => {
             new PortfolioCarousel();
-        };
+        });
+
     </script>
 
     <section class="choose-us-section fade-in-element">
