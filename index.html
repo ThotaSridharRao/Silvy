@@ -352,180 +352,397 @@ body {
     }
 }
 
-.portfolio-section {
-    background:transparent;
-    color: #e0e0e0;
-    padding: 80px 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 50px 0;
-}
+/* Main portfolio section styling with animated background */
+        .portfolio-section {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 20px;
+            background: radial-gradient(ellipse at center, rgba(0, 85, 255, 0.05) 0%, transparent 70%);
+            overflow: hidden;
+        }
 
-.portfolio-tag-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.875rem;
-    background-color: #000000;
-    padding: 10px;
-    padding-right: 20px;
-    border-radius: 25px;
-    border: 1px solid white;
-    margin-bottom: 20px;
-}
+        /* Animated background particles using pseudo-element */
+        .portfolio-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(0, 85, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 0, 136, 0.05) 0%, transparent 50%);
+            animation: backgroundPulse 10s ease-in-out infinite;
+        }
 
-.portfolio-tag-button svg {
-    width: 8px;
-    height: 8px;
-    margin-right: 8px;
-}
+        @keyframes backgroundPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
 
-.portfolio-title-main {
-    font-size: 45px;
-    margin-bottom: 10px;
-    font-weight: 500;
-    color: #ffffff;
-    line-height: 1.2;
-}
+        .portfolio-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
 
-.portfolio-subtitle {
-    font-size: 15px;
-    margin-bottom: 40px;
-    color: #a0a0a0;
-    font-weight: 400;
-}
+        
 
-.portfolio-cards-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    padding: 10px 50px;
-    margin: 0 auto;
-}
+        /* Enhanced typography for main title and subtitle */
+        .portfolio-title {
+            font-size: clamp(48px, 8vw, 48px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 28px;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            position: relative;
+        }
 
-.portfolio-card {
-    color: #e0e0e0;
-    border-radius: 10px;
-    padding: 0;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s;
-    min-width: 320px;
-    
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
+        .portfolio-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #0055ff, #00ff88);
+            border-radius: 2px;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
 
-.portfolio-card-image-wrapper {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
+        @keyframes titleGlow {
+            0% { box-shadow: 0 0 5px rgba(0, 85, 255, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(0, 85, 255, 1), 0 0 40px rgba(0, 255, 136, 0.5); }
+        }
 
-.portfolio-card-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
+        .portfolio-subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            color: #a0a0a0;
+            text-align: center;
+            margin-bottom: 80px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
 
-.portfolio-card-details {
-    padding: 25px;
-}
+        /* Next-Level Carousel Container */
+        .portfolio-carousel {
+            position: relative;
+            height: 600px;
+            margin: 0 auto;
+            perspective: 2000px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.portfolio-card-title {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
+        .portfolio-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
 
-.portfolio-card-description {
-    font-size: 14px;
-    color: #a0a0a0;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
+        /* Revolutionary Card Design */
+        .portfolio-card {
+            position: absolute;
+            width: 380px;
+            height: 520px;
+            left: 50%;
+            top: 50%;
+            transform-origin: center;
+            border-radius: 24px;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(30px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
 
-.portfolio-visit-button {
-    display: inline-block;
-    background: rgb(0,85,255);
-    border-radius: 8px;
-    padding: 12px 25px;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 24px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(0, 85, 255, 0.5), rgba(0, 255, 136, 0.3), rgba(255, 0, 136, 0.5));
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
 
-.portfolio-visit-button:hover {
-    box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
-    transform: scale(1.05);
-}
+        .portfolio-card:hover::before {
+            opacity: 1;
+        }
 
-.portfolio-card:hover {
-    background-color: rgba(46, 48, 199, 0.2);
-    transform: scale(1.03);
-}
+        /* Card States for Carousel effect */
+        .portfolio-card.active {
+            transform: translate(-50%, -50%) scale(1.1) rotateY(0deg);
+            z-index: 10;
+            box-shadow: 
+                0 40px 80px rgba(0, 85, 255, 0.3),
+                0 0 0 1px rgba(0, 85, 255, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
 
-.portfolio-card:hover .portfolio-card-image-wrapper img {
-    transform: scale(1.1);
-}
+        .portfolio-card.prev {
+            transform: translate(-120%, -50%) scale(0.85) rotateY(45deg);
+            opacity: 0.6;
+            z-index: 5;
+        }
 
-.portfolio-card:hover .portfolio-card-title,
-.portfolio-card:hover .portfolio-card-description {
-    color: #ffffff;
-}
+        .portfolio-card.next {
+            transform: translate(20%, -50%) scale(0.85) rotateY(-45deg);
+            opacity: 0.6;
+            z-index: 5;
+        }
 
-@media (min-width: 1024px) {
-    .portfolio-cards-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
+        .portfolio-card.hidden {
+            transform: translate(-50%, -50%) scale(0.7) rotateY(90deg);
+            opacity: 0;
+            z-index: 1;
+        }
 
-@media (max-width: 1024px) {
-    .portfolio-title-main {
-        font-size: 2.8em;
-    }
-    .portfolio-subtitle {
-        font-size: 1.2em;
-    }
-    .portfolio-cards-container {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 10px 50px;
-    }
-}
+        /* Card Content Styling */
+        .card-image-wrapper {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #0055ff, #00ff88);
+        }
 
-@media (max-width: 768px) {
-    .portfolio-title-main {
-        font-size: 2.2em;
-    }
-    .portfolio-subtitle {
-        font-size: 1em;
-    }
-    .portfolio-cards-container {
-        grid-template-columns: 1fr;
-        padding: 10px 20px;
-    }
-}
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-.fade-in-element{
-    opacity:0;
-    transform:translateY(20px);
-    transition: opacity 0.8s ease-out,transform 0.8s ease-out;
-}
-.fade-in-element.is-visible{
-    opacity: 1;
-    transform: translateY(0);
-}
+        .portfolio-card:hover .card-image {
+            transform: scale(1.08);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                180deg, 
+                transparent 0%, 
+                rgba(0, 0, 0, 0.1) 50%, 
+                rgba(0, 0, 0, 0.8) 100%
+            );
+        }
+
+        .card-tech-stack {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tech-badge {
+            padding: 6px 12px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #fff;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-content {
+            padding: 32px;
+            height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .card-description {
+            font-size: 15px;
+            color: #b0b0b0;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .card-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Next-Gen Button Styling */
+        .visit-button {
+            position: relative;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #0055ff 0%, #0088ff 100%);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 85, 255, 0.3);
+        }
+
+        .visit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .visit-button:hover::before {
+            left: 100%;
+        }
+
+        .visit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 12px 40px rgba(0, 85, 255, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .visit-button svg {
+            transition: transform 0.3s ease;
+        }
+
+        .visit-button:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Navigation Controls */
+        .carousel-nav {
+            position: absolute;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 20;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-dot.active {
+            background: #0055ff;
+            box-shadow: 0 0 20px rgba(0, 85, 255, 0.8);
+            transform: scale(1.2);
+        }
+
+        .nav-dot::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 85, 255, 0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-dot.active::before {
+            opacity: 1;
+        }
+
+        /* Responsive Design for smaller screens */
+        @media (max-width: 768px) {
+            .portfolio-section {
+                padding: 80px 20px;
+            }
+            
+            .portfolio-carousel {
+                height: 500px;
+            }
+            
+            .portfolio-card {
+                width: 320px;
+                height: 450px;
+            }
+            
+            .portfolio-card.prev {
+                transform: translate(-150%, -50%) scale(0.8) rotateY(30deg);
+            }
+            
+            .portfolio-card.next {
+                transform: translate(50%, -50%) scale(0.8) rotateY(-30deg);
+            }
+            
+            .card-image-wrapper {
+                height: 220px;
+            }
+            
+            .card-content {
+                padding: 24px;
+                height: 230px;
+            }
+        }
     </style>
     
 
@@ -762,52 +979,304 @@ body {
         </div>
     </section>
 
-    <!-- This is portfolio section -->
-    <div class="portfolio-section">
-    <div class="portfolio-tag-button fade-in-element">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM17.29 10.29L11 16.59L8.71 14.29C8.32 13.9 7.69 13.9 7.3 14.29C6.91 14.68 6.91 15.31 7.3 15.7L11.29 19.7C11.68 20.09 12.31 20.09 12.7 19.7L19.7 12.7C20.09 12.31 20.09 11.68 19.7 11.29C19.31 10.9 18.68 10.9 18.29 11.29L16.29 13.29L14 11V7C14 6.45 13.55 6 13 6C12.45 6 12 6.45 12 7V11.29L10 13.29L8.71 12C8.32 11.61 7.69 11.61 7.3 12C6.91 12.39 6.91 13.02 7.3 13.41L11 17.1L17.29 10.29Z" fill="white"/>
-        </svg>
-        Our Work
-    </div>
-    <h2 class="portfolio-title-main fade-in-element">Crafting unique digital experiences.</h2>
-    <p class="portfolio-subtitle fade-in-element">Every project is a testament to our commitment to innovation and excellence.</p>
+    <section class="portfolio-section">
+        <div class="portfolio-container">
+            <!-- <div class="portfolio-tag">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                Our Masterpieces
+            </div> -->
 
-    <div class="portfolio-cards-container">
-        <div class="portfolio-card fade-in-element">
-            <div class="portfolio-card-image-wrapper">
-                <img src="/images/maosaji-honda-website.jpg" alt="Project Alpha">
-            </div>
-            <div class="portfolio-card-details">
-                <h3 class="portfolio-card-title">Maosaji Honda</h3>
-                <p class="portfolio-card-description">Motorcycle maintenance and repair services by certified technicians using genuine Honda parts. Experience the excellence of authorized Honda servicing.</p>
-                <a href="#" class="portfolio-visit-button">Visit Site</a>
+            <h2 class="portfolio-title">Crafting Digital Excellence</h2>
+            <p class="portfolio-subtitle">
+                Every project is a testament to our commitment to innovation, performance, and user experience. We don't just build websites—we create digital experiences that captivate and convert.
+            </p>
+
+            <div class="portfolio-carousel">
+                <div class="portfolio-track" id="portfolioTrack">
+                    <!-- Project Card 1 (Maosaji Honda) -->
+                    <div class="portfolio-card active" data-index="0">
+                        <div class="card-image-wrapper">
+                            <img src="/images/maosaji-honda-website.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/2a52be/fff?text=Maosaji+Honda';" alt="Maosaji Honda" class="card-image">
+                            <div class="card-overlay"></div>
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3 class="card-title">Maosaji Honda</h3>
+                                <p class="card-description">A premium motorcycle maintenance platform with real-time booking and certified technician matching.</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-stats">
+                                    <div class="stat-item">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        4.9★
+                                    </div>
+                                    <div class="stat-item">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                        </svg>
+                                        2024
+                                    </div>
+                                </div>
+                                <a href="http://maosaji-honda.onrender.com" class="visit-button">
+                                    Explore
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 (Shreejee Automobiles) -->
+                    <div class="portfolio-card next" data-index="1">
+                        <div class="card-image-wrapper">
+                            <img src="/images/shreejeeautomobiles-website.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/2a52be/fff?text=Shreejee+Automobiles';" alt="Shreejee Automobiles" class="card-image">
+                            <div class="card-overlay"></div>
+                            <!-- <div class="card-tech-stack">
+                                <span class="tech-badge">Html</span>
+                                <span class="tech-badge">Css</span>
+                                <span class="tech-badge">Express</span>
+                            </div> -->
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3 class="card-title">Shreejee Automobiles</h3>
+                                <p class="card-description">A next-generation vehicle service platform with AI-driven diagnostics and predictive maintenance.</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-stats">
+                                    <div class="stat-item">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        4.8★
+                                    </div>
+                                    <div class="stat-item">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                        </svg>
+                                        2024
+                                    </div>
+                                </div>
+                                <a href="http://shreejeeautomobiles.com" class="visit-button">
+                                    Explore
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 (CG Athletics) -->
+                    <div class="portfolio-card hidden" data-index="2">
+                        <div class="card-image-wrapper">
+                            <img src="/images/cg-athletics-website.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/2a52be/fff?text=CG+Athletics';" alt="CG Athletics" class="card-image">
+                            <div class="card-overlay"></div>
+                            <!-- <div class="card-tech-stack">
+                                <span class="tech-badge">Word Press</span>
+                                <span class="tech-badge">PHP</span>
+                            </div> -->
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3 class="card-title">CG Athletics</h3>
+                                <p class="card-description">An athletic management platform for performance tracking and talent scouting.</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-stats">
+                                    <div class="stat-item">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        4.9★
+                                    </div>
+                                    <div class="stat-item">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                        </svg>
+                                        2024
+                                    </div>
+                                </div>
+                                <a href="http://cgathletics.co.in" class="visit-button">
+                                    Explore
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-nav">
+                    <div class="nav-dot active" data-index="0"></div>
+                    <div class="nav-dot" data-index="1"></div>
+                    <div class="nav-dot" data-index="2"></div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="portfolio-card fade-in-element">
-            <div class="portfolio-card-image-wrapper">
-                <img src="/images/shreejeeautomobiles-website.jpg" alt="Project Beta">
-            </div>
-            <div class="portfolio-card-details">
-                <h3 class="portfolio-card-title">Shreejee Automobiles</h3>
-                <p class="portfolio-card-description">At Shreejee Automobiles, we're always one step ahead in providing superior service for your TATA vehicle. Experience the Shreejee difference today.</p>
-                <a href="#" class="portfolio-visit-button">Visit Site</a>
-            </div>
-        </div>
+    <script>
+        class PortfolioCarousel {
+            constructor() {
+                this.cards = document.querySelectorAll('.portfolio-card');
+                this.dots = document.querySelectorAll('.nav-dot');
+                this.currentIndex = 0;
+                this.totalCards = this.cards.length;
+                this.autoplayInterval = null;
+                this.autoplayDuration = 5000;
+                this.isPaused = false;
 
-        <div class="portfolio-card fade-in-element">
-            <div class="portfolio-card-image-wrapper">
-                <img src="/images/cg-athletics-website.jpg" alt="Project Gamma">
-            </div>
-            <div class="portfolio-card-details">
-                <h3 class="portfolio-card-title">CG Atletics</h3>
-                <p class="portfolio-card-description">Our association is dedicated to fostering a thriving athletic community within the state, with a commitment to identifying, nurturing, and developing talent at all levels.</p>
-                <a href="#" class="portfolio-visit-button">Visit Site</a>
-            </div>
-        </div>
-    </div>
-</div>
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.startAutoplay();
+                // Initial update of cards to ensure correct state on load
+                this.updateCards();
+            }
+
+            bindEvents() {
+                // Dot navigation
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        this.goToSlide(index);
+                    });
+                });
+
+                // Card click navigation
+                this.cards.forEach((card, index) => {
+                    card.addEventListener('click', (e) => {
+                        if (!e.target.closest('.visit-button')) {
+                            this.goToSlide(index);
+                        }
+                    });
+                });
+
+                // Pause autoplay on hover
+                const carousel = document.querySelector('.portfolio-carousel');
+                carousel.addEventListener('mouseenter', () => {
+                    this.pauseAutoplay();
+                });
+                
+                carousel.addEventListener('mouseleave', () => {
+                    this.resumeAutoplay();
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        this.previousSlide();
+                    } else if (e.key === 'ArrowRight') {
+                        this.nextSlide();
+                    }
+                });
+
+                // Touch/Swipe support
+                let startX = 0;
+                let endX = 0;
+
+                carousel.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+
+                carousel.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    const diffX = startX - endX;
+
+                    if (Math.abs(diffX) > 50) { // Minimum swipe distance
+                        if (diffX > 0) {
+                            this.nextSlide();
+                        } else {
+                            this.previousSlide();
+                        }
+                    }
+                });
+            }
+
+            updateCards() {
+                this.cards.forEach((card, index) => {
+                    card.classList.remove('active', 'prev', 'next', 'hidden');
+                    
+                    const prevIndex = (this.currentIndex - 1 + this.totalCards) % this.totalCards;
+                    const nextIndex = (this.currentIndex + 1) % this.totalCards;
+
+                    if (index === this.currentIndex) {
+                        card.classList.add('active');
+                    } else if (index === prevIndex) {
+                        card.classList.add('prev');
+                    } else if (index === nextIndex) {
+                        card.classList.add('next');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                // Update navigation dots
+                this.dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentIndex);
+                });
+            }
+
+            goToSlide(index) {
+                if (index !== this.currentIndex) {
+                    this.currentIndex = index;
+                    this.updateCards();
+                    this.restartAutoplay();
+                }
+            }
+
+            nextSlide() {
+                this.currentIndex = (this.currentIndex + 1) % this.totalCards;
+                this.updateCards();
+                this.restartAutoplay();
+            }
+
+            previousSlide() {
+                this.currentIndex = (this.currentIndex - 1 + this.totalCards) % this.totalCards;
+                this.updateCards();
+                this.restartAutoplay();
+            }
+
+            // Method to restart the autoplay timer
+            restartAutoplay() {
+                this.pauseAutoplay();
+                this.startAutoplay();
+            }
+
+            startAutoplay() {
+                // Clear any existing interval to prevent duplicates
+                this.pauseAutoplay(); 
+                if (!this.isPaused) {
+                    this.autoplayInterval = setInterval(() => {
+                        this.nextSlide();
+                    }, this.autoplayDuration);
+                }
+            }
+
+            pauseAutoplay() {
+                this.isPaused = true;
+                clearInterval(this.autoplayInterval);
+            }
+
+            resumeAutoplay() {
+                this.isPaused = false;
+                this.startAutoplay();
+            }
+        }
+
+        // Initialize the carousel once the document is fully loaded
+        window.onload = function() {
+            new PortfolioCarousel();
+        };
+    </script>
 
     <section class="choose-us-section fade-in-element">
       <div class="choose-us-content">
@@ -956,5 +1425,6 @@ body {
     <script src="/scripts/script.js">
       
     </script>
+    
   </body>
 </html>
