@@ -744,6 +744,86 @@ body {
             }
         }
     </style>
+    <style>
+    /* Main pricing section styling with animated background */
+    .pricing-section {
+        position: relative;
+        min-height: 100vh;
+        padding: 120px 20px;
+        background: radial-gradient(ellipse at center, rgba(0, 85, 255, 0.05) 0%, transparent 70%);
+        overflow: hidden;
+    }
+
+    /* Animated background particles using pseudo-element */
+    .pricing-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 80%, rgba(0, 85, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(255, 0, 136, 0.05) 0%, transparent 50%);
+        animation: backgroundPulse 10s ease-in-out infinite;
+    }
+
+    @keyframes backgroundPulse {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 0.6; transform: scale(1.05); }
+    }
+
+    /* Plan Card Styling */
+    .plan-card {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(30px);
+        border-radius: 24px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .plan-card:hover {
+        transform: scale(1.02);
+    }
+
+    /* Next-Gen Button Styling */
+    .get-started-button {
+        position: relative;
+        padding: 14px 32px;
+        border: none;
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--primary-color); /* Using CSS variable */
+        border-radius: var(--border-radius-sm); /* Using CSS variable */
+       
+        color: var(--text-color-light); /* Using CSS variable */
+        text-align: center;
+        font-size: var(--font-size-sm); /* Using CSS variable */
+        font-weight: var(--font-weight-medium); /* Using CSS variable */
+        
+       
+        transition: all var(--transition-speed-normal) ease; /* Using CSS variable */
+        outline: none;
+        display: inline-block;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+        
+    }
+    
+    .get-started-button:hover {
+        box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
+        scale: 1.05;
+        
+    }
+</style>
     
 
   </head>
@@ -1309,6 +1389,130 @@ body {
         </div>
       </div>
     </section>
+
+    <section class="pricing-section">
+        <div class="min-h-screen flex items-center justify-center p-4 md:p-8">
+            <div class="w-full max-w-6xl mx-auto space-y-12">
+
+                <!-- Header Section -->
+                <div class="text-center">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 portfolio-title">Web Development Plans</h1>
+                    <p class="text-gray-400 text-base sm:text-lg portfolio-subtitle">Find the perfect plan for your business website. All plans are fully customizable.</p>
+                </div>
+
+                <!-- Pricing Cards Container -->
+                <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch space-y-6 md:space-y-0 md:space-x-6">
+
+                    <!-- Basic Plan Card -->
+                    <div class="flex-1 w-full max-w-sm p-8 rounded-2xl shadow-xl transition-all duration-300 hover:scale-[1.02] plan-card bg-transparent">
+                        <h2 class="text-2xl font-semibold text-white mb-2">Basic Plan</h2>
+                        <p class="text-gray-400 mb-6">Launch your business online with essential pages.</p>
+                        <div class="text-4xl font-bold mb-2">
+                            ₹50,000<span class="text-xl font-normal text-gray-400">/one-time</span>
+                        </div>
+                        <button class="w-full py-3 px-6 rounded-xl font-semibold text-gray-800 bg-gray-50 hover:bg-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-blue-500 mb-6">
+                            Get Started
+                        </button>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Up to 6 Page Website
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Homepage, About, Contact, Privacy Policy, T&C, Refund
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                1 Additional Custom Page
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                PG Integration (details discussed separately)
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Responsive Design
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Professional Plan Card -->
+                    <div class="flex-1 w-full max-w-sm p-8 rounded-2xl shadow-xl transition-all duration-300 hover:scale-[1.02] plan-card bg-transparent">
+                        <h2 class="text-2xl font-semibold text-white mb-2">Professional Plan</h2>
+                        <p class="text-gray-400 mb-6">Elevate your brand with dynamic features.</p>
+                        <div class="text-4xl font-bold mb-2">
+                            ₹90,000<span class="text-xl font-normal text-gray-400">/one-time</span>
+                        </div>
+                        <button 
+                            class="w-full py-3 px-6 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-700 shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:shadow-[0_0_30px_rgba(99,102,241,0.8)] transition-all duration-300"
+                            >
+                            Get Professional
+                        </button>
+
+
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Up to 10 Page Website
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                All Basic Plan Features
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Content Management System (CMS)
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Blog Integration
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Advanced SEO Optimization
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Enterprise Plan Card -->
+                    <div class="flex-1 w-full max-w-sm p-8 rounded-2xl shadow-xl transition-all duration-300 hover:scale-[1.02] plan-card bg-transparent">
+                        <h2 class="text-2xl font-semibold text-white mb-2">Enterprise Plan</h2>
+                        <p class="text-gray-400 mb-6">A complete solution for large-scale businesses.</p>
+                        <div class="text-4xl font-bold mb-2">
+                            Contact Us<span class="text-xl font-normal text-gray-400"></span>
+                        </div>
+                        <button class="w-full py-3 px-6 rounded-xl font-semibold text-gray-800 bg-gray-50 hover:bg-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-blue-500 mb-6">
+                            Contact Us
+                        </button>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Unlimited Pages
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                E-commerce Integration
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Customer Support Portal
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Dedicated Account Manager
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Custom Feature Development
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="faq" class="faq-section fade-in-element">
     <div class="faq-container">
         <div class="faq-tag-wrapper">
