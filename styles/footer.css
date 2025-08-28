@@ -43,37 +43,47 @@ body {
 
 /* --- Footer Section Styles --- */
 .footer {
-    /* Removed background-color to allow the video to be visible */
-    color: var(--text-color-light);
-    padding: 60px 0 0 0; /* Adjusted top padding from 100px to 60px */
-    position: relative; /* Added to contain the absolutely positioned video */
-    overflow: hidden; /* Added to ensure video stays within footer bounds */
+  position: relative;   /* container for absolute video */
+  color: var(--text-color-light);
+  padding: 60px 0 0 0;  /* top padding only */
+  margin: 0;            /* no extra bottom margin that reveals edges */
+  overflow: hidden;     /* keeps video bounded to footer */
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* height of the fade – adjust as needed */
+  background: linear-gradient(to bottom, var(--bg-dark) 0%, transparent 100%);
+  z-index: 0; /* stays above the video but below content */
+  pointer-events: none; /* no interaction */
+}
+/* Footer Video Background */
+.footer .video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* ensure video always fills */
+  z-index: -1;         /* behind footer content */
+  filter: blur(50px);
 }
 
-/* Footer Video Background Styles - Specific to the footer video */
-.footer .video-background { /* Targeted specifically for the footer's video */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; /* Place it behind the footer content */
-    filter: blur(50px);
-    /* Removed transform: rotate(180deg); as it's typically not desired for background videos */
-}
-
-
+/* Footer Container */
 .footer-container {
-    max-width: 1440px; /* Consistent max-width with other sections */
-    margin: 0 auto; /* Center the container */
-    padding: 0 20px; /* Consistent horizontal padding for content */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative; /* Ensures footer content is above the video */
-    z-index: 1; /* Ensures footer content is above the video */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;  /* keeps content above video */
+  z-index: 1;          /* stack above video */
 }
+
 
 .footer-grid {
     display: grid;
