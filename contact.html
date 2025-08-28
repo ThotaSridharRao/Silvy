@@ -7,8 +7,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="/styles/footer.css">
     <link rel="stylesheet" href="/contact-page-styling/styling.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+      #particleCanvas3D {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;   /* keeps it behind everything else */
+  pointer-events: none; /* so clicks pass through */
+}
+
+    </style>
   </head>
   <body>
+     <canvas id="particleCanvas3D"></canvas>
     <header class="main-header">
         <a href="/index.html" class="site-logo"><img src="/icons/logo.svg" alt=""></a>
 
@@ -264,5 +278,101 @@
     </footer>
     <!-- this is script -->
     <script src="/contact-page-styling/script.js">    </script>
+     <script>
+        // Use window.onload to ensure the canvas and all elements are loaded before running the script
+        window.onload = function() {
+            const canvas = document.getElementById('particleCanvas3D');
+            let scene, camera, renderer, particles;
+            
+            // Define particle colors
+            const whiteColor = new THREE.Color(0xffffff);
+            const blueColor = new THREE.Color(0x00aaff);
+
+            /**
+             * Initializes the 3D scene, camera, and particle system.
+             */
+            function init() {
+                // Create a new scene
+                scene = new THREE.Scene();
+
+                // Create a perspective camera
+                camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                camera.position.z = 50;
+
+                // Create a WebGL renderer with a transparent background
+                renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                renderer.setClearAlpha(0);
+
+                // Create the particles
+                const geometry = new THREE.BufferGeometry();
+                const vertices = [];
+                const colors = [];
+                const particleCount = 2000;
+                const size = 100;
+
+                for (let i = 0; i < particleCount; i++) {
+                    const x = (Math.random() - 0.5) * size;
+                    const y = (Math.random() - 0.5) * size;
+                    const z = (Math.random() - 0.5) * size;
+                    vertices.push(x, y, z);
+                    
+                    // Assign a random color (white or blue) to each particle
+                    const color = Math.random() > 0.5 ? whiteColor : blueColor;
+                    colors.push(color.r, color.g, color.b);
+                }
+
+                geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+                geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+                // Create the material for the particles, enabling vertex colors
+                const material = new THREE.PointsMaterial({
+                    size: 0.1,
+                    blending: THREE.AdditiveBlending,
+                    transparent: true,
+                    opacity: 0.8,
+                    vertexColors: true // This is the key to using per-particle colors
+                });
+
+                // Create the particle system and add it to the scene
+                particles = new THREE.Points(geometry, material);
+                scene.add(particles);
+
+                // Add event listener for responsiveness
+                window.addEventListener('resize', onWindowResize);
+            }
+
+            /**
+             * The main animation loop for the scene.
+             */
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Animate particles by rotating them
+                particles.rotation.x += 0.0005;
+                particles.rotation.y += 0.001;
+
+                // Render the scene
+                renderer.render(scene, camera);
+            }
+
+            /**
+             * Handles window resizing to maintain responsiveness.
+             */
+            function onWindowResize() {
+                const newWidth = window.innerWidth;
+                const newHeight = window.innerHeight;
+                
+                camera.aspect = newWidth / newHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(newWidth, newHeight);
+            }
+
+            // Initialize and start the animation
+            init();
+            animate();
+        };
+    </script>
   </body>
 </html>
