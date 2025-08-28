@@ -52,19 +52,10 @@
 }
 
 /* Base Body Styles for FAQ Section Context */
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-color-light);
-    line-height: var(--line-height-normal);
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Important for preventing horizontal scroll from layout issues */
-}
 
 /* FAQ Section Styles */
 .faq-section {
-    background-color:transparent;
+    background-color: rgba(0, 0, 0, 0.562);
     color: var(--text-color-light);
     padding: 80px 20px; /* Consistent padding */
     max-width: 1440px; /* Consistent max-width */

@@ -23,7 +23,7 @@ body {
     display: flex;
     justify-content: center;
     min-height: fit-content;
-    background-color: var(--bg-color);
+    background-color: rgba(0, 0, 0, 0.562);
     position: relative;
     width: 100%;
     max-width: 1400px;

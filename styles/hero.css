@@ -32,17 +32,25 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: 100px;
   padding: 40px 20px; /* Default padding for medium desktops */
   height: auto;
   min-height: 80vh;
-  padding-bottom: 100px;
   width: 100%;
   box-sizing: border-box;
   position: relative; /* Ensures absolute positioning of video is relative to this section */
   overflow: hidden; /* Clips the video to the section's bounds */
 }
-
+.hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* controls fade height */
+  background: linear-gradient(to top, #000 0%, transparent 100%);
+  z-index: 0;            /* sits above the video, below content */
+  pointer-events: none;  /* not clickable */
+}
 /* Hero Video Background Styles */
 .hero-video-background { /* Targeted specifically for the hero section's video */
   position: absolute;
@@ -128,7 +136,6 @@ body {
 @media (min-width: 1440px) {
   .hero-section {
     padding: 60px 120px; /* More horizontal padding for wider screens */
-    margin-bottom: 120px;
     padding-bottom: 120px;
   }
   .hero-contents {

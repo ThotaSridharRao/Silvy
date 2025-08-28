@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/styles/why-choose-us.css">
     <link rel="stylesheet" href="/styles/body.css">
     <link rel="stylesheet" href="/styles/faq-landing.css">
+    <link rel="stylesheet" href="/styles/footer.css">
     <style>
         .site-logo img {
         height: 40px; /* Adjust as needed */
@@ -54,304 +55,8 @@
         }
 
         /* Base Body Styles for Footer Context (adjust if integrating into a larger project with global body styles) */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-color-light);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
 
-        /* --- Footer Section Styles --- */
-        .footer {
-            background-color: #141414;
-            color: var(--text-color-light);
-            padding: 60px 0 0 0; /* Adjusted top padding from 100px to 60px */
-            position: relative; /* Added to contain the absolutely positioned video */
-            overflow: hidden; /* Added to ensure video stays within footer bounds */
-        }
-
-        /* Footer Video Background Styles - Specific to the footer video */
-        .footer .video-background { /* Targeted specifically for the footer's video */
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1; /* Place it behind the footer content */
-            filter: blur(50px);
-            /* Removed transform: rotate(180deg); as it's typically not desired for background videos */
-        }
-
-
-        .footer-container {
-            max-width: 1440px; /* Consistent max-width with other sections */
-            margin: 0 auto; /* Center the container */
-            padding: 0 20px; /* Consistent horizontal padding for content */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative; /* Ensures footer content is above the video */
-            z-index: 1; /* Ensures footer content is above the video */
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* Default to single column for mobile */
-            gap: var(--spacing-lg); /* Using variable */
-            width: 100%;
-        }
-
-        .company-section {
-            text-align: center; /* Default for mobile */
-            max-width: 350px; /* Max width for description */
-            margin: 0 auto; /* Center for mobile */
-        }
-
-        .company-title {
-            font-size: 1.5rem;
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-color-light);
-            display: flex; /* Added flex for logo-title alignment */
-            align-items: center;
-            justify-content: center; /* Center for mobile */
-            gap: 10px; /* Gap between logo and text */
-        }
-
-        .company-title .logotype { /* Styling for the logo image inside the title */
-            height: 30px; /* Adjust size as needed */
-            width: auto;
-        }
-
-        .company-description {
-            color: var(--text-color-medium);
-            margin-bottom: var(--spacing-md);
-            max-width: 28rem;
-            margin-left: auto; /* Center for mobile */
-            margin-right: auto; /* Center for mobile */
-        }
-
-        .button-container {
-            display: flex;
-            flex-direction: column; /* Default to column for mobile */
-            gap: var(--spacing-sm);
-            justify-content: center; /* Center for mobile */
-            width: 100%; /* Ensure buttons take full width of container */
-        }
-
-        .btn {
-            border-radius: var(--border-radius-sm);
-            padding: 12px 25px; /* Consistent padding */
-            color: white; /* Ensure text is white */
-            text-align: center;
-            font-size: var(--font-size-sm); /* Consistent font size */
-            font-weight: var(--font-weight-medium);
-            text-decoration: none;
-            position: relative;
-            transition: all var(--transition-speed-normal);
-            outline: none;
-            border: none;
-            width: 100%; /* Make button full width for mobile stacking */
-            box-sizing: border-box;
-            margin-top: 10px; /* Smaller margin when stacking buttons */
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
-            transform: scale(1.05);
-        }
-
-        .footer-section {
-            text-align: center; /* Default for mobile */
-        }
-
-        .section-title {
-            font-size: 1.125rem;
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-color-light);
-        }
-
-        .footer-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-list li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-link {
-            color: var(--text-color-medium);
-            text-decoration: none;
-            transition: color var(--transition-speed-fast) ease-in-out;
-        }
-
-        .footer-link:hover {
-            color: var(--primary-color);
-        }
-
-        .footer-bottom {
-            width: 100%;
-            border-top: 1px solid var(--border-color-subtle);
-            margin-top: 3rem;
-            padding-top: 2rem;
-            padding-bottom: 1.5rem; /* Adjusted bottom padding from 2rem to 1.5rem */
-        }
-
-        .footer-bottom-content {
-            display: flex;
-            flex-direction: column; /* Default to column for mobile */
-            justify-content: space-between;
-            align-items: center;
-            gap: 1.5rem; /* Gap between social links, copyright, and policy links on mobile */
-            max-width: 1440px; /* Match footer-container max-width for internal centering */
-            margin: 0 auto; /* Center content within footer-bottom */
-            padding: 0 20px; /* Consistent horizontal padding */
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .social-link {
-            color: var(--text-color-medium);
-            transition: color var(--transition-speed-fast) ease-in-out;
-        }
-        .social-link:hover {
-            color: var(--primary-color);
-        }
-        .social-icon {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-
-        .copyright {
-            color: var(--text-color-copyright);
-            font-size: 0.875rem;
-            text-align: center; /* Ensure copyright text is centered on mobile */
-        }
-
-        .policy-links { /* New styles for the policy links block */
-            display: flex;
-            align-items: center;
-            gap: 0.5rem; /* Small gap between links and separator */
-            flex-wrap: wrap; /* Allow wrapping on small screens */
-            justify-content: center; /* Center on mobile */
-            color: var(--text-color-medium); /* Ensure separator has a color */
-        }
-
-        .policy-links .footer-link { /* Ensure footer-link style applies */
-            white-space: nowrap; /* Keep links on one line if possible */
-        }
-
-        .policy-links .separator {
-            color: var(--text-color-medium);
-        }
-
-        /* --- Responsive Styles --- */
-
-        /* Footer Section Responsive */
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 2fr 1fr;
-            }
-            .company-section {
-                text-align: left;
-                margin: 0; /* Remove auto margin for desktop */
-            }
-            .company-title {
-                justify-content: flex-start; /* Align logo and title to left */
-            }
-            .company-description {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            .button-container {
-                flex-direction: row;
-                justify-content: flex-start;
-            }
-            .btn {
-                margin-top: 0; /* Remove top margin when buttons are in a row */
-                width: auto; /* Allow buttons to size based on content */
-            }
-            .footer-section {
-                text-align: left;
-            }
-            .footer-bottom-content {
-                flex-direction: row; /* Layout content horizontally */
-                gap: 0; /* Remove gap when horizontal */
-                justify-content: space-between; /* Space out items */
-            }
-            .social-links {
-                margin-bottom: 0;
-            }
-            .policy-links {
-                justify-content: flex-start; /* Align policy links left on desktop */
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .footer {
-                padding: 80px 15px 0 15px; /* Adjust padding for tablets */
-            }
-        }
-
-        @media (max-width: 767px) { /* Changed from 768px to 767px to be breakpoint below 768px */
-            .footer {
-                padding: 40px 15px 0 15px; /* Adjusted padding for mobile from 60px to 40px */
-            }
-            .footer-container {
-                padding: 0 1rem;
-            }
-            .footer-grid {
-                gap: var(--spacing-md); /* Smaller gap for mobile */
-            }
-            .company-section,
-            .footer-section {
-                text-align: center;
-            }
-            .company-title {
-                justify-content: center; /* Ensure logo and title are centered on mobile */
-            }
-            .button-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .btn {
-                margin-top: 10px; /* Smaller top margin when stacking */
-                width: 80%; /* Make buttons narrower on mobile */
-                max-width: 200px; /* Prevent overly wide buttons */
-            }
-            .footer-bottom-content {
-                flex-direction: column;
-                gap: var(--spacing-sm); /* Gap between social links, copyright, and policy links */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .footer {
-                padding: 30px 10px 0 10px; /* Further reduced padding from 40px to 30px */
-            }
-            .company-title {
-                font-size: 1.25rem;
-            }
-            .btn {
-                padding: 0.625rem 1.25rem;
-                font-size: 0.875rem;
-            }
-        }
-
+        
 /* Main portfolio section styling with animated background */
         .portfolio-section {
             position: relative;
@@ -750,29 +455,10 @@
         position: relative;
         min-height: 100vh;
         padding: 120px 20px;
-        background: radial-gradient(ellipse at center, rgba(0, 85, 255, 0.05) 0%, transparent 70%);
+        background-color: rgba(0, 0, 0, 0.562);
         overflow: hidden;
     }
-
-    /* Animated background particles using pseudo-element */
-    .pricing-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: 
-            radial-gradient(circle at 20% 80%, rgba(0, 85, 255, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(255, 0, 136, 0.05) 0%, transparent 50%);
-        animation: backgroundPulse 10s ease-in-out infinite;
-    }
-
-    @keyframes backgroundPulse {
-        0%, 100% { opacity: 0.3; transform: scale(1); }
-        50% { opacity: 0.6; transform: scale(1.05); }
-    }
+    
 
     /* Plan Card Styling */
     .plan-card {
@@ -824,10 +510,23 @@
         
     }
     </style>
-    
+    <style>
+        #particleCanvas3D {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;   /* keeps it behind everything else */
+            pointer-events: none; /* so clicks pass through */
+        }
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   </head>
   <body >
+     <canvas id="particleCanvas3D"></canvas>
     <header class="main-header">
         <div href="#" class="site-logo"><img src="/icons/logo.svg" alt=""></div>
 
@@ -1563,71 +1262,166 @@
     </section>
 
     <footer class="footer fade-in-element">
+        <!-- Video background for demonstration -->
         <video autoplay loop muted playsinline class="video-background" id="bg-vid">
-        <source src="/gifs/background.webm" type="video/webm">
-      </video>
-      <div class="footer-container">
-          <div class="footer-grid">
-              <div class="company-section">
-                
-                  <h3 class="company-title">
-                      <img class="logotype" src="/icons/logo.svg" alt="Silvy Logo">
-                  </h3>
-                  <p class="company-description">
-                      Building something incredible with cutting-edge technology and innovative solutions. Made with love and passion - Silvy Studios
-                  </p>
-                  <div class="button-container">
-                      <button class="btn btn-primary"><a href="/contact.html">Get Started</a></button>
-                    
-                  </div>
-              </div>
+            <!-- Example video from an online source (replace with your desired video) -->
+            <source src="/gifs/background.webm" type="video/webm">
+        </video>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="company-section">
+                    <h3 class="company-title">
+                        <!-- Placeholder for Silvy Logo -->
+                        <img class="logotype" src="/icons/logo.svg" alt="Silvy Logo">
+                    </h3>
+                    <p class="company-description">
+                        Building something incredible with cutting-edge technology and innovative solutions. Made with love and passion - Silvy Studios
+                    </p>
+                    <div class="button-container">
+                        <button class="btn btn-primary"><a href="/contact.html">Get Started</a></button>
+                    </div>
+                </div>
 
-              <div class="footer-section">
-                  <h4 class="section-title">Quick Links</h4>
-                  <ul class="footer-list">
-                      <li><a href="#" class="footer-link">Home</a></li>
-                      <li><a href="#" class="footer-link">Portfolio</a></li>
-                      <li><a href="/about.html" class="footer-link">About</a></li>
-                      <li><a href="/contact.html" class="footer-link">Contact</a></li>
+                <div class="footer-section">
+                    <h4 class="section-title">Quick Links</h4>
+                    <ul class="footer-list">
+                        <li><a href="/index.html" class="footer-link">Home</a></li>
+                        <li><a href="#about" class="footer-link">Portfolio</a></li>
+                        <li><a href="/contact.html" class="footer-link">Contact</a></li>
                       <li><a href="/cancellation-policy.html" class="footer-link">Cancellation Policy</a></li>
-
-                  </ul>
-              </div>
-
-              
-          </div>
-
-          <div class="footer-bottom">
-            <div class="footer-bottom-content">
-              <div class="social-links">
-                <a href="#" class="social-link">
-                    <img src="/icons/instagram-1-svgrepo-com.svg" alt="Instagram" class="social-icon">
-                </a>
-                <a href="#" class="social-link">
-                    <img src="/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" class="social-icon">
-                </a>
-                <a href="#" class="social-link">
-                    <img src="/icons/linkedin-linked-in-svgrepo-com.svg" alt="LinkedIn" class="social-icon">
-                </a>
-              </div>
-              <p class="copyright">
-                  © 2025 Silvy. All rights reserved.
-              </p>
-              <div class="policy-links"> <!-- New wrapper for policy links -->
-                  <a href="/terms-and-conditions.html" class="footer-link">Terms and Conditions</a>
-                  <span class="separator">|</span>
-                  <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
-              </div>
+                    </ul>
+                </div>
             </div>
-          </div>
-      </div>
-  </footer>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <!-- Placeholder for Instagram Icon -->
+                            <img src="/icons/instagram-1-svgrepo-com.svg" alt="Instagram" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <!-- Placeholder for WhatsApp Icon -->
+                            <img src="/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <!-- Placeholder for LinkedIn Icon -->
+                            <img src="/icons/linkedin-linked-in-svgrepo-com.svg" alt="LinkedIn" class="social-icon">
+                        </a>
+                    </div>
+                    <p class="copyright">
+                        © 2025 Silvy. All rights reserved.
+                    </p>
+                    <div class="policy-links">
+                        <a href="/terms-and-conditions.html" class="footer-link">Terms and Conditions</a>
+                        <span class="separator">|</span>
+                        <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 
     <script src="/scripts/script.js">
       
     </script>
-    
+     <script>
+        // Use window.onload to ensure the canvas and all elements are loaded before running the script
+        window.onload = function() {
+            const canvas = document.getElementById('particleCanvas3D');
+            let scene, camera, renderer, particles;
+            
+            // Define particle colors
+            const whiteColor = new THREE.Color(0xffffff);
+            const blueColor = new THREE.Color(0x00aaff);
+
+            /**
+             * Initializes the 3D scene, camera, and particle system.
+             */
+            function init() {
+                // Create a new scene
+                scene = new THREE.Scene();
+
+                // Create a perspective camera
+                camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                camera.position.z = 50;
+
+                // Create a WebGL renderer with a transparent background
+                renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                renderer.setClearAlpha(0);
+
+                // Create the particles
+                const geometry = new THREE.BufferGeometry();
+                const vertices = [];
+                const colors = [];
+                const particleCount = 2000;
+                const size = 100;
+
+                for (let i = 0; i < particleCount; i++) {
+                    const x = (Math.random() - 0.5) * size;
+                    const y = (Math.random() - 0.5) * size;
+                    const z = (Math.random() - 0.5) * size;
+                    vertices.push(x, y, z);
+                    
+                    // Assign a random color (white or blue) to each particle
+                    const color = Math.random() > 0.5 ? whiteColor : blueColor;
+                    colors.push(color.r, color.g, color.b);
+                }
+
+                geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+                geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+                // Create the material for the particles, enabling vertex colors
+                const material = new THREE.PointsMaterial({
+                    size: 0.1,
+                    blending: THREE.AdditiveBlending,
+                    transparent: true,
+                    opacity: 0.8,
+                    vertexColors: true // This is the key to using per-particle colors
+                });
+
+                // Create the particle system and add it to the scene
+                particles = new THREE.Points(geometry, material);
+                scene.add(particles);
+
+                // Add event listener for responsiveness
+                window.addEventListener('resize', onWindowResize);
+            }
+
+            /**
+             * The main animation loop for the scene.
+             */
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Animate particles by rotating them
+                particles.rotation.x += 0.0005;
+                particles.rotation.y += 0.001;
+
+                // Render the scene
+                renderer.render(scene, camera);
+            }
+
+            /**
+             * Handles window resizing to maintain responsiveness.
+             */
+            function onWindowResize() {
+                const newWidth = window.innerWidth;
+                const newHeight = window.innerHeight;
+                
+                camera.aspect = newWidth / newHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(newWidth, newHeight);
+            }
+
+            // Initialize and start the animation
+            init();
+            animate();
+        };
+    </script>
   </body>
 </html>
