@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silvy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -16,13 +17,18 @@
     <link rel="stylesheet" href="/styles/body.css">
     <link rel="stylesheet" href="/styles/faq-landing.css">
     <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/pricing.css">
     <style>
         .site-logo img {
-        height: 40px; /* Adjust as needed */
-        width: auto; /* Maintain aspect ratio */
-        vertical-align: middle; /* Aligns the image nicely with text if any */
+            height: 40px;
+            /* Adjust as needed */
+            width: auto;
+            /* Maintain aspect ratio */
+            vertical-align: middle;
+            /* Aligns the image nicely with text if any */
         }
-                /* Base Styles (from your provided footer snippet) */
+
+        /* Base Styles (from your provided footer snippet) */
         * {
             margin: 0;
             padding: 0;
@@ -30,7 +36,7 @@
         }
 
         :root {
-            --primary-color: rgb(0,85,255);
+            --primary-color: rgb(0, 85, 255);
             --text-color-light: #ffffff;
             --text-color-medium: #d1d5db;
             --text-color-copyright: #9ca3af;
@@ -39,16 +45,21 @@
 
             --glow-color-white: rgb(255, 255, 255);
 
-            --font-size-sm: 0.9375rem; /* 15px */
+            --font-size-sm: 0.9375rem;
+            /* 15px */
             --font-weight-medium: 500;
             --font-weight-semibold: 600;
             --font-weight-bold: 700;
 
-            --spacing-sm: 1rem; /* 16px */
-            --spacing-md: 1.5rem; /* 24px */
-            --spacing-lg: 2rem; /* 32px */
+            --spacing-sm: 1rem;
+            /* 16px */
+            --spacing-md: 1.5rem;
+            /* 24px */
+            --spacing-lg: 2rem;
+            /* 32px */
 
-            --border-radius-sm: 0.5rem; /* 8px */
+            --border-radius-sm: 0.5rem;
+            /* 8px */
 
             --transition-speed-fast: 0.2s;
             --transition-speed-normal: 0.3s;
@@ -56,8 +67,8 @@
 
         /* Base Body Styles for Footer Context (adjust if integrating into a larger project with global body styles) */
 
-        
-/* Main portfolio section styling with animated background */
+
+        /* Main portfolio section styling with animated background */
         .portfolio-section {
             position: relative;
             min-height: 100vh;
@@ -74,7 +85,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 20% 80%, rgba(0, 85, 255, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 40% 40%, rgba(255, 0, 136, 0.05) 0%, transparent 50%);
@@ -82,8 +93,17 @@
         }
 
         @keyframes backgroundPulse {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.05); }
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.05);
+            }
         }
 
         .portfolio-container {
@@ -93,7 +113,7 @@
             z-index: 2;
         }
 
-        
+
 
         /* Enhanced typography for main title and subtitle */
         .portfolio-title {
@@ -123,8 +143,13 @@
         }
 
         @keyframes titleGlow {
-            0% { box-shadow: 0 0 5px rgba(0, 85, 255, 0.5); }
-            100% { box-shadow: 0 0 20px rgba(0, 85, 255, 1), 0 0 40px rgba(0, 255, 136, 0.5); }
+            0% {
+                box-shadow: 0 0 5px rgba(0, 85, 255, 0.5);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(0, 85, 255, 1), 0 0 40px rgba(0, 255, 136, 0.5);
+            }
         }
 
         .portfolio-subtitle {
@@ -172,7 +197,7 @@
             backdrop-filter: blur(30px);
             transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
             cursor: pointer;
-            box-shadow: 
+            box-shadow:
                 0 25px 60px rgba(0, 0, 0, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
@@ -201,7 +226,7 @@
         .portfolio-card.active {
             transform: translate(-50%, -50%) scale(1.1) rotateY(0deg);
             z-index: 10;
-            box-shadow: 
+            box-shadow:
                 0 40px 80px rgba(0, 85, 255, 0.3),
                 0 0 0 1px rgba(0, 85, 255, 0.5),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -250,12 +275,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(
-                180deg, 
-                transparent 0%, 
-                rgba(0, 0, 0, 0.1) 50%, 
-                rgba(0, 0, 0, 0.8) 100%
-            );
+            background: linear-gradient(180deg,
+                    transparent 0%,
+                    rgba(0, 0, 0, 0.1) 50%,
+                    rgba(0, 0, 0, 0.8) 100%);
         }
 
         .card-tech-stack {
@@ -359,7 +382,7 @@
 
         .visit-button:hover {
             transform: translateY(-2px);
-            box-shadow: 
+            box-shadow:
                 0 12px 40px rgba(0, 85, 255, 0.4),
                 0 0 0 1px rgba(255, 255, 255, 0.2);
         }
@@ -421,94 +444,34 @@
             .portfolio-section {
                 padding: 80px 20px;
             }
-            
+
             .portfolio-carousel {
                 height: 500px;
             }
-            
+
             .portfolio-card {
                 width: 320px;
                 height: 450px;
             }
-            
+
             .portfolio-card.prev {
                 transform: translate(-150%, -50%) scale(0.8) rotateY(30deg);
             }
-            
+
             .portfolio-card.next {
                 transform: translate(50%, -50%) scale(0.8) rotateY(-30deg);
             }
-            
+
             .card-image-wrapper {
                 height: 220px;
             }
-            
+
             .card-content {
                 padding: 24px;
                 height: 230px;
             }
         }
     </style>
-    <style>
-    /* Main pricing section styling with animated background */
-    .pricing-section {
-        position: relative;
-        min-height: 100vh;
-        padding: 120px 20px;
-        background-color: rgba(0, 0, 0, 0.562);
-        overflow: hidden;
-    }
-    
-
-    /* Plan Card Styling */
-    .plan-card {
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(30px);
-        border-radius: 24px;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .plan-card:hover {
-        transform: scale(1.02);
-    }
-
-    /* Next-Gen Button Styling */
-    .get-started-button {
-        position: relative;
-        padding: 14px 32px;
-        border: none;
-        border-radius: 12px;
-        font-size: 15px;
-        font-weight: 600;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--primary-color); /* Using CSS variable */
-        border-radius: var(--border-radius-sm); /* Using CSS variable */
-       
-        color: var(--text-color-light); /* Using CSS variable */
-        text-align: center;
-        font-size: var(--font-size-sm); /* Using CSS variable */
-        font-weight: var(--font-weight-medium); /* Using CSS variable */
-        
-       
-        transition: all var(--transition-speed-normal) ease; /* Using CSS variable */
-        outline: none;
-        display: inline-block;
-        border: none;
-        cursor: pointer;
-        white-space: nowrap;
-        
-    }
-    
-    .get-started-button:hover {
-        box-shadow: 0 0 15px rgba(0,85,255,0.8), inset 0 0 0.55em 0 #ffffff;
-        scale: 1.05;
-        
-    }
     </style>
     <style>
         #particleCanvas3D {
@@ -517,16 +480,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;   /* keeps it behind everything else */
-            pointer-events: none; /* so clicks pass through */
+            z-index: -1;
+            /* keeps it behind everything else */
+            pointer-events: none;
+            /* so clicks pass through */
         }
-
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-  </head>
-  <body >
-     <canvas id="particleCanvas3D"></canvas>
+</head>
+
+<body>
+    <canvas id="particleCanvas3D"></canvas>
     <header class="main-header">
         <div href="#" class="site-logo"><img src="/icons/logo.svg" alt=""></div>
 
@@ -552,136 +517,160 @@
 
     <section class="hero-section" id="about">
         <video autoplay loop muted playsinline class="hero-video-background" id="bg-vid">
-        <source src="/gifs/background.webm" type="video/webm">
+            <source src="/gifs/background.webm" type="video/webm">
         </video>
-      <div class="hero-contents">
-        <div class="hero-title">
-          Welcome To Silvy Studios
+        <div class="hero-contents">
+            <div class="hero-title">
+                Welcome To Silvy Studios
+            </div>
+            <div class="hero-description-block">
+                We specialize in crafting unique digital presence that help businesses grow and stand out in their
+                industries.
+            </div>
+            <div class="hero-actions">
+                <a href="/contact" class="hero-section-button">Connect With Us</a>
+                <a href="/about" class="hero-section-button secondary">What is Silvy?</a>
+            </div>
         </div>
-        <div class="hero-description-block">
-          We specialize in crafting unique digital presence that help businesses grow and stand out in their industries.
-        </div>
-        <div class="hero-actions">
-            <a href="/contact" class="hero-section-button">Connect With Us</a>
-            <a href="/about" class="hero-section-button secondary">What is Silvy?</a>
-        </div>
-      </div>
     </section>
 
     <section id="about" class="about-section ">
-    <div class="about-container fade-in-element">
-        <div class="image-and-glow-container">
-            <div class="about-image-wrapper">
-                <img src="/images/about.jpg" alt="About Us Image">
+        <div class="about-container fade-in-element">
+            <div class="image-and-glow-container">
+                <div class="about-image-wrapper">
+                    <img src="/images/about.jpg" alt="About Us Image">
+                </div>
+                <div class="bottom-glow-effect"></div>
+                <div class="bottom-glow-effect"></div>
             </div>
-            <div class="bottom-glow-effect"></div>
-            <div class="bottom-glow-effect"></div>
-        </div>
 
-        <div class="about-content">
-            <div class="about-tag-button-wrapper">
-                <div class="about-tag-button"> • About Silvy
+            <div class="about-content">
+                <div class="about-tag-button-wrapper">
+                    <div class="about-tag-button"> • About Silvy
+                    </div>
+                </div>
+
+                <div class="about-headline-group">
+                    <h1 class="about-headline">
+                        Building Stronger Brands
+                    </h1>
+                    <h1 class="about-subheadline">
+                        Creating Impressions!
+                    </h1>
+                </div>
+
+                <div class="about-description-group">
+                    <p class="about-description-text">
+                        Delivering high-quality, on-demand designs with precision.
+                    </p>
+
+                    <p class="about-description-text">
+                        Elevate your brand effortlessely, one snapp at a time.
+                    </p>
+                </div>
+
+                <div class="about-cta-group">
+                    <a class="about-main-cta" href="/contact">
+                        Book an Appointment
+                    </a>
                 </div>
             </div>
-
-            <div class="about-headline-group">
-                <h1 class="about-headline">
-                    Building Stronger Brands
-                </h1>
-                <h1 class="about-subheadline">
-                    Creating Impressions!
-                </h1>
-            </div>
-
-            <div class="about-description-group">
-                <p class="about-description-text">
-                    Delivering high-quality, on-demand designs with precision.
-                </p>
-                
-                <p class="about-description-text">
-                   Elevate your brand effortlessely, one snapp at a time.
-                </p>
-            </div>
-
-            <div class="about-cta-group">
-              <a class="about-main-cta" href="/contact">
-                  Book an Appointment
-              </a>
-            </div>
         </div>
-    </div>
     </section>
 
- 
-    <section id="how"class="section-outer-container">
-    <div class="columns-flex-wrapper">
-    <div class="left-column">
-        <p class="how-we-work-tag">• How We Work?</p>
-        <h1 class="main-heading">We Simplify The Journey<br>From Design To Launch.</h1>
-        <p class="sub-text">
-            We make it easy to bring your ideas to life, guiding you from<br>
-            concept to a fully launched product.
-        </p>
 
-        <div class="card-container">
-            <div class="card" data-animation-order="1">
-                <div class="card-header">
-                    <span class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-square"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M11.5 8.5a2.5 2.5 0 1 1 2.5 2.5L12 12l-4 4-1.5-1.5L10.5 9.5a2.5 2.5 0 0 1 1-1Z"/></svg>
-                    </span>
-                    <span class="stage-tag">Stage 1</span>
-                </div>
-                <h3 class="card-title">Kickoff</h3>
-                <p class="card-description">
-                    The kickoff stage is where everything begins. We align with you to
-                    understand your goals, status, and expectations. Through in-depth
-                    discussions and thorough research.
+    <section id="how" class="section-outer-container">
+        <div class="columns-flex-wrapper">
+            <div class="left-column">
+                <p class="how-we-work-tag">• How We Work?</p>
+                <h1 class="main-heading">We Simplify The Journey<br>From Design To Launch.</h1>
+                <p class="sub-text">
+                    We make it easy to bring your ideas to life, guiding you from<br>
+                    concept to a fully launched product.
                 </p>
-                <div class="card-buttons">
-                    <button class="btn secondary">Comprehensive Consultation</button>
-                    <button class="btn secondary">Project Roadmap</button>
+
+                <div class="card-container">
+                    <div class="card" data-animation-order="1">
+                        <div class="card-header">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-key-square">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" />
+                                    <path
+                                        d="M11.5 8.5a2.5 2.5 0 1 1 2.5 2.5L12 12l-4 4-1.5-1.5L10.5 9.5a2.5 2.5 0 0 1 1-1Z" />
+                                </svg>
+                            </span>
+                            <span class="stage-tag">Stage 1</span>
+                        </div>
+                        <h3 class="card-title">Kickoff</h3>
+                        <p class="card-description">
+                            The kickoff stage is where everything begins. We align with you to
+                            understand your goals, status, and expectations. Through in-depth
+                            discussions and thorough research.
+                        </p>
+                        <div class="card-buttons">
+                            <button class="btn secondary">Comprehensive Consultation</button>
+                            <button class="btn secondary">Project Roadmap</button>
+                        </div>
+                    </div>
+
+                    <div class="card" data-animation-order="2">
+                        <div class="card-header">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-cog">
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path
+                                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 6 19.4a1.65 1.65 0 0 0-1.82-.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0-.33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 2-2h.09a1.65 1.65 0 0 0 .33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82-.33V3a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1.82.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0 .33 1.82 1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-.33 1.82Z" />
+                                </svg>
+                            </span>
+                            <span class="stage-tag">Stage 2</span>
+                        </div>
+                        <h3 class="card-title">Execution</h3>
+                        <p class="card-description">
+                            With a clear strategy in place, we move into the execution phase,
+                            where ideas come to life. Our team works highly efficiently and
+                            collaboratively to implement the plan.
+                        </p>
+                        <div class="card-buttons">
+                            <button class="btn secondary">Seamless Integration</button>
+                            <button class="btn secondary">Real-Time Collaboration</button>
+                        </div>
+                    </div>
+
+                    <div class="card" data-animation-order="3" id="thirdCard">
+                        <div class="card-header">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-rocket">
+                                    <path
+                                        d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74.5 5 2c1.26-1.5 5-2 5-2s-.5-3.74-2-5c1.5-1.26 2-5 2-5s-3.74-.5-5-2c-1.26 1.5-5 2-5 2s.5 3.74 2 5Z" />
+                                    <path d="M9 18s1.5-2 2-3.5c-.5-.5-2 1-3.5 2-1.5 1.5 2 2 2 2Z" />
+                                    <path d="M15 12s-1.5 1.5-2 3.5c.5.5 2-1 3.5-2 1.5-1.5-2-2-2-2Z" />
+                                    <path d="M12 9s2-1.5 3.5-2c-.5-.5-1-2-2-3.5-1.5-1.5-2-2-2-2Z" />
+                                    <path d="M6 9h1a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2Z" />
+                                    <path d="M10 11h4" />
+                                    <path d="M12 10v4" />
+                                </svg>
+                            </span>
+                            <span class="stage-tag">Stage 3</span>
+                        </div>
+                        <h3 class="card-title">Launch & Support</h3>
+                        <p class="card-description">
+                            The culmination of our journey. We prepare your product for launch,
+                            ensuring a smooth and successful rollout. Post-launch, we provide
+                            ongoing support and maintenance to keep your product performing optimally.
+                        </p>
+                        <div class="card-buttons">
+                            <button class="btn secondary">Seamless Deployment</button>
+                            <button class="btn secondary">Ongoing Support</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="card" data-animation-order="2">
-                <div class="card-header">
-                    <span class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cog"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 6 19.4a1.65 1.65 0 0 0-1.82-.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0-.33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 2-2h.09a1.65 1.65 0 0 0 .33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82-.33V3a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1.82.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0 .33 1.82 1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-.33 1.82Z"/></svg>
-                    </span>
-                    <span class="stage-tag">Stage 2</span>
-                </div>
-                <h3 class="card-title">Execution</h3>
-                <p class="card-description">
-                    With a clear strategy in place, we move into the execution phase,
-                    where ideas come to life. Our team works highly efficiently and
-                    collaboratively to implement the plan.
-                </p>
-                <div class="card-buttons">
-                    <button class="btn secondary">Seamless Integration</button>
-                    <button class="btn secondary">Real-Time Collaboration</button>
-                </div>
-            </div>
-
-            <div class="card" data-animation-order="3" id="thirdCard">
-                <div class="card-header">
-                    <span class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74.5 5 2c1.26-1.5 5-2 5-2s-.5-3.74-2-5c1.5-1.26 2-5 2-5s-3.74-.5-5-2c-1.26 1.5-5 2-5 2s.5 3.74 2 5Z"/><path d="M9 18s1.5-2 2-3.5c-.5-.5-2 1-3.5 2-1.5 1.5 2 2 2 2Z"/><path d="M15 12s-1.5 1.5-2 3.5c.5.5 2-1 3.5-2 1.5-1.5-2-2-2-2Z"/><path d="M12 9s2-1.5 3.5-2c-.5-.5-1-2-2-3.5-1.5-1.5-2-2-2-2Z"/><path d="M6 9h1a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2Z"/><path d="M10 11h4"/><path d="M12 10v4"/></svg>
-                    </span>
-                    <span class="stage-tag">Stage 3</span>
-                </div>
-                <h3 class="card-title">Launch & Support</h3>
-                <p class="card-description">
-                    The culmination of our journey. We prepare your product for launch,
-                    ensuring a smooth and successful rollout. Post-launch, we provide
-                    ongoing support and maintenance to keep your product performing optimally.
-                </p>
-                <div class="card-buttons">
-                    <button class="btn secondary">Seamless Deployment</button>
-                    <button class="btn secondary">Ongoing Support</button>
-                </div>
-            </div>
-        </div>
-      </div>
 
             <div class="right-column">
                 <div class="image-wrapper" id="imageWrapper">
@@ -689,17 +678,18 @@
                     <div class="glow-effect"></div>
                 </div>
             </div>
-    </div>
+        </div>
     </section>
-    
+
     <!-- This is features section -->
     <section id="features" class="services-section ">
         <div class="section-tag-button">&bull; Features</div>
 
-          <p class="section-title">Unlimited Design Features <br> Delivered In A Second!</p>
-          <p class="section-subtitle">Get unlimited design features that give you the freedom to create without boundaries.</p>
+        <p class="section-title">Unlimited Design Features <br> Delivered In A Second!</p>
+        <p class="section-subtitle">Get unlimited design features that give you the freedom to create without
+            boundaries.</p>
 
-          <a href="/about" class="results-cta-button" style="margin-bottom: 60px;">View About Silvy</a>
+        <a href="/about" class="results-cta-button" style="margin-bottom: 60px;">View About Silvy</a>
 
         <div class="cards-container">
             <div class="service-card">
@@ -707,7 +697,8 @@
                     <img src="/icons/rupee-sign.png" alt="Strategy Icon">
                 </div>
                 <h3 class="card-title">Strategic Planning</h3>
-                <p class="card-description">We help define clear objectives and develop actionable strategies for sustainable growth.</p>
+                <p class="card-description">We help define clear objectives and develop actionable strategies for
+                    sustainable growth.</p>
                 <span class="card-arrow">&#8599;</span>
             </div>
 
@@ -716,7 +707,8 @@
                     <img src="/icons/invesment.png" alt="Development Icon">
                 </div>
                 <h3 class="card-title">Software Development</h3>
-                <p class="card-description">Building robust and scalable software solutions tailored to your unique business needs.</p>
+                <p class="card-description">Building robust and scalable software solutions tailored to your unique
+                    business needs.</p>
                 <span class="card-arrow">&#8599;</span>
             </div>
 
@@ -725,7 +717,8 @@
                     <img src="/icons/malware.png" alt="Design Icon">
                 </div>
                 <h3 class="card-title">UI/UX Design</h3>
-                <p class="card-description">Creating intuitive and engaging user interfaces that enhance user experience.</p>
+                <p class="card-description">Creating intuitive and engaging user interfaces that enhance user
+                    experience.</p>
                 <span class="card-arrow">&#8599;</span>
             </div>
 
@@ -734,7 +727,8 @@
                     <img src="/icons/check.png" alt="Consulting Icon">
                 </div>
                 <h3 class="card-title">Business Consulting</h3>
-                <p class="card-description">Providing expert advice and insights to optimize operations and drive business efficiency.</p>
+                <p class="card-description">Providing expert advice and insights to optimize operations and drive
+                    business efficiency.</p>
                 <span class="card-arrow">&#8599;</span>
             </div>
 
@@ -743,7 +737,8 @@
                     <img src="/icons/flash (1).png" alt="Marketing Icon">
                 </div>
                 <h3 class="card-title">Digital Marketing</h3>
-                <p class="card-description">Crafting effective digital campaigns to boost your brand visibility and reach a wider audience.</p>
+                <p class="card-description">Crafting effective digital campaigns to boost your brand visibility and
+                    reach a wider audience.</p>
                 <span class="card-arrow">&#8599;</span>
             </div>
 
@@ -752,7 +747,8 @@
                     <img src="/icons/smartphone (1).png" alt="Support Icon">
                 </div>
                 <h3 class="card-title">Technical Support</h3>
-                <p class="card-description">Offering reliable and prompt technical assistance to ensure smooth operation of your systems.</p>
+                <p class="card-description">Offering reliable and prompt technical assistance to ensure smooth operation
+                    of your systems.</p>
                 <span class="card-arrow">&#8599;</span>
             </div>
         </div>
@@ -769,7 +765,8 @@
 
             <h2 class="portfolio-title">Crafting Digital Excellence</h2>
             <p class="portfolio-subtitle">
-                Every project is a testament to our commitment to innovation, performance, and user experience. We don't just build websites—we create digital experiences that captivate and convert.
+                Every project is a testament to our commitment to innovation, performance, and user experience. We don't
+                just build websites—we create digital experiences that captivate and convert.
             </p>
 
             <div class="portfolio-carousel">
@@ -777,33 +774,39 @@
                     <!-- Project Card 1 (Maosaji Honda) -->
                     <div class="portfolio-card active" data-index="0">
                         <div class="card-image-wrapper">
-                            <img src="/images/maosaji-honda-website.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/2a52be/fff?text=Maosaji+Honda';" alt="Maosaji Honda" class="card-image">
+                            <img src="/images/maosaji-honda-website.jpg"
+                                onerror="this.onerror=null;this.src='https://placehold.co/400x300/2a52be/fff?text=Maosaji+Honda';"
+                                alt="Maosaji Honda" class="card-image">
                             <div class="card-overlay"></div>
                         </div>
                         <div class="card-content">
                             <div>
                                 <h3 class="card-title">Maosaji Honda</h3>
-                                <p class="card-description">A premium motorcycle maintenance platform with real-time booking and certified technician matching.</p>
+                                <p class="card-description">A premium motorcycle maintenance platform with real-time
+                                    booking and certified technician matching.</p>
                             </div>
                             <div class="card-footer">
                                 <div class="card-stats">
                                     <div class="stat-item">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            <path
+                                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                         </svg>
                                         4.9★
                                     </div>
                                     <div class="stat-item">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         2024
                                     </div>
                                 </div>
                                 <a href="http://maosaji-honda.onrender.com" class="visit-button">
                                     Explore
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7" />
                                     </svg>
                                 </a>
                             </div>
@@ -813,7 +816,9 @@
                     <!-- Project Card 2 (Shreejee Automobiles) -->
                     <div class="portfolio-card next" data-index="1">
                         <div class="card-image-wrapper">
-                            <img src="/images/shreejeeautomobiles-website.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/2a52be/fff?text=Shreejee+Automobiles';" alt="Shreejee Automobiles" class="card-image">
+                            <img src="/images/shreejeeautomobiles-website.jpg"
+                                onerror="this.onerror=null;this.src='https://placehold.co/400x300/2a52be/fff?text=Shreejee+Automobiles';"
+                                alt="Shreejee Automobiles" class="card-image">
                             <div class="card-overlay"></div>
                             <!-- <div class="card-tech-stack">
                                 <span class="tech-badge">Html</span>
@@ -824,27 +829,31 @@
                         <div class="card-content">
                             <div>
                                 <h3 class="card-title">Shreejee Automobiles</h3>
-                                <p class="card-description">A next-generation vehicle service platform with AI-driven diagnostics and predictive maintenance.</p>
+                                <p class="card-description">A next-generation vehicle service platform with AI-driven
+                                    diagnostics and predictive maintenance.</p>
                             </div>
                             <div class="card-footer">
                                 <div class="card-stats">
                                     <div class="stat-item">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            <path
+                                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                         </svg>
                                         4.8★
                                     </div>
                                     <div class="stat-item">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         2024
                                     </div>
                                 </div>
                                 <a href="http://shreejeeautomobiles.com" class="visit-button">
                                     Explore
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7" />
                                     </svg>
                                 </a>
                             </div>
@@ -854,7 +863,9 @@
                     <!-- Project Card 3 (CG Athletics) -->
                     <div class="portfolio-card hidden" data-index="2">
                         <div class="card-image-wrapper">
-                            <img src="/images/cg-athletics-website.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/2a52be/fff?text=CG+Athletics';" alt="CG Athletics" class="card-image">
+                            <img src="/images/cg-athletics-website.jpg"
+                                onerror="this.onerror=null;this.src='https://placehold.co/400x300/2a52be/fff?text=CG+Athletics';"
+                                alt="CG Athletics" class="card-image">
                             <div class="card-overlay"></div>
                             <!-- <div class="card-tech-stack">
                                 <span class="tech-badge">Word Press</span>
@@ -864,27 +875,31 @@
                         <div class="card-content">
                             <div>
                                 <h3 class="card-title">CG Athletics</h3>
-                                <p class="card-description">An athletic management platform for performance tracking and talent scouting.</p>
+                                <p class="card-description">An athletic management platform for performance tracking and
+                                    talent scouting.</p>
                             </div>
                             <div class="card-footer">
                                 <div class="card-stats">
                                     <div class="stat-item">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            <path
+                                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                         </svg>
                                         4.9★
                                     </div>
                                     <div class="stat-item">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         2024
                                     </div>
                                 </div>
                                 <a href="http://cgathletics.co.in" class="visit-button">
                                     Explore
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7" />
                                     </svg>
                                 </a>
                             </div>
@@ -944,7 +959,7 @@
                 carousel.addEventListener('mouseenter', () => {
                     this.pauseAutoplay();
                 });
-                
+
                 carousel.addEventListener('mouseleave', () => {
                     this.resumeAutoplay();
                 });
@@ -983,7 +998,7 @@
             updateCards() {
                 this.cards.forEach((card, index) => {
                     card.classList.remove('active', 'prev', 'next', 'hidden');
-                    
+
                     const prevIndex = (this.currentIndex - 1 + this.totalCards) % this.totalCards;
                     const nextIndex = (this.currentIndex + 1) % this.totalCards;
 
@@ -1055,210 +1070,269 @@
     </script>
 
     <section class="choose-us-section fade-in-element">
-      <div class="choose-us-content">
-        <div class="section-tag">&bull; Launch Your Site</div>
-        <h2 class="choose-us-title">Why Choose Us?</h2>
-        <p class="choose-us-description">
-          We bring your vision to life with unparalleled creativity, expertise, and a commitment to your success. Discover the difference of working with a partner who truly understands your goals.
-        </p>
-      </div>
+        <div class="choose-us-content">
+            <div class="section-tag">&bull; Launch Your Site</div>
+            <h2 class="choose-us-title">Why Choose Us?</h2>
+            <p class="choose-us-description">
+                We bring your vision to life with unparalleled creativity, expertise, and a commitment to your success.
+                Discover the difference of working with a partner who truly understands your goals.
+            </p>
+        </div>
 
-      <div class="choose-us-scroll-wrapper">
-        <div class="choose-us-image-scroll-container scroll-left-animation">
-          <img src="/images/img1.webp" alt="Creative Project 1" class="scroll-image" loading="lazy">
-          <img src="/images/img2.webp" alt="Creative Project 2" class="scroll-image" loading="lazy">
-          <img src="/images/img3.webp" alt="Creative Project 3" class="scroll-image" loading="lazy">
-          <img src="/images/img4.webp" alt="Creative Project 4" class="scroll-image" loading="lazy">
-          <img src="/images/img5.webp" alt="Creative Project 5" class="scroll-image" loading="lazy">
-          <img src="/images/img6.webp" alt="Creative Project 5" class="scroll-image" loading="lazy">
-          <img src="/images/img7.webp" alt="Creative Project 5" class="scroll-image" loading="lazy">
-          <img src="/images/img8.webp" alt="Creative Project 5" class="scroll-image" loading="lazy">
-         
+        <div class="choose-us-scroll-wrapper">
+            <div class="choose-us-image-scroll-container scroll-left-animation">
+                <img src="/images/img1.webp" alt="Creative Project 1" class="scroll-image" loading="lazy">
+                <img src="/images/img2.webp" alt="Creative Project 2" class="scroll-image" loading="lazy">
+                <img src="/images/img3.webp" alt="Creative Project 3" class="scroll-image" loading="lazy">
+                <img src="/images/img4.webp" alt="Creative Project 4" class="scroll-image" loading="lazy">
+                <img src="/images/img5.webp" alt="Creative Project 5" class="scroll-image" loading="lazy">
+                <img src="/images/img6.webp" alt="Creative Project 5" class="scroll-image" loading="lazy">
+                <img src="/images/img7.webp" alt="Creative Project 5" class="scroll-image" loading="lazy">
+                <img src="/images/img8.webp" alt="Creative Project 5" class="scroll-image" loading="lazy">
+
+            </div>
+            <div class="choose-us-image-scroll-container scroll-right-animation">
+                <img src="/images/img9.webp" alt="Creative Project 9" class="scroll-image" loading="lazy">
+                <img src="/images/img10.webp" alt="Creative Project 10" class="scroll-image" loading="lazy">
+                <img src="/images/img11.webp" alt="Creative Project 11" class="scroll-image" loading="lazy">
+                <img src="/images/img12.webp" alt="Creative Project 12" class="scroll-image" loading="lazy">
+                <img src="/images/img13.webp" alt="Creative Project 13" class="scroll-image" loading="lazy">
+                <img src="/images/img14.webp" alt="Creative Project 13" class="scroll-image" loading="lazy">
+                <img src="/images/img15.webp" alt="Creative Project 13" class="scroll-image" loading="lazy">
+                <img src="/images/img16.webp" alt="Creative Project 13" class="scroll-image" loading="lazy">
+
+            </div>
         </div>
-        <div class="choose-us-image-scroll-container scroll-right-animation">
-          <img src="/images/img9.webp" alt="Creative Project 9" class="scroll-image" loading="lazy">
-          <img src="/images/img10.webp" alt="Creative Project 10" class="scroll-image" loading="lazy">
-          <img src="/images/img11.webp" alt="Creative Project 11" class="scroll-image" loading="lazy">
-          <img src="/images/img12.webp" alt="Creative Project 12" class="scroll-image" loading="lazy">
-          <img src="/images/img13.webp" alt="Creative Project 13" class="scroll-image" loading="lazy">
-          <img src="/images/img14.webp" alt="Creative Project 13" class="scroll-image" loading="lazy">
-          <img src="/images/img15.webp" alt="Creative Project 13" class="scroll-image" loading="lazy">
-          <img src="/images/img16.webp" alt="Creative Project 13" class="scroll-image" loading="lazy">
-         
-        </div>
-      </div>
     </section>
 
     <section class="pricing-section">
-        <div class="min-h-screen flex items-center justify-center p-4 md:p-8">
-            <div class="w-full max-w-6xl mx-auto space-y-12">
+        <div class="pricing-container">
+            <!-- Header Section -->
+            <div class="pricing-header">
+                <h1 class="pricing-title">Web Development Plans</h1>
+                <p class="pricing-subtitle">Find the perfect plan for your business website. All plans are fully
+                    customizable.</p>
+            </div>
 
-                <!-- Header Section -->
-                <div class="text-center">
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 portfolio-title">Web Development Plans</h1>
-                    <p class="text-gray-400 text-base sm:text-lg portfolio-subtitle">Find the perfect plan for your business website. All plans are fully customizable.</p>
+            <!-- Pricing Cards Container -->
+            <div
+                class="flex flex-col md:flex-row justify-center items-center md:items-stretch space-y-6 md:space-y-0 md:space-x-6">
+
+                <!-- Basic Plan Card -->
+                <div class="w-full max-w-sm plan-card">
+                    <h2 class="plan-title">Basic Plan</h2>
+                    <p class="plan-description">Launch your business online with essential pages.</p>
+                    <div class="plan-price">
+                        ₹50,000<span>/one-time</span>
+                    </div>
+                    <button class="plan-button plan-button-outline">
+                        Get Started
+                    </button>
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Up to 6 Page Website
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Homepage, About, Contact, Privacy Policy, T&C, Refund
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            1 Additional Custom Page
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            PG Integration (details discussed separately)
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Responsive Design
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- Pricing Cards Container -->
-                <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch space-y-6 md:space-y-0 md:space-x-6">
-
-                    <!-- Basic Plan Card -->
-                    <div class="flex-1 w-full max-w-sm p-8 rounded-2xl shadow-xl transition-all duration-300 hover:scale-[1.02] plan-card bg-transparent">
-                        <h2 class="text-2xl font-semibold text-white mb-2">Basic Plan</h2>
-                        <p class="text-gray-400 mb-6">Launch your business online with essential pages.</p>
-                        <div class="text-4xl font-bold mb-2">
-                            ₹50,000<span class="text-xl font-normal text-gray-400">/one-time</span>
-                        </div>
-                        <button class="w-full py-3 px-6 rounded-xl font-semibold text-gray-800 bg-gray-50 hover:bg-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-blue-500 mb-6">
-                            Get Started
-                        </button>
-                        <ul class="space-y-4">
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Up to 6 Page Website
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Homepage, About, Contact, Privacy Policy, T&C, Refund
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                1 Additional Custom Page
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                PG Integration (details discussed separately)
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Responsive Design
-                            </li>
-                        </ul>
+                <!-- Professional Plan Card -->
+                <div class="w-full max-w-sm plan-card featured">
+                    <div class="featured-badge">MOST POPULAR</div>
+                    <h2 class="plan-title">Professional Plan</h2>
+                    <p class="plan-description">Elevate your brand with dynamic features.</p>
+                    <div class="plan-price">
+                        ₹90,000<span>/one-time</span>
                     </div>
-
-                    <!-- Professional Plan Card -->
-                    <div class="flex-1 w-full max-w-sm p-8 rounded-2xl shadow-xl transition-all duration-300 hover:scale-[1.02] plan-card bg-transparent">
-                        <h2 class="text-2xl font-semibold text-white mb-2">Professional Plan</h2>
-                        <p class="text-gray-400 mb-6">Elevate your brand with dynamic features.</p>
-                        <div class="text-4xl font-bold mb-2">
-                            ₹90,000<span class="text-xl font-normal text-gray-400">/one-time</span>
-                        </div>
-                        <button 
-                            class="w-full py-3 px-6 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-700 shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:shadow-[0_0_30px_rgba(99,102,241,0.8)] transition-all duration-300"
-                            >
-                            Get Professional
-                        </button>
-
-
-                        <ul class="space-y-4">
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Up to 10 Page Website
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                All Basic Plan Features
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Content Management System (CMS)
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Blog Integration
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Advanced SEO Optimization
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Enterprise Plan Card -->
-                    <div class="flex-1 w-full max-w-sm p-8 rounded-2xl shadow-xl transition-all duration-300 hover:scale-[1.02] plan-card bg-transparent">
-                        <h2 class="text-2xl font-semibold text-white mb-2">Enterprise Plan</h2>
-                        <p class="text-gray-400 mb-6">A complete solution for large-scale businesses.</p>
-                        <div class="text-4xl font-bold mb-2">
-                            Contact Us<span class="text-xl font-normal text-gray-400"></span>
-                        </div>
-                        <button class="w-full py-3 px-6 rounded-xl font-semibold text-gray-800 bg-gray-50 hover:bg-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-blue-500 mb-6">
-                            Contact Us
-                        </button>
-                        <ul class="space-y-4">
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Unlimited Pages
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                E-commerce Integration
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Customer Support Portal
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Dedicated Account Manager
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Custom Feature Development
-                            </li>
-                        </ul>
-                    </div>
+                    <button class="plan-button plan-button-primary">
+                        Get Professional
+                    </button>
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Up to 10 Page Website
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            All Basic Plan Features
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Content Management System (CMS)
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Blog Integration
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Advanced SEO Optimization
+                        </li>
+                    </ul>
                 </div>
+
+                <!-- Enterprise Plan Card -->
+                <div class="w-full max-w-sm plan-card">
+                    <h2 class="plan-title">Enterprise Plan</h2>
+                    <p class="plan-description">A complete solution for large-scale businesses.</p>
+                    <div class="plan-price">
+                        Contact Us<span></span>
+                    </div>
+                    <button class="plan-button plan-button-outline">
+                        Contact Us
+                    </button>
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Unlimited Pages
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            E-commerce Integration
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Customer Support Portal
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Dedicated Account Manager
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Custom Feature Development
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
 
     <section id="faq" class="faq-section fade-in-element">
-    <div class="faq-container">
-        <div class="faq-tag-wrapper">
-            <div class="faq-tag">• FAQ</div>
-        </div>
-        <div class="faq-content">
-            <div class="faq-left">
-                <h2 class="faq-heading">
-                    Frequently <br> <span class="heading-accent">Asked Questions</span>
-                </h2>
-                <p class="faq-subheading">Have questions? Our FAQ section has you covered with quick answers to the most common inquiries.</p>
+        <div class="faq-container">
+            <div class="faq-tag-wrapper">
+                <div class="faq-tag">• FAQ</div>
             </div>
-            <div class="faq-right">
-                <div class="faq-item">
-                    <p class="faq-question">What do I need to get started?</p>
-                    <span class="faq-icon">+</span>
-                    <!-- You can add faq-answer here, initially hidden by CSS -->
-                    <!-- <div class="faq-answer">Answer to "What do I need to get started?"</div> -->
-                </div> 
-
-                <div class="faq-item">
-                    <p class="faq-question">What kind of customization is available?</p>
-                    <span class="faq-icon">+</span>
+            <div class="faq-content">
+                <div class="faq-left">
+                    <h2 class="faq-heading">
+                        Frequently <br> <span class="heading-accent">Asked Questions</span>
+                    </h2>
+                    <p class="faq-subheading">Have questions? Our FAQ section has you covered with quick answers to the
+                        most common inquiries.</p>
                 </div>
+                <div class="faq-right">
+                    <div class="faq-item">
+                        <p class="faq-question">What do I need to get started?</p>
+                        <span class="faq-icon">+</span>
+                        <!-- You can add faq-answer here, initially hidden by CSS -->
+                        <!-- <div class="faq-answer">Answer to "What do I need to get started?"</div> -->
+                    </div>
 
-                <div class="faq-item">
-                    <p class="faq-question">How easy is it to edit for beginners?</p>
-                    <span class="faq-icon">+</span>
+                    <div class="faq-item">
+                        <p class="faq-question">What kind of customization is available?</p>
+                        <span class="faq-icon">+</span>
+                    </div>
+
+                    <div class="faq-item">
+                        <p class="faq-question">How easy is it to edit for beginners?</p>
+                        <span class="faq-icon">+</span>
+                    </div>
+
+                    <div class="faq-item">
+                        <p class="faq-question">Let me know more about money-back guarantee?</p>
+                        <span class="faq-icon">+</span>
+                    </div>
+
+                    <div class="faq-item">
+                        <p class="faq-question">Do I need to know how to code?</p>
+                        <span class="faq-icon">+</span>
+                    </div>
+
+                    <div class="faq-item">
+                        <p class="faq-question">What will I get after purchasing the template?</p>
+                        <span class="faq-icon">+</span>
+                    </div>
                 </div>
-
-                <div class="faq-item">
-                    <p class="faq-question">Let me know more about money-back guarantee?</p>
-                    <span class="faq-icon">+</span>
-                </div>
-
-                <div class="faq-item">
-                    <p class="faq-question">Do I need to know how to code?</p>
-                    <span class="faq-icon">+</span>
-                </div>
-
-                <div class="faq-item">
-                    <p class="faq-question">What will I get after purchasing the template?</p>
-                    <span class="faq-icon">+</span>
-                </div> 
             </div>
         </div>
-    </div>
     </section>
 
     <footer class="footer fade-in-element">
@@ -1275,7 +1349,8 @@
                         <img class="logotype" src="/icons/logo.svg" alt="Silvy Logo">
                     </h3>
                     <p class="company-description">
-                        Building something incredible with cutting-edge technology and innovative solutions. Made with love and passion - Silvy Studios
+                        Building something incredible with cutting-edge technology and innovative solutions. Made with
+                        love and passion - Silvy Studios
                     </p>
                     <div class="button-container">
                         <button class="btn btn-primary"><a href="/contact">Get Started</a></button>
@@ -1288,7 +1363,7 @@
                         <li><a href="/Home" class="footer-link">Home</a></li>
                         <li><a href="/contact" class="footer-link">Contact</a></li>
                         <li><a href="/about" class="footer-link">About</a></li>
-                      <li><a href="/cancellation-policy.html" class="footer-link">Cancellation Policy</a></li>
+                        <li><a href="/cancellation-policy.html" class="footer-link">Cancellation Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -1325,14 +1400,14 @@
 
 
     <script src="/scripts/script.js">
-      
+
     </script>
-     <script>
+    <script>
         // Use window.onload to ensure the canvas and all elements are loaded before running the script
-        window.onload = function() {
+        window.onload = function () {
             const canvas = document.getElementById('particleCanvas3D');
             let scene, camera, renderer, particles;
-            
+
             // Define particle colors
             const whiteColor = new THREE.Color(0xffffff);
             const blueColor = new THREE.Color(0x00aaff);
@@ -1366,7 +1441,7 @@
                     const y = (Math.random() - 0.5) * size;
                     const z = (Math.random() - 0.5) * size;
                     vertices.push(x, y, z);
-                    
+
                     // Assign a random color (white or blue) to each particle
                     const color = Math.random() > 0.5 ? whiteColor : blueColor;
                     colors.push(color.r, color.g, color.b);
@@ -1412,7 +1487,7 @@
             function onWindowResize() {
                 const newWidth = window.innerWidth;
                 const newHeight = window.innerHeight;
-                
+
                 camera.aspect = newWidth / newHeight;
                 camera.updateProjectionMatrix();
                 renderer.setSize(newWidth, newHeight);
@@ -1423,5 +1498,6 @@
             animate();
         };
     </script>
-  </body>
+</body>
+
 </html>
