@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.querySelector('.menu-toggle');
     const primaryNav = document.querySelector('.primary-nav');
     const body = document.body;
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if essential header elements exist
     if (menuToggle && primaryNav && header) {
         // --- Mobile Menu Toggle Logic ---
-        menuToggle.addEventListener('click', function() {
+        menuToggle.addEventListener('click', function () {
             menuToggle.classList.toggle('active');
             primaryNav.classList.toggle('active'); // Changed from 'mobile-active' to 'active'
             body.classList.toggle('menu-open'); // Prevent body scroll when menu is open
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Close menu when clicking on nav links (for mobile view)
         const navLinks = primaryNav.querySelectorAll('a');
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 // Check if in mobile view (screen width less than 768px) and menu is open
                 if (window.innerWidth < 768 && primaryNav.classList.contains('active')) { // Changed from 'mobile-active' to 'active'
                     menuToggle.classList.remove('active');
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Close menu when clicking outside of it (for mobile view)
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (window.innerWidth < 768 && primaryNav.classList.contains('active')) { // Changed from 'mobile-active' to 'active'
                 // Check if the click is outside the menu toggle and the primary navigation
                 if (!menuToggle.contains(e.target) && !primaryNav.contains(e.target)) {
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Handle window resize to ensure correct menu state
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             if (window.innerWidth >= 768) { // If resized to desktop/tablet view
                 if (menuToggle.classList.contains('active')) {
                     menuToggle.classList.remove('active');
@@ -57,15 +57,15 @@ document.addEventListener('DOMContentLoaded', function() {
         // --- Header Scroll Hide/Show Logic ---
         let lastScrollY = 0; // Tracks last scroll position
         // Ensure header height is read after layout is stable
-        let headerHeight = header.offsetHeight; 
-        
+        let headerHeight = header.offsetHeight;
+
         // Recalculate header height on resize or after potential DOM changes if needed
         const updateHeaderHeight = () => {
             headerHeight = header.offsetHeight;
         };
         window.addEventListener('resize', updateHeaderHeight); // Update on resize
 
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const currentScrollY = window.scrollY;
 
             // Only act if header is not covered by the mobile menu (prevents flicker)
@@ -109,68 +109,97 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 });
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // ... (Your existing JavaScript code for menu toggle, header scroll, and fade-in elements) ...
 
     // --- Contact Form Submission Logic ---
     const contactForm = document.querySelector('.contact-form-section form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
+        contactForm.addEventListener('submit', async function (event) {
             event.preventDefault(); // Prevent default form submission
 
-            // Check if message already exists to avoid re-adding on subsequent submits
-            let successMessageDiv = document.getElementById('form-success-message');
-            if (!successMessageDiv) {
-                // 1. Create the success message element
-                successMessageDiv = document.createElement('div');
-                successMessageDiv.id = 'form-success-message';
-                successMessageDiv.innerHTML = `
-                    <h3>Thank You!</h3>
-                    <p>Your response has been recorded. We will reach out to you as soon as possible.</p>
-                `;
-
-                // 2. Apply dynamic CSS styles for the message
-                successMessageDiv.style.cssText = `
-                    margin-top: 30px; /* Added margin-top to separate from button */
-                    padding: 25px;
-                    background-color: #00000052; /* Using a slightly transparent dark background */
-                    border: 5px solid var(--primary-color); /* Using your primary color for the border */
-                    border-radius: var(--border-radius-lg); /* Using your border-radius variable */
-                    color: var(--text-color-light); /* Light text color */
-                    text-align: center;
-                    font-family: 'Inter', sans-serif; /* Consistent font */
-                    opacity: 0; /* Start hidden for fade-in */
-                    transform: translateY(20px); /* Start slightly below for animation */
-                    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-                    max-width: 100%; /* Ensure it fits within its parent */
-                    box-sizing: border-box; /* Include padding and border in element's total width and height */
-                `;
-
-                // 3. Append the message *inside* the form element
-                contactForm.appendChild(successMessageDiv);
-            }
-
-
-            // Trigger fade-in animation
-            // Ensure visibility properties are set after appending
-            setTimeout(() => {
-                successMessageDiv.style.opacity = '1';
-                successMessageDiv.style.transform = 'translateY(0)';
-            }, 50); // Small delay to ensure CSS is applied before animation
-
-            // 4. Clear the form fields
-            const inputFields = contactForm.querySelectorAll('input, textarea, select');
-            inputFields.forEach(field => {
-                field.value = ''; // Clear value
-            });
-
-            // Optional: Disable the submit button to prevent multiple submissions
             const submitButton = contactForm.querySelector('button[type="submit"]');
-            if (submitButton) {
-                submitButton.disabled = true;
-                submitButton.textContent = 'Message Sent!';
-                submitButton.style.backgroundColor = '#5a57a5'; // A slightly subdued color
-                submitButton.style.cursor = 'not-allowed';
+            const originalButtonText = submitButton ? submitButton.textContent : 'Submit Now';
+
+            // Gather form data
+            const formData = {
+                firstName: document.getElementById('first-name').value,
+                lastName: document.getElementById('last-name').value,
+                email: document.getElementById('email').value,
+                country: document.getElementById('country').value,
+                companyType: document.getElementById('company-type').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Sending...';
+                }
+
+                const response = await fetch('https://silvybackend.onrender.com/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    // Success logic
+                    let successMessageDiv = document.getElementById('form-success-message');
+                    if (!successMessageDiv) {
+                        successMessageDiv = document.createElement('div');
+                        successMessageDiv.id = 'form-success-message';
+                        successMessageDiv.innerHTML = `
+                            <h3>Thank You!</h3>
+                            <p>Your response has been recorded. We will reach out to you as soon as possible.</p>
+                        `;
+
+                        successMessageDiv.style.cssText = `
+                            margin-top: 30px;
+                            padding: 25px;
+                            background-color: #00000052;
+                            border: 5px solid var(--primary-color);
+                            border-radius: var(--border-radius-lg);
+                            color: var(--text-color-light);
+                            text-align: center;
+                            font-family: 'Inter', sans-serif;
+                            opacity: 0;
+                            transform: translateY(20px);
+                            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+                            max-width: 100%;
+                            box-sizing: border-box;
+                        `;
+                        contactForm.appendChild(successMessageDiv);
+                    }
+
+                    setTimeout(() => {
+                        successMessageDiv.style.opacity = '1';
+                        successMessageDiv.style.transform = 'translateY(0)';
+                    }, 50);
+
+                    // Clear form
+                    const inputFields = contactForm.querySelectorAll('input, textarea, select');
+                    inputFields.forEach(field => {
+                        field.value = '';
+                    });
+
+                    if (submitButton) {
+                        submitButton.textContent = 'Message Sent!';
+                        submitButton.style.backgroundColor = '#5a57a5';
+                        submitButton.style.cursor = 'not-allowed';
+                    }
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error sending your message. Please try again later.');
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                }
             }
         });
     } else {
