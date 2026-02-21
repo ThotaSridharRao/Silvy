@@ -1,378 +1,349 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/styles/footer.css">
-    <link rel="stylesheet" href="/contact-page-styling/styling.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <style>
-      #particleCanvas3D {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;   /* keeps it behind everything else */
-  pointer-events: none; /* so clicks pass through */
-}
 
-    </style>
-  </head>
-  <body>
-     <canvas id="particleCanvas3D"></canvas>
-    <header class="main-header">
-        <a href="/index.html" class="site-logo"><img src="/icons/logo.svg" alt=""></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/footer.css">
+  <link rel="stylesheet" href="/contact-page-styling/styling.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    #particleCanvas3D {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      /* keeps it behind everything else */
+      pointer-events: none;
+      /* so clicks pass through */
+    }
+  </style>
+</head>
 
-        <button class="menu-toggle" aria-label="Toggle navigation">
-            <span class="hamburger"></span>
-            <span class="hamburger"></span>
-            <span class="hamburger"></span>
-        </button>
+<body>
+  <canvas id="particleCanvas3D"></canvas>
+  <header class="main-header">
+    <a href="/index.html" class="site-logo"><img src="/icons/logo.svg" alt=""></a>
 
-        <nav class="primary-nav">
-            <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li class="mobile-cta"><a href="#" class="call-to-action-button">Get In Touch</a></li>
-            </ul>
-        </nav>
+    <button class="menu-toggle" aria-label="Toggle navigation">
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+    </button>
 
-        <a href="#" class="call-to-action-button desktop-cta">Get In Touch</a>
-    </header>
+    <nav class="primary-nav">
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li class="mobile-cta"><a href="#" class="call-to-action-button">Get In Touch</a></li>
+      </ul>
+    </nav>
+
+    <a href="#" class="call-to-action-button desktop-cta">Get In Touch</a>
+  </header>
 
 
-    <section class="hero-section fade-in-element">
-      <video autoplay loop muted playsinline class="hero-video-background" id="bg-vid">
-        <source src="/gifs/background.webm" type="video/webm">
-        </video>
-      <div class="hero-contents">
-        <div class="hero-title">
-          Any Questions? <br />
-          We are here for you.
-        </div>
-        <div class="hero-description-block">
-          Whether you have a question, need assistance, or want to start a new project, our team is here to help.
-        </div>
-        <div class="hero-actions">
-            <a href="#form-container" class="hero-section-button">Fill the Form Out!!</a>
-        </div>
+  <section class="hero-section fade-in-element">
+    <video autoplay loop muted playsinline class="hero-video-background" id="bg-vid">
+      <source src="/gifs/background.webm" type="video/webm">
+    </video>
+    <div class="hero-contents">
+      <div class="hero-title">
+        Any Questions? <br />
+        We are here for you.
       </div>
-    </section>
+      <div class="hero-description-block">
+        Whether you have a question, need assistance, or want to start a new project, our team is here to help.
+      </div>
+      <div class="hero-actions">
+        <a href="#form-container" class="hero-section-button">Fill the Form Out!!</a>
+      </div>
+    </div>
+  </section>
 
-    <section class="contact-form-section fade-in-element" id="form-container">
-      <div class="container">
-        <form>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="first-name">First name*</label>
-              <input type="text" id="first-name" placeholder="Jane" />
-            </div>
-            <div class="form-group">
-              <label for="last-name">Last Name*</label>
-              <input type="text" id="last-name" placeholder="Smith" />
-            </div>
-          </div>
-
+  <section class="contact-form-section fade-in-element" id="form-container">
+    <div class="container">
+      <form>
+        <div class="form-row">
           <div class="form-group">
-            <label for="email">Email*</label>
-            <input type="email" id="email" placeholder="JaneSmith@gmail.com" />
+            <label for="first-name">First name*</label>
+            <input type="text" id="first-name" placeholder="Jane" />
           </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="country">Where Are you from?*</label>
-              <input type="text" id="country" placeholder="e.g., United States" />
-            </div>
-            <div class="form-group">
-              <label for="company-type">What's the type of your company?*</label>
-              <input type="text" id="company-type" placeholder="e.g., Technology" />
-            </div>
-          </div>
-
           <div class="form-group">
-            <label for="message">Message*</label>
-            <textarea id="message" rows="5" placeholder="Type your message..."></textarea>
-            <span class="textarea-icon"></span>
+            <label for="last-name">Last Name*</label>
+            <input type="text" id="last-name" placeholder="Smith" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input type="email" id="email" placeholder="JaneSmith@gmail.com" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="country">Where Are you from?*</label>
+            <input type="text" id="country" placeholder="e.g., United States" />
+          </div>
+          <div class="form-group">
+            <label for="company-type">What's the type of your company?*</label>
+            <input type="text" id="company-type" placeholder="e.g., Technology" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message*</label>
+          <textarea id="message" rows="5" placeholder="Type your message..."></textarea>
+          <span class="textarea-icon"></span>
+        </div>
+
+        <button type="submit">Submit Now</button>
+      </form>
+
+      <div class="contact-info-section">
+        <div class="contact-card">
+          <div class="icon-text">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-mail">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>Email <span class="tag">24/7</span></span>
+          </div>
+          <p>priyuk2004@gmail.com</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon-text">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-phone">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-5.3-5.3A19.79 19.79 0 0 1 2.05 4.11a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.1.65.44 1.25.92 1.73L10.25 10a2 2 0 0 1-.72 2.15l-1.45 1.45a1.86 1.86 0 0 0-.01 2.17c.36.42.79.82 1.25 1.18a19.79 19.79 0 0 0 8.63 3.07a2 2 0 0 1 2.18-2.18h3a2 2 0 0 1 2 2z">
+              </path>
+            </svg>
+            <span>Phone</span>
+          </div>
+          <p>+91 9039946025</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon-text">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-map-pin">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Address <span class="tag">REMOTE</span></span>
+          </div>
+          <p>
+            House no 1797, near
+            Hanuman Mandir, Purana
+            Power House, Deoridih
+            Bilaspur Chhattisgarh
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq-section fade-in-element">
+    <div class="faq-container">
+      <div class="faq-tag-wrapper">
+        <div class="faq-tag">• FAQ</div>
+      </div>
+      <div class="faq-content">
+        <div class="faq-left">
+          <h2 class="faq-heading">
+            Frequently <br> <span class="heading-accent">Asked Questions</span>
+          </h2>
+          <p class="faq-subheading">Have questions? Our FAQ section has you covered with quick answers to the most
+            common inquiries.</p>
+        </div>
+        <div class="faq-right">
+          <div class="faq-item">
+            <p class="faq-question">What do I need to get started?</p>
+            <span class="faq-icon">+</span>
           </div>
 
-          <button type="submit">Submit Now</button>
-        </form>
-
-        <div class="contact-info-section">
-          <div class="contact-card">
-            <div class="icon-text">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-mail"
-              >
-                <path
-                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                ></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <span>Email <span class="tag">24/7</span></span>
-            </div>
-            <p>priyuk2004@gmail.com</p>
+          <div class="faq-item">
+            <p class="faq-question">What kind of customization is available?</p>
+            <span class="faq-icon">+</span>
           </div>
 
-          <div class="contact-card">
-            <div class="icon-text">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-phone"
-              >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-5.3-5.3A19.79 19.79 0 0 1 2.05 4.11a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.1.65.44 1.25.92 1.73L10.25 10a2 2 0 0 1-.72 2.15l-1.45 1.45a1.86 1.86 0 0 0-.01 2.17c.36.42.79.82 1.25 1.18a19.79 19.79 0 0 0 8.63 3.07a2 2 0 0 1 2.18-2.18h3a2 2 0 0 1 2 2z"
-                ></path>
-              </svg>
-              <span>Phone</span>
-            </div>
-            <p>+91 9039946025</p>
+          <div class="faq-item">
+            <p class="faq-question">How easy is it to edit for beginners?</p>
+            <span class="faq-icon">+</span>
           </div>
 
-          <div class="contact-card">
-            <div class="icon-text">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-map-pin"
-              >
-                <path
-                  d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                ></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>Address <span class="tag">REMOTE</span></span>
-            </div>
-            <p>
-              House no 1797, near
-              Hanuman Mandir, Purana
-              Power House, Deoridih
-              Bilaspur Chhattisgarh
-            </p>
+          <div class="faq-item">
+            <p class="faq-question">Let me know more about money-back guarantee?</p>
+            <span class="faq-icon">+</span>
+          </div>
+
+          <div class="faq-item">
+            <p class="faq-question">Do I need to know how to code?</p>
+            <span class="faq-icon">+</span>
+          </div>
+
+          <div class="faq-item">
+            <p class="faq-question">What will I get after purchasing the template?</p>
+            <span class="faq-icon">+</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="faq" class="faq-section fade-in-element">
-      <div class="faq-container">
-        <div class="faq-tag-wrapper">
-          <div class="faq-tag">• FAQ</div>
-        </div>
-        <div class="faq-content">
-          <div class="faq-left">
-            <h2 class="faq-heading">
-              Frequently <br> <span class="heading-accent">Asked Questions</span>
-            </h2>
-            <p class="faq-subheading">Have questions? Our FAQ section has you covered with quick answers to the most common inquiries.</p>
-          </div>
-          <div class="faq-right">
-            <div class="faq-item">
-              <p class="faq-question">What do I need to get started?</p>
-              <span class="faq-icon">+</span>
-            </div> 
-
-            <div class="faq-item">
-              <p class="faq-question">What kind of customization is available?</p>
-              <span class="faq-icon">+</span>
-            </div>
-
-            <div class="faq-item">
-              <p class="faq-question">How easy is it to edit for beginners?</p>
-              <span class="faq-icon">+</span>
-            </div>
-
-            <div class="faq-item">
-              <p class="faq-question">Let me know more about money-back guarantee?</p>
-              <span class="faq-icon">+</span>
-            </div>
-
-            <div class="faq-item">
-              <p class="faq-question">Do I need to know how to code?</p>
-              <span class="faq-icon">+</span>
-            </div>
-
-            <div class="faq-item">
-              <p class="faq-question">What will I get after purchasing the template?</p>
-              <span class="faq-icon">+</span>
-            </div> 
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
+  <footer class="footer">
     <div class="footer-container">
-        <div class="footer-grid">
-            <div class="company-section">
-                <h3 class="company-title">
-                      <img class="logotype" src="/icons/logo.svg" alt="Silvy Logo">
-                  </h3>
-                <p class="company-description">
-                    Building something incredible with cutting-edge technology and innovative solutions.
-                </p>
-            </div>
-
-            <div class="footer-section">
-                <h4 class="section-title">Quick Links</h4>
-                <ul class="footer-list">
-                    <li><a href="/index.html" class="footer-link">Home</a></li>
-                    <li><a href="/about" class="footer-link">About</a></li>
-                    <li><a href="#" class="footer-link">Contact</a></li>
-                    
-                      <li><a href="/privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-                      <li><a href="/terms-and-conditions.html" class="footer-link">Terms & Conditions</a></li>
-                      <li><a href="/cancellation-policy.html" class="footer-link">Cancellation Policy</a></li>
-                </ul>
-            </div>
-
+      <div class="footer-grid">
+        <div class="company-section">
+          <h3 class="company-title">
+            <img class="logotype" src="/icons/logo.svg" alt="Silvy Logo">
+          </h3>
+          <p class="company-description">
+            Building something incredible with cutting-edge technology and innovative solutions.
+          </p>
         </div>
 
-        <div class="footer-bottom">
-          <div class="footer-bottom-content">
-            <div class="social-links">
-              <a href="#" class="social-link">
-                  <img src="/icons/instagram-1-svgrepo-com.svg" alt="Instagram" class="social-icon">
-              </a>
-              <a href="#" class="social-link">
-                  <img src="/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" class="social-icon">
-              </a>
-              <a href="#" class="social-link">
-                  <img src="/icons/linkedin-linked-in-svgrepo-com.svg" alt="LinkedIn" class="social-icon">
-              </a>
-            </div>
-            <p class="copyright">
-                © 2025 Silvy. All rights reserved.
-            </p>
+        <div class="footer-section">
+          <h4 class="section-title">Quick Links</h4>
+          <ul class="footer-list">
+            <li><a href="/index.html" class="footer-link">Home</a></li>
+            <li><a href="/about" class="footer-link">About</a></li>
+            <li><a href="#" class="footer-link">Contact</a></li>
+
+            <li><a href="/privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+            <li><a href="/terms-and-conditions.html" class="footer-link">Terms & Conditions</a></li>
+            <li><a href="/cancellation-policy.html" class="footer-link">Cancellation Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <img src="/icons/instagram-1-svgrepo-com.svg" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://wa.me/919752580038" target="_blank" class="social-link">
+              <img src="/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" class="social-icon">
+            </a>
           </div>
+          <p class="copyright">
+            © 2025 Silvy. All rights reserved.
+          </p>
         </div>
       </div>
-    </footer>
-    <!-- this is script -->
-    <script src="/contact-page-styling/script.js">    </script>
-     <script>
-        // Use window.onload to ensure the canvas and all elements are loaded before running the script
-        window.onload = function() {
-            const canvas = document.getElementById('particleCanvas3D');
-            let scene, camera, renderer, particles;
-            
-            // Define particle colors
-            const whiteColor = new THREE.Color(0xffffff);
-            const blueColor = new THREE.Color(0x00aaff);
+    </div>
+  </footer>
+  <!-- this is script -->
+  <script src="/contact-page-styling/script.js">    </script>
+  <script>
+    // Use window.onload to ensure the canvas and all elements are loaded before running the script
+    window.onload = function () {
+      const canvas = document.getElementById('particleCanvas3D');
+      let scene, camera, renderer, particles;
 
-            /**
-             * Initializes the 3D scene, camera, and particle system.
-             */
-            function init() {
-                // Create a new scene
-                scene = new THREE.Scene();
+      // Define particle colors
+      const whiteColor = new THREE.Color(0xffffff);
+      const blueColor = new THREE.Color(0x00aaff);
 
-                // Create a perspective camera
-                camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-                camera.position.z = 50;
+      /**
+       * Initializes the 3D scene, camera, and particle system.
+       */
+      function init() {
+        // Create a new scene
+        scene = new THREE.Scene();
 
-                // Create a WebGL renderer with a transparent background
-                renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setPixelRatio(window.devicePixelRatio);
-                renderer.setClearAlpha(0);
+        // Create a perspective camera
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 50;
 
-                // Create the particles
-                const geometry = new THREE.BufferGeometry();
-                const vertices = [];
-                const colors = [];
-                const particleCount = 2000;
-                const size = 100;
+        // Create a WebGL renderer with a transparent background
+        renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setClearAlpha(0);
 
-                for (let i = 0; i < particleCount; i++) {
-                    const x = (Math.random() - 0.5) * size;
-                    const y = (Math.random() - 0.5) * size;
-                    const z = (Math.random() - 0.5) * size;
-                    vertices.push(x, y, z);
-                    
-                    // Assign a random color (white or blue) to each particle
-                    const color = Math.random() > 0.5 ? whiteColor : blueColor;
-                    colors.push(color.r, color.g, color.b);
-                }
+        // Create the particles
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [];
+        const colors = [];
+        const particleCount = 2000;
+        const size = 100;
 
-                geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-                geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        for (let i = 0; i < particleCount; i++) {
+          const x = (Math.random() - 0.5) * size;
+          const y = (Math.random() - 0.5) * size;
+          const z = (Math.random() - 0.5) * size;
+          vertices.push(x, y, z);
 
-                // Create the material for the particles, enabling vertex colors
-                const material = new THREE.PointsMaterial({
-                    size: 0.1,
-                    blending: THREE.AdditiveBlending,
-                    transparent: true,
-                    opacity: 0.8,
-                    vertexColors: true // This is the key to using per-particle colors
-                });
+          // Assign a random color (white or blue) to each particle
+          const color = Math.random() > 0.5 ? whiteColor : blueColor;
+          colors.push(color.r, color.g, color.b);
+        }
 
-                // Create the particle system and add it to the scene
-                particles = new THREE.Points(geometry, material);
-                scene.add(particles);
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
-                // Add event listener for responsiveness
-                window.addEventListener('resize', onWindowResize);
-            }
+        // Create the material for the particles, enabling vertex colors
+        const material = new THREE.PointsMaterial({
+          size: 0.1,
+          blending: THREE.AdditiveBlending,
+          transparent: true,
+          opacity: 0.8,
+          vertexColors: true // This is the key to using per-particle colors
+        });
 
-            /**
-             * The main animation loop for the scene.
-             */
-            function animate() {
-                requestAnimationFrame(animate);
+        // Create the particle system and add it to the scene
+        particles = new THREE.Points(geometry, material);
+        scene.add(particles);
 
-                // Animate particles by rotating them
-                particles.rotation.x += 0.0005;
-                particles.rotation.y += 0.001;
+        // Add event listener for responsiveness
+        window.addEventListener('resize', onWindowResize);
+      }
 
-                // Render the scene
-                renderer.render(scene, camera);
-            }
+      /**
+       * The main animation loop for the scene.
+       */
+      function animate() {
+        requestAnimationFrame(animate);
 
-            /**
-             * Handles window resizing to maintain responsiveness.
-             */
-            function onWindowResize() {
-                const newWidth = window.innerWidth;
-                const newHeight = window.innerHeight;
-                
-                camera.aspect = newWidth / newHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(newWidth, newHeight);
-            }
+        // Animate particles by rotating them
+        particles.rotation.x += 0.0005;
+        particles.rotation.y += 0.001;
 
-            // Initialize and start the animation
-            init();
-            animate();
-        };
-    </script>
-  </body>
+        // Render the scene
+        renderer.render(scene, camera);
+      }
+
+      /**
+       * Handles window resizing to maintain responsiveness.
+       */
+      function onWindowResize() {
+        const newWidth = window.innerWidth;
+        const newHeight = window.innerHeight;
+
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(newWidth, newHeight);
+      }
+
+      // Initialize and start the animation
+      init();
+      animate();
+    };
+  </script>
+</body>
+
 </html>
